@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  html,
+  body {
+    @apply m-0 p-0 box-border overflow-x-hidden;
+  }
+}
+
+
+@layer components {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply flex items-center justify-center w-12 h-12 rounded-full border-2 border-white text-white absolute top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 ease-in-out;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    @apply bg-red-700 border-red-700 text-white;
+  }
+
+  .swiper:hover .swiper-button-prev,
+  .swiper:hover .swiper-button-next {
+    @apply opacity-100;
+  }
+
+  .swiper-button-prev {
+    @apply left-4;
+  }
+
+  .swiper-button-next {
+    @apply right-4;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 12px;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+/* styles/globals.css */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  /* extra space for paragraphs */
+}
+
+.prose h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+.quill-content h1 {
+  font-size: 1.5rem;
+  /* Tailwind: text-2xl */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.quill-content h2 {
+  font-size: 1.25rem;
+  /* Tailwind: text-xl */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.quill-content p {
+  /* margin-bottom: 1rem; */
+  line-height: 1.75rem;
+  /* Tailwind: leading-relaxed */
+}
+
+.quill-content ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  /* Tailwind: pl-5 */
+  /* margin-bottom: 1rem; */
+}
+
+.quill-content ol {
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+  /* margin-bottom: 1rem; */
+}
+
+.quill-content li {
+  /* margin-bottom: 0.5rem; */
+  line-height: 1.5rem;
+}
+
+.quill-content strong {
+  font-weight: 600;
+}
+
+.quill-content span {
+  background-color: transparent !important;
+}
+.quill-content a {
+  color: #f97316; /* Tailwind orange-500 */
+  text-decoration: underline;
+}
