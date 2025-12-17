@@ -305,7 +305,7 @@ export default function AboutPage() {
               <span className="text-5xl text-orange-500 absolute -top-4 -left-4 select-none">“</span>
               FTDS Hardware was started with the purpose of making high-quality technology accessible
               <br className="hidden sm:block" />
-              and long-lasting. We think that everyone should be able to use trustworthy devices, and we strive every day to make that happen.
+              and long-lasting. We think that everyone should be able to use trustworthy devices, and we strive every day to make that happen
             </p>
           </div>
 
