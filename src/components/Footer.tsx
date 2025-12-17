@@ -42,10 +42,45 @@ export default function Footer() {
           <div>
             <h5 className="font-medium text-slate-800 mb-5">Store Information</h5>
             <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start gap-3"><FaMapMarkerAlt className="text-lg mt-1" /><span>New no.46, Old no.45,<br />1st Floor (North side), <br />Giri Road, T.Nagar, <br />Chennai – 600017</span></li>
-              <li className="flex items-center gap-3"><FaPhoneAlt /><span>+91-7277929292</span></li>
-              <li className="flex items-center gap-3"><FaEnvelope /><span>ftdigitalsolution777@gmail.com</span></li>
+              {/* Address */}
+              <li className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-lg mt-1" />
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Giri+Road+T+Nagar+Chennai+600017"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition"
+                >
+                  New no.46, Old no.45,<br />
+                  1st Floor (North side),<br />
+                  Giri Road, T.Nagar,<br />
+                  Chennai – 600017
+                </a>
+              </li>
+
+              {/* Phone */}
+              <li className="flex items-center gap-3">
+                <FaPhoneAlt />
+                <a
+                  href="tel:+917277929292"
+                  className="hover:text-blue-600 transition"
+                >
+                  +91-7277929292
+                </a>
+              </li>
+
+              {/* Email */}
+              <li className="flex items-center gap-3">
+                <FaEnvelope />
+                <a
+                  href="mailto:ftdigitalsolution777@gmail.com"
+                  className="hover:text-blue-600 transition"
+                >
+                  ftdigitalsolution777@gmail.com
+                </a>
+              </li>
             </ul>
+
           </div>
 
           {/* Newsletter */}
@@ -125,16 +160,16 @@ export default function Footer() {
 
       </div>
       <Link
-      href="tel:+917277929292"
-      className="fixed bottom-32 md:bottom-24 left-4 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-xl border-2 border-blue-400 transition-transform duration-300  hover:scale-110 hover:shadow-2xl"
-      aria-label="Call Us"
-    >
-      {/* Pulsing Ring */}
-      {/* <span className="absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-500 opacity-75 animate-ping"></span> */}
+        href="tel:+917277929292"
+        className="fixed bottom-32 md:bottom-24 left-4 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-xl border-2 border-blue-400 transition-transform duration-300  hover:scale-110 hover:shadow-2xl"
+        aria-label="Call Us"
+      >
+        {/* Pulsing Ring */}
+        {/* <span className="absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-500 opacity-75 animate-ping"></span> */}
 
-      {/* Call Icon */}
-      <Phone size={22} className="sm:size-[26px] relative z-10" />
-    </Link>
+        {/* Call Icon */}
+        <Phone size={22} className="sm:size-[26px] relative z-10" />
+      </Link>
 
 
       {/* Footer Bottom */}

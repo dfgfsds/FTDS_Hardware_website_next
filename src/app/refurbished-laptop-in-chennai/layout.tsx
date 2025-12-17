@@ -5,25 +5,25 @@ export async function generateMetadata() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://ftds.in/#website",
-        url: "https://ftds.in/",
+        "@id": "https://www.ftds.in/#website",
+        url: "https://www.ftds.in/",
         name: "FTDS Hardware",
         inLanguage: "en-IN",
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://ftds.in/?s={search_term_string}",
+          target: "https://www.ftds.in/?s={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       },
 
       {
         "@type": ["Organization", "ElectronicsStore"],
-        "@id": "https://ftds.in/#organization",
+        "@id": "https://www.ftds.in/#organization",
         name: "FTDS Hardware",
-        url: "https://ftds.in/",
+        url: "https://www.ftds.in/",
         logo: {
           "@type": "ImageObject",
-          url: "https://ftds.in/logo.png",
+          url: "https://www.ftds.in/logo.png",
         },
         telephone: "+91-7277929292",
 
@@ -54,12 +54,12 @@ export async function generateMetadata() {
       {
         "@type": ["CollectionPage", "WebPage"],
         "@id":
-          "https://ftds.in/categories/refurbished-laptops#webpage",
-        url: "https://ftds.in/categories/refurbished-laptops",
+          "https://www.ftds.in/categories/refurbished-laptops#webpage",
+        url: "https://www.ftds.in/categories/refurbished-laptops",
         name:
           "Buy Refurbished Laptops | Certified Laptops for Sale – FTDS Hardware",
 
-        isPartOf: { "@id": "https://ftds.in/#website" },
+        isPartOf: { "@id": "https://www.ftds.in/#website" },
 
         description:
           "Shop certified refurbished laptops from FTDS Hardware. Tested, warranty-backed laptops available in Chennai with options from Lenovo, Acer, ASUS, Dell, and HP.",
@@ -77,37 +77,37 @@ export async function generateMetadata() {
 
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://ftds.in/assets/refurbished-laptops.jpg",
+          url: "https://www.ftds.in/assets/refurbished-laptops.jpg",
         },
 
         breadcrumb: {
           "@id":
-            "https://ftds.in/categories/refurbished-laptops#breadcrumb",
+            "https://www.ftds.in/categories/refurbished-laptops#breadcrumb",
         },
       },
 
       {
         "@type": "BreadcrumbList",
         "@id":
-          "https://ftds.in/categories/refurbished-laptops#breadcrumb",
+          "https://www.ftds.in/categories/refurbished-laptops#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://ftds.in/",
+            item: "https://www.ftds.in/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Categories",
-            item: "https://ftds.in/categories",
+            item: "https://www.ftds.in/categories",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "Refurbished Laptops",
-            item: "https://ftds.in/categories/refurbished-laptops",
+            item: "https://www.ftds.in/categories/refurbished-laptops",
           },
         ],
       },
@@ -115,7 +115,7 @@ export async function generateMetadata() {
       {
         "@type": "FAQPage",
         "@id":
-          "https://ftds.in/categories/refurbished-laptops#faq",
+          "https://www.ftds.in/categories/refurbished-laptops#faq",
         mainEntity: [
           {
             "@type": "Question",
@@ -159,13 +159,13 @@ export async function generateMetadata() {
     description:
       "Shop certified refurbished laptops from FTDS Hardware. Warranty-backed laptops available across top brands in Chennai.",
     alternates: {
-      canonical: "https://ftds.in/categories/refurbished-laptops",
+      canonical: "https://www.ftds.in/categories/refurbished-laptops",
     },
     openGraph: {
       title: "Buy Refurbished Laptops in Chennai | FTDS Hardware",
       description:
         "Best refurbished laptops in Chennai with warranty and quality testing.",
-      url: "https://ftds.in/categories/refurbished-laptops",
+      url: "https://www.ftds.in/categories/refurbished-laptops",
       siteName: "FTDS Hardware",
       type: "website",
     },

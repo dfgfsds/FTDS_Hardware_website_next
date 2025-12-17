@@ -19,36 +19,36 @@ export async function generateMetadata() {
     "@graph": [
       {
         "@type": "AboutPage",
-        "@id": "https://ftds.in/about#webpage",
-        url: "https://ftds.in/about",
+        "@id": "https://www.ftds.in/about#webpage",
+        url: "https://www.ftds.in/about",
         name: "About FTDS Hardware",
         description:
           "FTDS Hardware — South India’s trusted provider of certified refurbished laptops, desktops, and IT accessories.",
-        isPartOf: { "@id": "https://ftds.in/#website" },
+        isPartOf: { "@id": "https://www.ftds.in/#website" },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://ftds.in/logo.png",
+          url: "https://www.ftds.in/logo.png",
         },
-        breadcrumb: { "@id": "https://ftds.in/about#breadcrumb" },
+        breadcrumb: { "@id": "https://www.ftds.in/about#breadcrumb" },
       },
 
       {
         "@type": "WebSite",
-        "@id": "https://ftds.in/#website",
-        url: "https://ftds.in/",
+        "@id": "https://www.ftds.in/#website",
+        url: "https://www.ftds.in/",
         name: "FTDS Hardware",
-        publisher: { "@id": "https://ftds.in/#organization" },
+        publisher: { "@id": "https://www.ftds.in/#organization" },
         inLanguage: "en-IN",
       },
 
       {
         "@type": ["Organization", "ElectronicsStore"],
-        "@id": "https://ftds.in/#organization",
+        "@id": "https://www.ftds.in/#organization",
         name: "FTDS Hardware",
-        url: "https://ftds.in/",
+        url: "https://www.ftds.in/",
         logo: {
           "@type": "ImageObject",
-          url: "https://ftds.in/logo.png",
+          url: "https://www.ftds.in/logo.png",
         },
         description:
           "Certified refurbished laptops and desktops from Dell, HP, Lenovo, Acer, ASUS — warranty-backed and delivered across South India.",
@@ -82,19 +82,19 @@ export async function generateMetadata() {
 
       {
         "@type": "BreadcrumbList",
-        "@id": "https://ftds.in/about#breadcrumb",
+        "@id": "https://www.ftds.in/about#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://ftds.in/",
+            item: "https://www.ftds.in/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "About Us",
-            item: "https://ftds.in/about",
+            item: "https://www.ftds.in/about",
           },
         ],
       },
@@ -106,13 +106,13 @@ export async function generateMetadata() {
     description:
       "FTDS Hardware specializes in certified refurbished laptops and desktops. Discover our mission, quality process, and commitment to reliable, affordable computing.",
     alternates: {
-      canonical: "https://ftds.in/about",
+      canonical: "https://www.ftds.in/about",
     },
     openGraph: {
       title: "About FTDS Hardware",
       description:
         "South India's trusted refurbished laptops & desktops provider.",
-      url: "https://ftds.in/about",
+      url: "https://www.ftds.in/about",
       siteName: "FTDS Hardware",
       type: "website",
     },
