@@ -60,7 +60,7 @@ export default function ShopPage() {
           <img
             src="https://pclmu.com/wp-content/uploads/2021/03/inner-banner.jpg"
             alt="Shop Banner"
-            className="w-full h-[250px] object-cover rounded-2xl mb-10"
+            className="w-full h-[250px] object-cover hidden lg:block rounded-2xl mb-10"
           />
 
           <div className="flex justify-between mb-4">
