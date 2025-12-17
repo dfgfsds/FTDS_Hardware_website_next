@@ -13,8 +13,8 @@ export async function generateMetadata() {
     "@context": "https://schema.org",
     "@type": "ElectronicsStore",
     "name": "FTDS Hardware",
-    "image": "https://ftds.in/_next/image?url=%2FFT-DS-hardware-logo.webp&w=256&q=75",
-    "url": "https://ftds.in/",
+    "image": "https://www.ftds.in/_next/image?url=%2FFT-DS-hardware-logo.webp&w=256&q=75",
+    "url": "https://www.ftds.in/",
     "telephone": "+91-7277929292",
     "address": {
       "@type": "PostalAddress",
@@ -45,13 +45,13 @@ export async function generateMetadata() {
     description:
       "Buy certified refurbished laptops & desktops with warranty across South India.",
     alternates: {
-      canonical: "https://ftds.in",
+      canonical: "https://www.ftds.in",
     },
     openGraph: {
       title: "FTDS Hardware – Refurbished Laptops",
       description:
         "Certified refurbished laptops & desktops with warranty across South India.",
-      url: "https://ftds.in",
+      url: "https://www.ftds.in",
       siteName: "FTDS Hardware",
       type: "website",
     },

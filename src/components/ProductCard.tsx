@@ -64,7 +64,7 @@ export default function ProductCard({
   }
 
   return (
-    <div className="py-8 px-4 md:px-8 w-full">
+    <div className="py-8  md:px-8 w-full">
       <div className={`grid ${gridCols} gap-6`}>
         {products?.map((product: any, i: any) => (
           <div

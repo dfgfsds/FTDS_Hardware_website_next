@@ -29,7 +29,7 @@ export default function TrandingProduct() {
 
   return (
     <div className="mx-auto p-4 md:pb-0 md:px-10">
-      <div className="bg-slate-100 px-5 rounded-2xl">
+      <div className="bg-slate-100 px-2 md:px-4 rounded-2xl">
         <h2 className="py-6 text-2xl font-semibold text-center md:text-left">
           Featured Products
         </h2>
