@@ -5,10 +5,10 @@ import Link from "next/link";
 import { FaHandsHelping, FaSeedling } from 'react-icons/fa';
 import { GiCircuitry, GiLightBulb } from 'react-icons/gi';
 import TrendingTabs from "../../components/tabsSection";
-import aboutImg from "../../../public/assets/about/banner.png";
-import aboutsub1 from "../../../public/assets/about/3.jpg";
-import aboutsub from "../../../public/assets/about/1.jpg";
-import aboutlogo from "../../../public/assets/about/2.jpg";
+import aboutImg from "../../../public/assets/about/banner.webp";
+import aboutsub1 from "../../../public/assets/about/3.webp";
+import aboutsub from "../../../public/assets/about/1.webp";
+import aboutlogo from "../../../public/assets/about/2.webp";
 
 
 // app/about/page.tsx
@@ -27,7 +27,7 @@ export async function generateMetadata() {
         isPartOf: { "@id": "https://www.ftds.in/#website" },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: "https://www.ftds.in/logo.png",
+          url: "https://www.ftds.in/assets/about/banner.webp",
         },
         breadcrumb: { "@id": "https://www.ftds.in/about#breadcrumb" },
       },
@@ -48,7 +48,7 @@ export async function generateMetadata() {
         url: "https://www.ftds.in/",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.ftds.in/logo.png",
+          url: "https://www.ftds.in/assets/about/banner.webp",
         },
         description:
           "Certified refurbished laptops and desktops from Dell, HP, Lenovo, Acer, ASUS — warranty-backed and delivered across South India.",

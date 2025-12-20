@@ -87,7 +87,7 @@ export default function Footer() {
           <div>
             <h5 className="font-medium text-slate-800 mb-5">Stay Updated with FTDS Hardware</h5>
             <p className="text-gray-700 mb-4">
-              Subscribe to our mailing list and get the latest updates on republished laptops, exclusive offers, and special deals from FTDS Hardware Shop.
+              Subscribe to our mailing list and get the latest updates on Refurbished laptops, exclusive offers, and special deals from FTDS Hardware Shop.
             </p>
 
             <form className="relative">
@@ -161,7 +161,7 @@ export default function Footer() {
       </div>
       <Link
         href="tel:+917277929292"
-        className="fixed bottom-32 md:bottom-24 left-4 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-xl border-2 border-blue-400 transition-transform duration-300  hover:scale-110 hover:shadow-2xl"
+        className="fixed bottom-32 md:bottom-24 right-4 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-xl border-2 border-blue-400 transition-transform duration-300  hover:scale-110 hover:shadow-2xl"
         aria-label="Call Us"
       >
         {/* Pulsing Ring */}

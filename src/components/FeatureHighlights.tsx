@@ -15,7 +15,7 @@ export default function FeatureHighlights() {
     },
     {
       icon: <FaUndo className="w-10 h-10 text-orange-400" />,
-      title: "Republished Laptops",
+      title: "Refurbished Laptops",
       desc: "Quality-checked laptops at affordable prices.",
     },
     {
@@ -56,7 +56,7 @@ export default function FeatureHighlights() {
         </div>
         <div className="text-center mt-6">
           <h3 className="text-lg font-semibold text-black">
-            FTDS Hardware – Best Deals on Republished Laptops
+            FTDS Hardware – Best Deals on Refurbished Laptops
           </h3>
         </div>
       </div>
