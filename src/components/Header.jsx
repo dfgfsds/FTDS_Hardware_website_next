@@ -119,7 +119,7 @@ export default function Navbar() {
       : "hover:text-orange-500 transition";
 
   return (
-    <header className="border-b border-gray-200 bg-white z-50 relative">
+    <header className="sticky top-0 z-999 bg-white border-b border-gray-200 shadow-sm">
       {/* Top Bar */}
       <div className="flex items-center justify-between border border-orange-400 rounded-2xl mx-4 mt-4 md:mx-10 px-4 md:px-10 py-4 md:py-2">
         {/* Logo */}
@@ -166,7 +166,8 @@ export default function Navbar() {
         {/* Desktop Contact Info */}
         <div className="hidden md:flex items-center space-x-2 text-sm text-gray-500">
           <span>24-hour response</span>
-          <span className="font-semibold text-gray-700">| +91-7277929292</span>
+   <span className="font-semibold text-gray-700">| <a href="tel:+917277929292"> +91-7277929292</a></span>
+              
         </div>
       </div>
 
