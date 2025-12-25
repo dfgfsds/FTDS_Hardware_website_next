@@ -1,6 +1,6 @@
 'use client';
 
-import { patchUserSelectAddressAPi } from '@/api-endpoints/authendication';
+import { getVendorDeliveryDetailsApi, patchUserSelectAddressAPi } from '@/api-endpoints/authendication';
 import { getAddressApi, getAppliedCouponDataApi, postApplyCouponApi } from '@/api-endpoints/CartsApi';
 import { InvalidateQueryFilters, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
@@ -62,7 +62,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
 
     const handleSelectAddress = async (id: any) => {
         try {
-            const upadetApi = await patchUserSelectAddressAPi(`user/${userId}/address/${id?.id}`, { updated_by: getUserName })
+            const upadetApi = await patchUserSelectAddressAPi(`user/${userId}/address/${id?.id}`, { updated_by: getUserName ? getUserName : 'user' })
             if (upadetApi) {
                 queryClient.invalidateQueries(['getAddressData'] as InvalidateQueryFilters);
             }
@@ -95,7 +95,14 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
         queryFn: () => getAppliedCouponDataApi(`?user_id=${userId}`),
         enabled: !!userId
     })
-    const RAZOR_PAY_KEY = 'rzp_live_a75FMOGSs8bCvB';
+    const getVendorDeliveryDetailsData: any = useQuery({
+        queryKey: ['getVendorDeliveryDetailsData', vendorId],
+        queryFn: () => getVendorDeliveryDetailsApi(`${vendorId}`),
+        enabled: !!vendorId
+    })
+
+    // const RAZOR_PAY_KEY = 'rzp_live_a75FMOGSs8bCvB';
+    const RazorPayKey = getVendorDeliveryDetailsData?.data?.data?.vendor_site_details?.payment_gateway_client_id;
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -148,7 +155,8 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
                 const { payment_order_id, final_price } = response.data;
 
                 const options = {
-                    key: RAZOR_PAY_KEY,
+                    // key: RAZOR_PAY_KEY,
+                    key: RazorPayKey,
                     amount: final_price * 100,
                     currency: "INR",
                     name: "FTDS Hardwares",
