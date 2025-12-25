@@ -119,7 +119,7 @@ export default function Navbar() {
       : "hover:text-orange-500 transition";
 
   return (
-    <header className="sticky top-0 z-999 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-[60] bg-white border-b border-gray-200 shadow-sm">
       {/* Top Bar */}
       <div className="flex items-center justify-between border border-orange-400 rounded-2xl mx-4 mt-4 md:mx-10 px-4 md:px-10 py-4 md:py-2">
         {/* Logo */}

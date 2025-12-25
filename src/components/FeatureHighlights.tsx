@@ -10,18 +10,18 @@ export default function FeatureHighlights() {
   const features = [
     {
       icon: <FaShippingFast className="w-10 h-10 text-orange-400" />,
-      title: "Shipping Across South India",
-      desc: "Fast delivery available on every order.",
+      title: "Certified Quality & 12-Month Warranty",
+      desc: "Carefully Tested & Certified and backed by a 12-month service warranty",
     },
     {
       icon: <FaUndo className="w-10 h-10 text-orange-400" />,
-      title: "Refurbished Laptops",
-      desc: "Quality-checked laptops at affordable prices.",
+      title: "Fast & Reliable Shipping",
+      desc: "Shipping Across South India",
     },
     {
       icon: <FaLock className="w-10 h-10 text-orange-400" />,
-      title: "Trusted by FTDS Hardware",
-      desc: "Secure shopping with genuine products.",
+      title: "Expert Technical Support",
+      desc: "Reliable after-sales support and service assistance",
     },
     {
       icon: <FaHeadset className="w-10 h-10 text-orange-400" />,
@@ -30,7 +30,10 @@ export default function FeatureHighlights() {
         <>
           Call our FTDS Hardware team{" "}
           <span className="text-orange-500 font-semibold">
-            +91-7277929292
+            <a
+              href="tel:+917277929292"
+              className="hover:text-blue-600 transition"
+            > +91-7277929292</a>
           </span>
         </>
       ),
@@ -44,9 +47,8 @@ export default function FeatureHighlights() {
           {features.map((item, i) => (
             <div
               key={i}
-              className={`flex flex-col items-center text-center py-6 px-4 ${
-                i !== features.length - 1 ? "border-b sm:border-b-0 lg:border-r" : ""
-              } border-gray-300`}
+              className={`flex flex-col items-center text-center py-6 px-4 ${i !== features.length - 1 ? "border-b sm:border-b-0 lg:border-r" : ""
+                } border-gray-300`}
             >
               {item.icon}
               <h4 className="text-base font-bold text-black mt-4">{item.title}</h4>
