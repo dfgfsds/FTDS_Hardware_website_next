@@ -4,38 +4,38 @@ import { HiPlusSm, HiMinusSm } from 'react-icons/hi';
 
 const faqData = [
   {
-    question: 'Are your refurbished products reliable?',
+    question: 'What are refurbished laptops and desktops?',
     answer:
-      "Absolutely. Each device sold by FTDS Hardware passes through a comprehensive 25-point quality check, including hardware, battery, and software performance. Only units that meet our quality standards are certified for sale.",
+      "Refurbished laptops and desktops are pre-owned systems that are professionally tested, repaired if required, and certified to ensure reliable performance and usability.",
   },
   {
-    question: 'Do your products come with a warranty?',
+    question: 'Which brands of refurbished laptops do you sell?',
     answer:
-      "Yes. All refurbished laptops and desktops from FTDS Hardware include a 12-month service warranty covering hardware and performance issues under normal use. We provide reliable after-sales support to keep your system running smoothly.",
+      "We offer refurbished laptops and desktops from trusted brands including Dell, HP, Lenovo, Acer, and ASUS, along with other premium manufacturers.",
   },
   {
-    question: 'What if I need support after purchase?',
+    question: 'Do refurbished laptops come with a warranty?',
     answer:
-      "FTDS Hardware provides after-sales support for issues covered under warranty. You can contact our support team via phone, email, or visit our Chennai store for assistance.",
+      "Yes. All refurbished laptops and desktops are backed by a 12-month service warranty, providing confidence and peace of mind after purchase.",
   },
   {
-    question: 'Do you sell only in Chennai?',
+    question: 'Are refurbished laptops from FTDS Hardware reliable?',
     answer:
-      "No — FTDS Hardware proudly serves customers across Tamil Nadu, Kerala, Karnataka, and Andhra Pradesh. We provide fast, reliable delivery to all major cities including Chennai, Coimbatore, Madurai, Kochi, Bengaluru, Mysuru, Hyderabad, and Vijayawada.",
+      "Yes. Every refurbished laptop and desktop sold by FTDS Hardware undergoes a rigorous multi-point inspection and testing process to ensure consistent performance.",
   },
     {
-    question: 'How long does delivery take?',
+    question: 'Who can use refurbished laptops?',
     answer:
-      "We dispatch orders daily from Chennai, delivering within 1–3 days in Tamil Nadu and 3–5 days in nearby states. Delivery time may vary based on stock and courier availability.",
+      "Refurbished laptops are suitable for students, professionals, startups, businesses, and institutions, depending on configuration and usage requirements.",
   },
   {
-    question: 'Can I visit your store in person?',
+    question: 'Do you ship refurbished laptops outside Chennai',
     answer:
-      "Yes, customers in Chennai can visit our physical location to explore products directly, test systems, and get personalized assistance. Contact our team for directions and working hours.",
+      "Yes. FTDS Hardware provides shipping across South India and all over India, ensuring safe and reliable delivery.",
   },
 ];
 
-export default function FaqSection() {
+export default function  FaqSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {

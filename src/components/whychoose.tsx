@@ -1,22 +1,54 @@
-export default function WhyChoose() {
-return(
-            <section className="py-12 px-6 md:px-12 lg:px-20">
-  <div className="max-w-7xl mx-auto text-center">
-  
-    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-      Why Choose <span className="text-orange-500">FTDS Hardware</span> for Your IT Needs?
-    </h2>
-    <p className="text-gray-600 max-w-6xl mx-auto mb-4">
-     At FTDS Hardware, we’re your trusted destination for refurbished laptops and desktops in Chennai and across Tamil Nadu. We offer certified refurbished systems from leading brands like Dell, HP, Lenovo, Acer, and ASUS all fully tested, warranty-backed and performance-ready.
-     
-    
-    </p>
-    <p className="text-gray-600 max-w-6xl mx-auto mb-10">
-      With years of experience and a strong local presence, we deliver reliable, affordable and eco-friendly IT solutions for individuals, offices and educational institutions. Whether you need a single laptop or bulk systems for your business, FTDS ensures genuine products, expert support, and fast delivery throughout Tamil Nadu.
-    </p>
+"use client";
+import Image from "next/image";
+import { GraduationCap, Briefcase, Building2, Zap } from "lucide-react";
+import HomeSeoSection from "./homeSeoSection";
 
-  </div>
-</section>
-)
+
+
+export default function WhyChoose() {
+  return (
+    <>
+  
+
+    <section className="py-12 px-4 md:px-12 lg:px-20">
+      <div className="max-w-7xl mx-auto text-center">
+
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          What <span className="text-orange-500">We Do</span>
+        </h2>
+            {/* Content Card */}
+    <div className="relative bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl shadow-xl p-6 md:p-10 mt-4 lg:p-12">
+
+      <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
+        FTDS Hardware is a trusted provider of <b>certified refurbished laptops and refurbished desktops in Chennai</b>,
+        offering high-performance computing solutions at affordable prices. We specialize in delivering thoroughly tested
+        and professionally refurbished laptops and computers that meet strict quality standards.
+      </p>
+
+      <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
+        Each device goes through a rigorous multi-point inspection and testing process to ensure reliable, like-new
+        performance. Our focus on genuine products, transparent specifications, and dependable service has made FTDS
+        Hardware a preferred choice for individuals and businesses across Tamil Nadu.
+      </p>
+
+      <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+        From <b>budget-friendly refurbished laptops in Chennai</b> to premium branded systems, we offer a wide selection
+        from leading manufacturers such as <b>Dell, HP, Lenovo, Acer, and ASUS.</b> Our inventory supports diverse
+        requirements — including some of the <b>best refurbished desktops in Chennai</b> for office and commercial use.
+      </p>
+
+      {/* Decorative blur */}
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-200 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gray-200 rounded-full blur-3xl opacity-40"></div>
+    </div>
+      </div>
+
+    
+<HomeSeoSection/>  
+    </section>
+
+
+    </>
+  )
 
 }

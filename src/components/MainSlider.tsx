@@ -70,15 +70,15 @@ export default function HeroSection() {
           }}
       >
         {/* Black Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-75 md:bg-opacity-65 rounded-2xl"></div>
 
         {/* Text Content */}
         <div className="max-w-md text-white z-10 relative">
           <h1 className="text-2xl md:text-4xl font-bold leading-snug drop-shadow-md">
-           Premium Refurbished Laptops & Desktops – Tested, Certified & Affordable
+          Certified Refurbished Laptops & Desktops in Chennai
           </h1>
           <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
-          Buy quality refurbished laptops and desktops from top brands — tested, guaranteed, and warranty-backed.
+          Trusted by customers looking for the best refurbished laptops in Chennai and best refurbished desktops in Chennai, backed by quality checks and warranty.
           </p>
           <Link href={banners[currentSlide]?.link || '/shop'}>
             <button className="mt-5 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-orange-500 hover:bg-gray-100 transition">

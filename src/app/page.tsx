@@ -8,63 +8,116 @@ import FaqSection from "@/components/FaqSection";
 import FeatureHighlights from "@/components/FeatureHighlights";
 import RecentBlogs from "@/components/lastestBolg";
 
+
+
 export async function generateMetadata() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ElectronicsStore",
+    "@type": "LocalBusiness",
+    "@id": "https://www.ftds.in/#localbusiness",
     "name": "FTDS Hardware",
-    "image": "https://www.ftds.in/_next/image?url=%2FFT-DS-hardware-logo.webp&w=256&q=75",
     "url": "https://www.ftds.in/",
+    "logo": "https://www.ftds.in/logo.png",
+    "image": "https://www.ftds.in/assets/banner.jpg",
+    "description":
+      "FTDS Hardware is a trusted provider of certified refurbished laptops and desktops in Chennai, offering high-quality systems backed by warranty.",
     "telephone": "+91-7277929292",
+
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "New no.46, Old no.45, 1st Floor (North side), Giri Road, T.Nagar",
+      "streetAddress":
+        "New no.46, Old no.45, 1st Floor (North side), Giri Road, T.Nagar",
       "addressLocality": "Chennai",
       "addressRegion": "Tamil Nadu",
       "postalCode": "600017",
       "addressCountry": "IN"
     },
+
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      }
+    ],
+
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.5",
       "bestRating": "5",
       "ratingCount": "120"
     },
-    "description":
-      "FTDS Hardware is South India's trusted destination for certified refurbished laptops, desktops, and IT accessories. We provide top-brand systems from Dell, HP, Lenovo, Acer, and ASUS—fully tested, warranty-backed, and delivered across Tamil Nadu, Kerala, Karnataka, and Andhra Pradesh. Buy reliable refurbished computers at the best prices online from FTDS Hardware in Chennai.",
-    "openingHours": "Monday-Sunday 09:00-10:00",
+
+    "areaServed": [
+      { "@type": "City", "name": "Chennai" },
+      { "@type": "State", "name": "Tamil Nadu" },
+      { "@type": "Country", "name": "India" }
+    ],
+
     "sameAs": [
       "https://www.facebook.com/ftdshardware",
-      "https://www.youtube.com/@ftdshardware",
-      "https://www.instagram.com/ftds_hardware/?hl=en"
+      "https://www.instagram.com/ftds_hardware/?hl=en",
+      "https://www.youtube.com/@ftdshardware"
     ]
   };
 
   return {
-    title: "FTDS Hardware – Certified Refurbished Laptops & Desktops",
+    title: "Refurbished Laptops & Desktops in Chennai - FTDS Hardware",
     description:
-      "Buy certified refurbished laptops & desktops with warranty across South India.",
-    alternates: {
-      canonical: "https://www.ftds.in",
-    },
-    openGraph: {
-      title: "FTDS Hardware – Refurbished Laptops",
-      description:
-        "Certified refurbished laptops & desktops with warranty across South India.",
-      url: "https://www.ftds.in",
-      siteName: "FTDS Hardware",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
+      "Buy certified refurbished laptops & desktops in Chennai from FTDS Hardware. Dell, HP, Lenovo systems with warranty-backed quality & support.",
+
+    robots: {
+      index: true,
+      follow: true,
     },
 
-    // JSON-LD WILL BE RENDERED IN <head>
+    alternates: {
+      canonical: "https://www.ftds.in/",
+    },
+
+    openGraph: {
+      type: "website",
+      title: "Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
+      description:
+        "Buy certified refurbished laptops and desktops in Chennai with warranty. Trusted brands, affordable pricing, and fast delivery across South India.",
+      url: "https://www.ftds.in/",
+      siteName: "FTDS Hardware",
+      images: [
+        {
+          url: "https://www.ftds.in/assets/banner.jpg",
+          width: 1200,
+          height: 630,
+          alt: "FTDS Hardware Refurbished Laptops",
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: "Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
+      description:
+        "Certified refurbished laptops & desktops in Chennai with warranty.",
+      images: [
+        "https://www.ftds.in/assets/banner.jpg",
+      ],
+    },
+
+    // JSON-LD schema
     other: {
       "application/ld+json": JSON.stringify(schema),
     },
   };
 }
+
 
 export default function Home() {
   return (
@@ -73,7 +126,7 @@ export default function Home() {
       <SubBanners />
       <TrandingProduct />
       <WhyChoose />
-      <ReasonsSection />
+      {/* <ReasonsSection /> */}
       <FaqSection />
       <FeatureHighlights />
       <RecentBlogs />
