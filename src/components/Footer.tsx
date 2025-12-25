@@ -4,8 +4,8 @@ import { Phone } from "lucide-react";
 import Visa from '../../public/assets/visa.svg'
 import Paypal from '../../public/assets/paypal.svg'
 import MasterCard from '../../public/assets/mastercard.svg'
-
-import { FaFacebookF, FaYoutube, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaYoutube, FaInstagram , FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
 
@@ -109,6 +109,15 @@ export default function Footer() {
               <a href="https://www.youtube.com/@ftdshardware" target="_blank" className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"><FaYoutube /></a>
 
               <a href="https://www.instagram.com/p/DK6HiCwBZSm/?utm_source=ig_web_copy_link" target="_blank" className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"><FaInstagram /></a>
+              <a
+                href="https://x.com/ftdshardware"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"
+              >
+                <FaXTwitter   />
+              </a>
+
             </div>
           </div>
         </div>
