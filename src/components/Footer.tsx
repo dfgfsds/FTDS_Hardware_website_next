@@ -49,7 +49,7 @@ export default function Footer() {
                   href="https://www.google.com/maps/search/?api=1&query=Giri+Road+T+Nagar+Chennai+600017"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-600 transition"
+                  className="hover:text-blue-600  font-bold transition"
                 >
                   New no.46, Old no.45,<br />
                   1st Floor (North side),<br />
@@ -63,7 +63,7 @@ export default function Footer() {
                 <FaPhoneAlt />
                 <a
                   href="tel:+917277929292"
-                  className="hover:text-blue-600 transition"
+                  className=" hover:text-blue-600 font-bold transition"
                 >
                   +91-7277929292
                 </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <FaEnvelope />
                 <a
                   href="mailto:ftdigitalsolution777@gmail.com"
-                  className="hover:text-blue-600 transition"
+                  className="hover:text-blue-600 font-bold transition"
                 >
                   ftdigitalsolution777@gmail.com
                 </a>
