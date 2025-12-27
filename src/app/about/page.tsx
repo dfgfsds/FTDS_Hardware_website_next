@@ -14,92 +14,45 @@ import aboutlogo from "../../../public/assets/about/2.webp";
 // app/about/page.tsx
 
 export async function generateMetadata() {
-  // const aboutSchema = {
-  //   "@context": "https://schema.org",
-  //   "@graph": [
-  //     {
-  //       "@type": "AboutPage",
-  //       "@id": "https://www.ftds.in/about#webpage",
-  //       url: "https://www.ftds.in/about",
-  //       name: "About FTDS Hardware",
-  //       description:
-  //         "FTDS Hardware — South India’s trusted provider of certified refurbished laptops, desktops, and IT accessories.",
-  //       isPartOf: { "@id": "https://www.ftds.in/#website" },
-  //       primaryImageOfPage: {
-  //         "@type": "ImageObject",
-  //         url: "https://www.ftds.in/assets/about/banner.webp",
-  //       },
-  //       breadcrumb: { "@id": "https://www.ftds.in/about#breadcrumb" },
-  //     },
+   const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.ftds.in/about#aboutpage",
+        url: "https://www.ftds.in/about",
+        name: "About Us – FTDS",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": "https://www.ftds.in/#website",
+        },
+        about: {
+          "@type": "Organization",
+          "@id": "https://www.ftds.in/#organization",
+          name: "FTDS",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ftds.in/about#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.ftds.in/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "About Us",
+            item: "https://www.ftds.in/about",
+          },
+        ],
+      },
+    ],
+  };
 
-  //     {
-  //       "@type": "WebSite",
-  //       "@id": "https://www.ftds.in/#website",
-  //       url: "https://www.ftds.in/",
-  //       name: "FTDS Hardware",
-  //       publisher: { "@id": "https://www.ftds.in/#organization" },
-  //       inLanguage: "en-IN",
-  //     },
-
-  //     {
-  //       "@type": ["Organization", "ElectronicsStore"],
-  //       "@id": "https://www.ftds.in/#organization",
-  //       name: "FTDS Hardware",
-  //       url: "https://www.ftds.in/",
-  //       logo: {
-  //         "@type": "ImageObject",
-  //         url: "https://www.ftds.in/assets/about/banner.webp",
-  //       },
-  //       description:
-  //         "Certified refurbished laptops and desktops from Dell, HP, Lenovo, Acer, ASUS — warranty-backed and delivered across South India.",
-  //       telephone: "+91-7277929292",
-
-  //       contactPoint: {
-  //         "@type": "ContactPoint",
-  //         telephone: "+91-7277929292",
-  //         contactType: "customer service",
-  //         areaServed: ["IN-TN", "IN-KL", "IN-KA", "IN-AP"],
-  //         availableLanguage: ["en", "ta"],
-  //       },
-
-  //       address: {
-  //         "@type": "PostalAddress",
-  //         streetAddress:
-  //           "New no.46, Old no.45, 1st Floor (North side), Giri Road, T.Nagar",
-  //         addressLocality: "Chennai",
-  //         addressRegion: "Tamil Nadu",
-  //         postalCode: "600017",
-  //         addressCountry: "IN",
-  //       },
-
-  //       areaServed: [
-  //         "Tamil Nadu",
-  //         "Kerala",
-  //         "Karnataka",
-  //         "Andhra Pradesh",
-  //       ],
-  //     },
-
-  //     {
-  //       "@type": "BreadcrumbList",
-  //       "@id": "https://www.ftds.in/about#breadcrumb",
-  //       itemListElement: [
-  //         {
-  //           "@type": "ListItem",
-  //           position: 1,
-  //           name: "Home",
-  //           item: "https://www.ftds.in/",
-  //         },
-  //         {
-  //           "@type": "ListItem",
-  //           position: 2,
-  //           name: "About Us",
-  //           item: "https://www.ftds.in/about",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // };
 
   return {
     title: " About FTDS Hardware | Best Hardware  Experts in Chennai  ",
@@ -125,9 +78,9 @@ export async function generateMetadata() {
     twitter: { card: "summary_large_image" },
 
     // ⭐ SSR Script inside <head>
-    // other: {
-    //   "application/ld+json": JSON.stringify(aboutSchema),
-    // },
+    other: {
+      "application/ld+json": JSON.stringify(aboutSchema),
+    },
   };
 }
 
