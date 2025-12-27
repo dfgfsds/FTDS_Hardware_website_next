@@ -1,124 +1,41 @@
-"use client";
 
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import axios from "axios";
-import { formatDate, slugConvert } from "../../../lib/utils";
-import Link from "next/link";
 
-interface Blog {
-  id: number;
-  title: string;
-  excerpt: string;
-  image: string;
-  created_at: string;
-  author: string;
+import BlogsPage from "./blogClinet";
+
+
+
+
+export async function generateMetadata() {
+  return {
+    title: "Tips for Buying Your Refurbished Hardwares | FTDS Blog",
+
+    description:
+      "Read expert guides, tips, and insights on refurbished laptops, desktops, and IT hardware to help you make smarter and cost-effective choices.",
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+
+    alternates: {
+      canonical: "https://www.ftds.in/blog",
+    },
+
+    openGraph: {
+      title: "Tips for Buying Your Refurbished Hardwares | FTDS Blog",
+      description:
+        "Expert articles on refurbished laptops, desktops & IT hardware buying tips, guides, and cost-saving insights.",
+      url: "https://www.ftds.in/blog",
+      siteName: "FTDS Hardware",
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+    },
+  };
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.2, duration: 0.6 },
-  }),
-};
-
-export default function BlogsPage() {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState(true);
-
-
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const vendorId = 87; // change if dynamic later
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`
-        );
-        setBlogs(response.data?.blogs || []);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  return (
-    <section className="bg-white py-16 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.2 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Blog</h2>
-          <p className="text-gray-500">
-            Tips, trends, and advice for all things desktop, gaming, and IT accessories.
-          </p>
-        </motion.div>
-
-        {loading ? (
-          <p className="text-center text-gray-500">Loading blogs...</p>
-        ) : blogs.length === 0 ? (
-          <p className="text-center text-gray-500">No blogs found.</p>
-        ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog: any, i: number) => (
-              <motion.div
-                key={blog.id}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={cardVariants}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
-              >
-                {/* Image */}
-                <div className="relative w-full h-56">
-                  <Image
-                    src={blog.banner_url}
-                    alt={blog.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col justify-between flex-grow p-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {blog.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mt-2">
-                      {blog.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="mt-6">
-                    <div className="text-xs text-gray-400">
-                      {formatDate(blog.created_at)} · by {blog.author}
-                    </div>
-                    <Link
-                      href={`/blog/${slugConvert(blog?.title)}`}
-                      className="inline-block mt-2 text-orange-500 hover:underline font-medium text-sm"
-                    >
-                      Read More →
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
+export default function Page() {
+  return <BlogsPage />;
 }

@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { slugConvert } from '../../lib/utils';
 
+
+
 export default function CategoriesPage() {
 
 
