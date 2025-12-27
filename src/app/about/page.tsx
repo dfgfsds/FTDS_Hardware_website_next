@@ -14,97 +14,103 @@ import aboutlogo from "../../../public/assets/about/2.webp";
 // app/about/page.tsx
 
 export async function generateMetadata() {
-  const aboutSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "AboutPage",
-        "@id": "https://www.ftds.in/about#webpage",
-        url: "https://www.ftds.in/about",
-        name: "About FTDS Hardware",
-        description:
-          "FTDS Hardware — South India’s trusted provider of certified refurbished laptops, desktops, and IT accessories.",
-        isPartOf: { "@id": "https://www.ftds.in/#website" },
-        primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: "https://www.ftds.in/assets/about/banner.webp",
-        },
-        breadcrumb: { "@id": "https://www.ftds.in/about#breadcrumb" },
-      },
+  // const aboutSchema = {
+  //   "@context": "https://schema.org",
+  //   "@graph": [
+  //     {
+  //       "@type": "AboutPage",
+  //       "@id": "https://www.ftds.in/about#webpage",
+  //       url: "https://www.ftds.in/about",
+  //       name: "About FTDS Hardware",
+  //       description:
+  //         "FTDS Hardware — South India’s trusted provider of certified refurbished laptops, desktops, and IT accessories.",
+  //       isPartOf: { "@id": "https://www.ftds.in/#website" },
+  //       primaryImageOfPage: {
+  //         "@type": "ImageObject",
+  //         url: "https://www.ftds.in/assets/about/banner.webp",
+  //       },
+  //       breadcrumb: { "@id": "https://www.ftds.in/about#breadcrumb" },
+  //     },
 
-      {
-        "@type": "WebSite",
-        "@id": "https://www.ftds.in/#website",
-        url: "https://www.ftds.in/",
-        name: "FTDS Hardware",
-        publisher: { "@id": "https://www.ftds.in/#organization" },
-        inLanguage: "en-IN",
-      },
+  //     {
+  //       "@type": "WebSite",
+  //       "@id": "https://www.ftds.in/#website",
+  //       url: "https://www.ftds.in/",
+  //       name: "FTDS Hardware",
+  //       publisher: { "@id": "https://www.ftds.in/#organization" },
+  //       inLanguage: "en-IN",
+  //     },
 
-      {
-        "@type": ["Organization", "ElectronicsStore"],
-        "@id": "https://www.ftds.in/#organization",
-        name: "FTDS Hardware",
-        url: "https://www.ftds.in/",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://www.ftds.in/assets/about/banner.webp",
-        },
-        description:
-          "Certified refurbished laptops and desktops from Dell, HP, Lenovo, Acer, ASUS — warranty-backed and delivered across South India.",
-        telephone: "+91-7277929292",
+  //     {
+  //       "@type": ["Organization", "ElectronicsStore"],
+  //       "@id": "https://www.ftds.in/#organization",
+  //       name: "FTDS Hardware",
+  //       url: "https://www.ftds.in/",
+  //       logo: {
+  //         "@type": "ImageObject",
+  //         url: "https://www.ftds.in/assets/about/banner.webp",
+  //       },
+  //       description:
+  //         "Certified refurbished laptops and desktops from Dell, HP, Lenovo, Acer, ASUS — warranty-backed and delivered across South India.",
+  //       telephone: "+91-7277929292",
 
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+91-7277929292",
-          contactType: "customer service",
-          areaServed: ["IN-TN", "IN-KL", "IN-KA", "IN-AP"],
-          availableLanguage: ["en", "ta"],
-        },
+  //       contactPoint: {
+  //         "@type": "ContactPoint",
+  //         telephone: "+91-7277929292",
+  //         contactType: "customer service",
+  //         areaServed: ["IN-TN", "IN-KL", "IN-KA", "IN-AP"],
+  //         availableLanguage: ["en", "ta"],
+  //       },
 
-        address: {
-          "@type": "PostalAddress",
-          streetAddress:
-            "New no.46, Old no.45, 1st Floor (North side), Giri Road, T.Nagar",
-          addressLocality: "Chennai",
-          addressRegion: "Tamil Nadu",
-          postalCode: "600017",
-          addressCountry: "IN",
-        },
+  //       address: {
+  //         "@type": "PostalAddress",
+  //         streetAddress:
+  //           "New no.46, Old no.45, 1st Floor (North side), Giri Road, T.Nagar",
+  //         addressLocality: "Chennai",
+  //         addressRegion: "Tamil Nadu",
+  //         postalCode: "600017",
+  //         addressCountry: "IN",
+  //       },
 
-        areaServed: [
-          "Tamil Nadu",
-          "Kerala",
-          "Karnataka",
-          "Andhra Pradesh",
-        ],
-      },
+  //       areaServed: [
+  //         "Tamil Nadu",
+  //         "Kerala",
+  //         "Karnataka",
+  //         "Andhra Pradesh",
+  //       ],
+  //     },
 
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.ftds.in/about#breadcrumb",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.ftds.in/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "About Us",
-            item: "https://www.ftds.in/about",
-          },
-        ],
-      },
-    ],
-  };
+  //     {
+  //       "@type": "BreadcrumbList",
+  //       "@id": "https://www.ftds.in/about#breadcrumb",
+  //       itemListElement: [
+  //         {
+  //           "@type": "ListItem",
+  //           position: 1,
+  //           name: "Home",
+  //           item: "https://www.ftds.in/",
+  //         },
+  //         {
+  //           "@type": "ListItem",
+  //           position: 2,
+  //           name: "About Us",
+  //           item: "https://www.ftds.in/about",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // };
 
   return {
-    title: "About FTDS Hardware | Certified Refurbished Laptops & Desktops",
+    title: " About FTDS Hardware | Best Hardware  Experts in Chennai  ",
     description:
-      "FTDS Hardware specializes in certified refurbished laptops and desktops. Discover our mission, quality process, and commitment to reliable, affordable computing.",
+      "FTDS Hardware is a trusted Chennai-based provider of certified refurbished laptops and desktops, offering quality systems, warranty, and expert support.",
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+
     alternates: {
       canonical: "https://www.ftds.in/about",
     },
@@ -119,9 +125,9 @@ export async function generateMetadata() {
     twitter: { card: "summary_large_image" },
 
     // ⭐ SSR Script inside <head>
-    other: {
-      "application/ld+json": JSON.stringify(aboutSchema),
-    },
+    // other: {
+    //   "application/ld+json": JSON.stringify(aboutSchema),
+    // },
   };
 }
 
@@ -229,7 +235,7 @@ export default function AboutPage() {
             <div className="order-2 md:order-1">
               <h1 className="text-2xl md:text-4xl text-gray-800  font-bold md:mt-8  mb-3">
                 About Our Company – Quality <Link
-            href="/refurbished-laptop-in-chennai"> Refurbished Laptops & Desktops</Link> You Can Trust
+                  href="/refurbished-laptop-in-chennai"> Refurbished Laptops & Desktops</Link> You Can Trust
               </h1>
               <p className="text-gray-700 text-base leading-relaxed mb-2">
                 At FTDS Hardware, we specialize in providing premium refurbished IT solutions that combine performance, quality, and value. Every laptop and desktop we sell goes through a thorough multi-point inspection and testing process, ensuring like-new performance and long-lasting durability.
