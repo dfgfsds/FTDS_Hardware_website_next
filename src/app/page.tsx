@@ -50,13 +50,7 @@ export async function generateMetadata() {
       }
     ],
 
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "bestRating": "5",
-      "ratingCount": "120"
-    },
-
+    
     "areaServed": [
       { "@type": "City", "name": "Chennai" },
       { "@type": "State", "name": "Tamil Nadu" },
@@ -67,7 +61,16 @@ export async function generateMetadata() {
       "https://www.facebook.com/ftdshardware",
       "https://www.instagram.com/ftds_hardware/?hl=en",
       "https://www.youtube.com/@ftdshardware"
-    ]
+    ],
+
+     "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.ftds.in/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+
+
+
   };
 
   return {
