@@ -9,9 +9,11 @@ import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
+
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.ico",     
+   
   },
 };
 
