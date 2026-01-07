@@ -75,7 +75,7 @@ export default function HeroSection() {
         {/* Text Content */}
         <div className="max-w-md text-white z-10 relative">
           <h1 className="text-2xl md:text-4xl font-bold leading-snug drop-shadow-md">
-          Certified Refurbished Laptops & Desktops in Chennai
+           Certified Refurbished Laptops & Desktops in Chennai 
           </h1>
           <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
           Trusted by customers looking for the best refurbished laptops in Chennai and best refurbished desktops in Chennai, backed by quality checks and warranty.
