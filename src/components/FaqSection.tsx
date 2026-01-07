@@ -29,7 +29,7 @@ const faqData = [
       "Refurbished laptops are suitable for students, professionals, startups, businesses, and institutions, depending on configuration and usage requirements.",
   },
   {
-    question: 'Do you ship refurbished laptops outside Chennai',
+    question: 'Do you ship refurbished laptops outside Chennai?',
     answer:
       "Yes. FTDS Hardware provides shipping across South India and all over India, ensuring safe and reliable delivery.",
   },

@@ -26,7 +26,7 @@ export default function HomeSeoSection() {
 
                                 <div className="text-center mb-8 md:mb-12">
                                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                                        At <span className="text-orange-500">FTDS Hardware</span> We’ve Tailored For Your Requirements
+                                        At <span className="text-orange-500">FTDS Hardware</span> we’ve Tailored For Your Requirements
                                     </h2>
                                     <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 max-w-4xl mx-auto">
                                         Our collection is carefully curated to deliver the best refurbished desktops and best refurbished laptops in Chennai.
@@ -48,7 +48,7 @@ export default function HomeSeoSection() {
                                             Shop by Your Needs
                                         </h3>
                                         <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
-                                            Find the right refurbished IT hardware based on how you plan to use it. Choose from certified refurbished laptops and desktops, high-quality monitors, and a wide range of computer hardware and accessories — all tested, reliable, and priced to fit every requirement.
+                                            Find the right refurbished IT hardware based on how you plan to use it. Choose from <b>certified refurbished laptops and desktops</b>, high-quality monitors, and a wide range of computer hardware and accessories — all tested, reliable, and priced to fit every requirement.
                                         </p>
                                     </div>
 
@@ -65,7 +65,7 @@ export default function HomeSeoSection() {
                                             Shop by Brand
                                         </h3>
                                         <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
-                                            Explore refurbished systems from trusted global brands like HP, Lenovo, Dell, Acer, and ASUS. We stock genuine branded laptops and desktops known for performance, durability, and long-term reliability, along with other premium IT brands.
+                                            Explore refurbished systems from <b>trusted global brands</b> like HP, Lenovo, Dell, Acer, and ASUS. We stock genuine branded laptops and desktops known for performance, durability, and long-term reliability, along with other premium IT brands.
                                         </p>
                                     </div>
 
@@ -82,7 +82,7 @@ export default function HomeSeoSection() {
                                             Shop by Budget
                                         </h3>
                                         <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
-                                            Browse affordable refurbished laptops and desktops tailored to your budget. Whether you’re looking for laptops under ₹20,000, ₹30,000, or ₹40,000, or refurbished desktops under ₹20,000 and ₹30,000, we make quality computing accessible without overspending.
+                                            Browse <b>affordable refurbished laptops and desktops</b> tailored to your budget. Whether you’re looking for laptops under ₹20,000, ₹30,000, or ₹40,000, or refurbished desktops under ₹20,000 and ₹30,000, we make quality computing accessible without overspending.
                                         </p>
                                     </div>
 
@@ -108,11 +108,14 @@ export default function HomeSeoSection() {
                                     <div className="mt-8 md:mt-12 space-y-8 md:space-y-10">
 
                                         {[
-                                            ["01", "Certified Quality & Warranty", "Every refurbished laptop and desktop is rigorously tested, quality-checked, and certified for reliable performance — backed by a 12-month service warranty."],
-                                            ["02", "Best Value Pricing", "Get high-performance refurbished laptops and desktops at up to 60% lower cost than new systems — without compromising on quality."],
-                                            ["03", "Complete Transparency", "We provide clear and accurate specifications, configurations, and accessory details, so you know exactly what you’re buying before checkout."],
+                                            ["01", "Certified Quality & Warranty",
+                                                "Every refurbished laptop and desktop is rigorously tested, quality-checked, and certified for reliable performance — backed by a 12-month service warranty."],
+                                            ["02", "Best Value Pricing",
+                                                "Get high-performance refurbished laptops and desktops at up to 60% lower cost than new systems — without compromising on quality. "],
+                                            ["03", "Complete Transparency",
+                                                " We provide clear and accurate specifications, configurations, and accessory details, so you know exactly what you’re buying before checkout. "],
                                             ["04", "Trusted Brands & Wide Selection", "Choose from leading brands like Dell, HP, Lenovo, Acer, and ASUS, with options suitable for students, professionals, businesses, and enterprises."],
-                                            ["05", "Eco-Friendly Technology", "By choosing refurbished IT hardware, you help reduce e-waste and support a more sustainable technology ecosystem."],
+                                            ["05", "Eco-Friendly Technology", "By choosing refurbished IT hardware, you help reduce e-waste and support a more sustainable and responsible technology ecosystem "],
                                             ["06", "Reliable After-Sales Support", "Our experienced technical team offers prompt service support and warranty assistance, ensuring peace of mind even after your purchase."]
                                         ].map(([num, title, desc]) => (
                                             <div key={num} className="flex gap-4 md:gap-6 items-start">
@@ -123,9 +126,9 @@ export default function HomeSeoSection() {
                                                     <h3 className="text-lg md:text-xl font-semibold text-gray-900">
                                                         {title}
                                                     </h3>
-                                                    <p className="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">
+                                                    <h4 className="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">
                                                         {desc}
-                                                    </p>
+                                                    </h4>
                                                 </div>
                                             </div>
                                         ))}
@@ -194,7 +197,7 @@ export default function HomeSeoSection() {
                                                 Students & Online Learning
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                                Affordable refurbished laptops ideal for online classes, assignments, browsing, and daily academic use — reliable performance without stretching your budget.
+                                              Affordable refurbished laptops ideal for online classes, assignments, browsing, and daily academic use — reliable performance without stretching your budget.
                                             </p>
                                         </div>
                                     </div>
@@ -209,7 +212,8 @@ export default function HomeSeoSection() {
                                                 Working Professionals
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                                High-performance refurbished laptops and desktops suitable for office work, multitasking, software tools, and remote work setups.
+                                               High-performance refurbished laptops and desktops suitable for office work, multitasking, software tools, and remote work setups.
+                                            
                                             </p>
                                         </div>
                                     </div>
@@ -239,7 +243,8 @@ export default function HomeSeoSection() {
                                                 Developers & Power Users
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                                Advanced refurbished systems with higher RAM, SSD storage, and powerful processors designed for programming, data handling, and demanding workloads.
+                                               Advanced refurbished systems with higher RAM, SSD storage, and powerful processors designed for programming, data handling, and demanding workloads.
+                                            
                                             </p>
                                         </div>
                                     </div>
