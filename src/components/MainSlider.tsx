@@ -74,11 +74,12 @@ export default function HeroSection() {
 
         {/* Text Content */}
         <div className="max-w-md text-white z-10 relative">
-          <h1 className="text-2xl md:text-4xl font-bold leading-snug drop-shadow-md">
-           Certified Refurbished Laptops & Desktops in Chennai 
-          </h1>
+          <h2 className="text-2xl md:text-4xl font-bold leading-snug drop-shadow-md">
+           Certified Refurbished Laptops & Desktops
+          </h2>
           <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
-          Trusted by customers looking for the best refurbished laptops in Chennai and best refurbished desktops in Chennai, backed by quality checks and warranty.
+       We offer reliable refurbished desktops and refurbished laptops in Chennai for individuals, professionals, and businesses. Planning to buy refurbished laptops or buy refurbished desktops in Chennai?  FTDS Hardware provides certified systems backed by warranty and expert technical support.
+
           </p>
           <Link href={banners[currentSlide]?.link || '/shop'}>
             <button className="mt-5 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-orange-500 hover:bg-gray-100 transition">
