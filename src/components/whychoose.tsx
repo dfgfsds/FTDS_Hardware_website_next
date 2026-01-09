@@ -26,7 +26,7 @@ export default function WhyChoose() {
             </p>
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              For customers searching for a<Link href="/shop"> used laptop in Chennai</Link> or 2nd hand laptops in Chennai, FTDS Hardware provides a safer and more dependable alternative. Unlike regular second-hand systems, our refurbished laptops are professionally tested, restored where required, and backed by warranty and technical support.
+              For customers searching for a<Link href="/categories/refurbished-laptops"> used laptop in Chennai</Link> or 2nd hand laptops in Chennai, FTDS Hardware provides a safer and more dependable alternative. Unlike regular second-hand systems, our refurbished laptops are professionally tested, restored where required, and backed by warranty and technical support.
             </p>
 
 
@@ -47,7 +47,7 @@ export default function WhyChoose() {
           <div className="relative bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl  p-6 md:p-10 mt-4 lg:p-12">
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              We also offer best <Link href="/shop">refurbished desktops</Link> for businesses, offices, and institutions that require stable workstation setups.
+              We also offer best refurbished desktops for businesses, offices, and institutions that require stable workstation setups.
 
 
             </p>
@@ -55,7 +55,7 @@ export default function WhyChoose() {
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
               Our inventory includes refurbished laptops from leading brands such as Dell, HP, Lenovo, Acer, and ASUS — suitable for students, professionals, startups, and enterprises.
             </p>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">Customers choose FTDS Hardware when they want to <Link href="/shop">buy refurbished desktops</Link> that offer reliable performance, clear specifications, and long-term value.</p>
+            <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">Customers choose FTDS Hardware when they want to <Link href="/categories/refurbished-desktops">buy refurbished desktops</Link> that offer reliable performance, clear specifications, and long-term value.</p>
 
 
 
