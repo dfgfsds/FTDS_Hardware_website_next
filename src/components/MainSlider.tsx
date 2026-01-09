@@ -78,8 +78,7 @@ export default function HeroSection() {
            Certified Refurbished Laptops & Desktops
           </h2>
           <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
-       We offer reliable refurbished desktops and refurbished laptops in Chennai for individuals, professionals, and businesses. Planning to buy refurbished laptops or buy refurbished desktops in Chennai?  FTDS Hardware provides certified systems backed by warranty and expert technical support.
-
+            FTDS Hardware offers certified refurbished laptops in Chennai, along with refurbished desktops supported by warranty and expert service.
           </p>
           <Link href={banners[currentSlide]?.link || '/shop'}>
             <button className="mt-5 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-orange-500 hover:bg-gray-100 transition">
