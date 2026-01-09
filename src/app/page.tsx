@@ -42,9 +42,9 @@ export async function generateMetadata() {
   };
 
   return {
-    title: "Refurbished Laptops & Desktops in Chennai - FTDS Hardware",
+    title: "Best Refurbished Laptops in Chennai | FTDS Hardware",
     description:
-      "Buy certified refurbished laptops & desktops in Chennai from FTDS Hardware. Dell, HP, Lenovo systems with warranty-backed quality & support.",
+      "Buy refurbished laptops in Chennai from FTDS Hardware. Certified systems with warranty, transparent specs, and reliable support. Shipping across India.",
 
     robots: {
       index: true,
