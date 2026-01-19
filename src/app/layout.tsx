@@ -9,6 +9,14 @@ import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const metadata: Metadata = {
+  title: "FTDS Hardware",
+  description: "Best Refurbished Laptops in Chennai",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
