@@ -24,7 +24,7 @@ export default function HomeSeoSection() {
 
                         <section className="bg-gray-50 py-8 md:py-12">
 
-                            <div className="max-w-7xl mx-auto text-center">
+                            {/* <div className="max-w-7xl mx-auto text-center">
 
                                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                                     <span className="">What We </span>Do
@@ -50,15 +50,15 @@ export default function HomeSeoSection() {
 
 
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
                                 <div className="text-center mb-8 md:mb-12">
                                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                                        At <span className="">FTDS Hardware</span> we’ve Tailored For Your Requirements
+                                        At FTDS Hardware we’ve Tailored For Your Requirements
                                     </h2>
                                     <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 max-w-4xl mx-auto">
-                                        Our collection is carefully curated to deliver the best refurbished desktops and best refurbished laptops in Chennai.
+                                        Our collection is carefully curated to deliver the best Refurbished Computers in Chennai
                                     </p>
                                 </div>
 
@@ -77,8 +77,7 @@ export default function HomeSeoSection() {
                                             Shop by Your Needs
                                         </h3>
                                         <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
-                                          Choose refurbished laptops and desktops based on how you plan to use them. Whether it’s for daily learning, office work, business operations, or advanced computing, our certified systems are tested to deliver dependable performance at every level.
-                                       
+                                            Choose refurbished laptops and desktops based on how you plan to use them. Whether it’s for daily learning, office work, business operations, or advanced computing, our certified systems are tested to deliver dependable performance at every level.
                                         </p>
                                     </div>
 
@@ -95,8 +94,7 @@ export default function HomeSeoSection() {
                                             Shop by Brand
                                         </h3>
                                         <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
-                                           Explore refurbished systems from globally trusted brands including Dell, HP, Lenovo, Acer, and ASUS. Our branded refurbished laptops and desktops are known for durability, performance, and long-term usability.
-                                      
+                                            Explore refurbished systems from globally trusted brands including Dell, HP, Lenovo, Acer, and ASUS. Our branded refurbished laptops and desktops are known for durability, performance, and long-term usability.
                                         </p>
                                     </div>
 
@@ -113,8 +111,7 @@ export default function HomeSeoSection() {
                                             Shop by Budget
                                         </h3>
                                         <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
-                                           Find affordable refurbished laptops in Chennai that fit your budget without compromising quality. Whether you are comparing refurbished systems with <Link href="/shop" >used laptops in Chennai </Link>or exploring alternatives to <Link href="/shop" >2nd hand laptops</Link>, our certified laptops offer better value, reliability, and warranty support.
-                                        
+                                            Find affordable refurbished computer systems in Chennai that fit your budget without compromising quality. Whether you are comparing refurbished systems with used computer for sale in Chennai or exploring alternatives to 2nd hand computers, our certified IT hardwares offer better value, reliability, and warranty support.
                                         </p>
                                     </div>
 
@@ -129,12 +126,11 @@ export default function HomeSeoSection() {
                                 {/* LEFT CONTENT */}
                                 <div>
                                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                                        Why Buy from <span className="">FTDS Hardware</span>
+                                        Why Buy from FTDS Hardware
                                     </h2>
 
                                     <p className="mt-4 md:mt-5 text-gray-600 text-base md:text-lg max-w-xl">
-                                        Enterprise-grade refurbished IT hardware with certified quality,
-                                        transparent pricing, and long-term reliability.
+                                        Enterprise-grade refurbished IT hardware with certified quality, transparent pricing, and long-term reliability. Why we have the best Refurbished Computers in Chennai
                                     </p>
 
                                     <div className="mt-8 md:mt-12 space-y-8 md:space-y-10">
@@ -145,9 +141,9 @@ export default function HomeSeoSection() {
                                             ["02", "Best Value for Money",
                                                 "Get dependable refurbished laptops and desktops at significantly lower cost compared to new systems, making quality computing more accessible. "],
                                             ["03", "Transparent Specifications",
-                                                " Clear product configurations, specifications, and condition details are provided so you know exactly what you’re purchasing. "],
+                                                "Clear product configurations, specifications, and condition details are provided so you know exactly what you’re purchasing. "],
                                             ["04", "Trusted Brands & Wide Selection", "Choose from a wide range of refurbished systems suitable for students, professionals, businesses, and enterprises."],
-                                            ["05", "Eco-Friendly Technology", "Buying refurbished computers helps reduce electronic waste and supports a more sustainable technology ecosystem. "],
+                                            ["05", "Eco-Friendly Technology", "Buying refurbished computers helps reduce electronic waste and supports a more sustainable technology ecosystem."],
                                             ["06", "Reliable After-Sales Support", "Our experienced technical team provides prompt support and warranty assistance even after your purchase."]
                                         ].map(([num, title, desc]) => (
                                             <div key={num} className="flex gap-4 md:gap-6 items-start">
@@ -208,18 +204,18 @@ export default function HomeSeoSection() {
                         </section>
 
 
-                        <section className="relative py-8 md:py-12 px-4 sm:px-6 bg-white overflow-hidden">
+                        {/* <section className="relative py-8 md:py-12 px-4 sm:px-6 bg-white overflow-hidden">
                             <div className="relative max-w-7xl mx-auto">
 
                                 <h2 className="text-center mb-10 md:mb-14 block text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-800">
-                                  
-                                        Laptops & Desktops for Every Requirement
-                                
+
+                                    Laptops & Desktops for Every Requirement
+
                                 </h2>
 
                                 <div className="grid gap-6 sm:gap-8 lg:gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
-                                    {/* Card 1 */}
+                         
                                     <div className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-gray-300 to-gray-300">
                                         <div className="h-full rounded-2xl bg-white backdrop-blur-xl p-6 md:p-8
           shadow-md hover:shadow-2xl transition-all duration-300
@@ -229,12 +225,12 @@ export default function HomeSeoSection() {
                                                 For Students & Online Learning
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                               Budget-friendly refurbished laptops suitable for classes, assignments, browsing, and daily academic use.
+                                                Budget-friendly refurbished laptops suitable for classes, assignments, browsing, and daily academic use.
                                             </p>
                                         </div>
                                     </div>
 
-                                    {/* Card 2 */}
+                                 
                                     <div className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-gray-300 to-gray-300">
                                         <div className="h-full rounded-2xl bg-white backdrop-blur-xl p-6 md:p-8
           shadow-md hover:shadow-2xl transition-all duration-300
@@ -245,44 +241,44 @@ export default function HomeSeoSection() {
 
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                              Refurbished laptops and desktops designed for office work, multitasking, and remote setups.
+                                                Refurbished laptops and desktops designed for office work, multitasking, and remote setups.
                                             </p>
                                         </div>
                                     </div>
 
-                                    {/* Card 3 */}
+                     
                                     <div className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-gray-300 to-gray-300">
                                         <div className="h-full rounded-2xl bg-white backdrop-blur-xl p-6 md:p-8
           shadow-md hover:shadow-2xl transition-all duration-300
           group-hover:-translate-y-2">
                                             <Building2 size={34} className="mb-3 md:mb-4 text-gray-800" />
                                             <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2 md:mb-3">
-                                              For Businesses & Startups
+                                                For Businesses & Startups
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                               Cost-effective refurbished computing solutions with bulk availability for teams and offices.
+                                                Cost-effective refurbished computing solutions with bulk availability for teams and offices.
                                             </p>
                                         </div>
                                     </div>
 
-                                    {/* Card 4 */}
+                             
                                     <div className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-gray-300 to-gray-300">
                                         <div className="h-full rounded-2xl bg-white backdrop-blur-xl p-6 md:p-8
           shadow-md hover:shadow-2xl transition-all duration-300
           group-hover:-translate-y-2">
                                             <Zap size={34} className="mb-3 md:mb-4 text-gray-800" />
                                             <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2 md:mb-3">
-                                               For Developers & Power Users
+                                                For Developers & Power Users
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                              Higher-configuration refurbished systems with SSD storage and enhanced RAM for demanding workloads.
+                                                Higher-configuration refurbished systems with SSD storage and enhanced RAM for demanding workloads.
                                             </p>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                        </section>
+                        </section> */}
                     </div>
 
                     {/* READ MORE / LESS BUTTON */}
