@@ -6,11 +6,12 @@ import WhyChoose from "@/components/whychoose";
 import FaqSection from "@/components/FaqSection";
 import FeatureHighlights from "@/components/FeatureHighlights";
 import RecentBlogs from "@/components/lastestBolg";
+import Testimonials from "@/components/Testimonials";
 
 export const metadata = {
-  title: "Best Refurbished Laptops in Chennai | FTDS Hardware",
+  title: "Buy Refurbished Computers in Chennai | FTDS Hardware",
   description:
-    "Buy refurbished laptops in Chennai from FTDS Hardware. Certified systems with warranty, transparent specs, and reliable support. Shipping across India.",
+    "Buy refurbished computers in Chennai from FTDS Hardware. Certified laptops and desktops with warranty, transparent specs, and reliable support.",
 
   robots: {
     index: true,
@@ -98,7 +99,9 @@ return (
       <TrandingProduct />
       <WhyChoose />
       <FaqSection />
+       <Testimonials/>
       <FeatureHighlights />
+     
       <RecentBlogs />
     </main>
   </>

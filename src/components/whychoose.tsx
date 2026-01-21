@@ -14,19 +14,19 @@ export default function WhyChoose() {
       <section className="py-12 px-4 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto text-center">
 
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Refurbished Laptops in Chennai – Certified & Affordable
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            Quality Refurbished Computers Without Compromise
 
-          </h1>
+          </h2>
 
           <div className="relative bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl  p-6 md:p-10 mt-4 lg:p-12">
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              FTDS Hardware offers reliable and affordable refurbished laptops in Chennai, serving students, professionals, and businesses with certified systems that deliver consistent performance at a fraction of the cost of new computers. Every laptop is carefully inspected, tested, and certified to ensure long-term usability and value.
+              FTDS Hardware offers professionally tested refurbished computers in Chennai for customers who want dependable performance without paying the price of new systems. Our focus is on providing Refurbished Computers in Chennai that are suitable for real-world usage, whether for work, learning, or business operations.
             </p>
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              For customers searching for a<Link href="/categories/refurbished-laptops"> used laptop in Chennai</Link> or 2nd hand laptops in Chennai, FTDS Hardware provides a safer and more dependable alternative. Unlike regular second-hand systems, our refurbished laptops are professionally tested, restored where required, and backed by warranty and technical support.
+              Every system is carefully sourced, inspected, and prepared to meet consistent quality standards. Instead of short-term fixes, we prioritise long-term reliability, transparent specifications, and customer trust. This approach makes refurbished systems a practical choice for individuals and organisations looking for value-driven technology.
             </p>
 
 
@@ -40,23 +40,20 @@ export default function WhyChoose() {
         <div className="max-w-7xl mx-auto text-center">
 
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-5 mb-6">
-            Refurbished Desktops in Chennai – Certified & Affordable
+            Our Refurbished Computer Range
 
           </h2>
 
           <div className="relative bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl  p-6 md:p-10 mt-4 lg:p-12">
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              We also offer best refurbished desktops for businesses, offices, and institutions that require stable workstation setups.
-
+              Our range of Refurbished Computers in Chennai includes various types and performance levels to meet different user needs. Those who need portable options can select lightweight systems suitable for everyday tasks, while users who require reliable, long-lasting setups can choose workstation-style systems designed for continuous operation.
 
             </p>
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              Our inventory includes refurbished laptops from leading brands such as Dell, HP, Lenovo, Acer, and ASUS — suitable for students, professionals, startups, and enterprises.
+              FTDS Hardware allows customers to select systems based on their practical requirements rather than technical specifications. Whether you need a compact system or a stationary workstation, our range provides flexibility without compromising performance.
             </p>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">Customers choose FTDS Hardware when they want to <Link href="/categories/refurbished-desktops">buy refurbished desktops</Link> that offer reliable performance, clear specifications, and long-term value.</p>
-
 
 
 
