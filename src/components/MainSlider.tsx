@@ -74,11 +74,11 @@ export default function HeroSection() {
 
         {/* Text Content */}
         <div className="max-w-md text-white z-10 relative">
-          <h2 className="text-2xl md:text-4xl font-bold leading-snug drop-shadow-md">
-           Certified Refurbished Laptops & Desktops
-          </h2>
+          <h1 className="text-2xl md:text-3xl font-bold leading-snug drop-shadow-md">
+           Refurbished Computers in Chennai – Certified Systems from FTDS Hardware
+          </h1>
           <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
-            FTDS Hardware offers certified refurbished laptops in Chennai, along with refurbished desktops supported by warranty and expert service.
+            FTDS Hardware offers Refurbished Laptops and Desktops in Chennai supported by Warranty and Expert Service.
           </p>
           <Link href={banners[currentSlide]?.link || '/shop'}>
             <button className="mt-5 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-orange-500 hover:bg-gray-100 transition">

@@ -4,35 +4,31 @@ import { HiPlusSm, HiMinusSm } from 'react-icons/hi';
 
 const faqData = [
   {
-    question: 'What are refurbished laptops and desktops?',
+    question: 'What are refurbished computers?',
     answer:
-      "Refurbished laptops and desktops are pre-owned systems that are professionally tested, repaired if required, and certified to ensure reliable performance and usability.",
+      "Refurbished computers are pre-owned systems that have been professionally tested, restored, and verified for reliable use.",
   },
   {
-    question: 'Which brands of refurbished laptops do you sell?',
+    question: 'Does FTDS hardware offer warranty on refurbished systems?',
     answer:
-      "We offer refurbished laptops and desktops from trusted brands including Dell, HP, Lenovo, Acer, and ASUS, along with other premium manufacturers.",
+      "Yes. Our refurbished computers come with one year warranty support for peace of mind",
   },
   {
-    question: 'Do refurbished laptops come with a warranty?',
+    question: 'Do you supply refurbished systems in bulk?',
     answer:
-      "Yes. All refurbished laptops and desktops are backed by a 12-month service warranty, providing confidence and peace of mind after purchase.",
+      "Yes. We cater to bulk buyers, businesses, and institutions with consistent system configurations.",
   },
   {
-    question: 'Are refurbished laptops from FTDS Hardware reliable?',
+    question: 'How do I choose the right refurbished computer?',
     answer:
-      "Yes. Every refurbished laptop and desktop sold by FTDS Hardware undergoes a rigorous multi-point inspection and testing process to ensure consistent performance.",
+      "Our team at FTDS hardware helps you select a system based on your usage requirements, budget, and performance needs.",
   },
     {
-    question: 'Who can use refurbished laptops?',
+    question: 'Are refurbished computers from FTDS Hardware reliable?',
     answer:
-      "Refurbished laptops are suitable for students, professionals, startups, businesses, and institutions, depending on configuration and usage requirements.",
+      "Yes. Every refurbished computer sold by FTDS Hardware undergoes a rigorous multi-point inspection and testing process to ensure consistent performance. Which makes us the best sellers of Refurbished Computers in Chennai ",
   },
-  {
-    question: 'Do you ship refurbished laptops outside Chennai?',
-    answer:
-      "Yes. FTDS Hardware provides shipping across South India and all over India, ensuring safe and reliable delivery.",
-  },
+ 
 ];
 
 export default function  FaqSection() {
