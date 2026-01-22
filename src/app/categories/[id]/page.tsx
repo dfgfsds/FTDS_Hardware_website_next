@@ -1,23 +1,47 @@
 import CategoriesBasedProduct from "@/components/CategoriesBasedProduct";
 import categorySeo from "../../../seo/categorySeo.json";
 import Script from "next/script";
+import { notFound } from "next/navigation";
 
-// ✅ Dynamic SEO for all category pages
-export async function generateMetadata({ params }: any) {
-  const seo = categorySeo[params.id];
+/* 🔹 SEO TYPE */
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+type CategorySEO = {
+  metaTitle: string;
+  metaDescription: string;
+  canonical: string;
+  content?: string;
+  faqs?: FAQ[];
+};
+
+type CategorySeoMap = Record<string, CategorySEO>;
+
+const seoDataMap = categorySeo as CategorySeoMap;
+
+// ✅ Dynamic SEO
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const seo = seoDataMap[params.id];
+
+  if (!seo) {
+    return {
+      title: "Category Not Found | FTDS Hardware",
+      robots: { index: false, follow: false },
+    };
+  }
 
   return {
-    title: seo?.metaTitle || "Computer Shop in Chennai | TN Computers",
-    description:
-      seo?.metaDescription ||
-      "Buy computers, laptops & accessories at best price in Chennai",
-
-    // ✅ Canonical
+    title: seo.metaTitle,
+    description: seo.metaDescription,
     alternates: {
-      canonical: seo?.canonical || `https://www.ftds.in/categories/${params.id}`,
+      canonical: seo.canonical,
     },
-
-    // ✅ Robots
     robots: {
       index: true,
       follow: true,
@@ -25,17 +49,26 @@ export async function generateMetadata({ params }: any) {
   };
 }
 
-// ✅ Page render
-export default function CategoriesProduct({ params }: any) {
-  const seo = categorySeo[params.id];
+// ✅ Page Component
+export default function CategoriesProduct({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const seo = seoDataMap[params.id];
+
+  if (!seo) {
+    notFound();
+  }
+
+  const faqs = seo.faqs ?? [];
 
   return (
     <>
-      {/* PAGE UI */}
       <CategoriesBasedProduct />
 
       {/* ✅ FAQ SCHEMA */}
-      {seo?.faqs?.length > 0 && (
+      {faqs.length > 0 && (
         <Script
           id="faq-schema"
           type="application/ld+json"
@@ -44,7 +77,7 @@ export default function CategoriesProduct({ params }: any) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              mainEntity: seo.faqs.map((faq: any) => ({
+              mainEntity: faqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
                 acceptedAnswer: {
