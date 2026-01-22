@@ -1,74 +1,76 @@
 'use client';
-import { useParams } from 'next/navigation';
+
+import { useParams, useRouter } from 'next/navigation';
 import { useProducts } from '@/context/ProductsContext';
 import { useCategories } from '@/context/CategoriesContext';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowLeft, Heart, SearchCheck } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { deleteCartitemsApi, postCartitemApi, updateCartitemsApi } from '@/api-endpoints/CartsApi';
-import { InvalidateQueryFilters, useQueryClient } from '@tanstack/react-query';
 import { useVendor } from '@/context/VendorContext';
 import { useCartItem } from '@/context/CartItemContext';
+
+import { ArrowLeft } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
 import ProductCard from './ProductCard';
-import { useRouter } from 'next/navigation';
 import { Pagination } from './Pagination';
-import img from "../public/catAb.jpg"
 import LoginModal from './LoginModel';
+
+import categorySeo from '../seo/categorySeo.json';
 
 export default function CategoriesBasedProduct() {
     const topRef = useRef<HTMLDivElement>(null);
-    const { id } = useParams() ?? {};
-    const [getUserId, setUserId] = useState<string | null>(null);
-    const [getCartId, setCartId] = useState<string | null>(null);
-    const [getUserName, setUserName] = useState<string | null>(null);
-    const [signInmodal, setSignInModal] = useState(false);
+    const router = useRouter();
+
+    /* ✅ useParams ONLY ONCE (TYPE SAFE) */
+    const params = useParams<{ id: string }>();
+    const slug = params?.id;
+
     const { products, isLoading }: any = useProducts();
     const { categories }: any = useCategories();
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const [isModalOpen, setModalOpen] = useState(false);
-    const queryClient = useQueryClient();
     const { vendorId } = useVendor();
     const { cartItem }: any = useCartItem();
-    const router = useRouter();
+
+    const [categoryData, setCategoryData] = useState<any>(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [signInmodal, setSignInModal] = useState(false);
+    const [showMore, setShowMore] = useState(false);
+
     const ITEMS_PER_PAGE = 12;
-    const [categoryId,setCategoryId]=useState<any>('')
 
+    /* ✅ SEO CONTENT BASED ON SLUG */
+    const seoData =
+        slug && typeof slug === 'string'
+            ? categorySeo[slug as keyof typeof categorySeo]
+            : null;
+
+    /* 🔹 Convert category name → slug */
+    const slugConvert = (name: string) =>
+        name
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/[^\w-]+/g, '');
+
+    /* ✅ FIND CATEGORY BY SLUG */
     useEffect(() => {
-        const storedUserId = localStorage.getItem('userId');
-        const storedCartId = localStorage.getItem('cartId');
-        const storedUserName = localStorage.getItem('userName');
+        if (!categories?.data || !slug) return;
 
-        setUserId(storedUserId);
-        setCartId(storedCartId);
-        setUserName(storedUserName);
-    }, []);
+        const foundCategory = categories.data.find(
+            (cat: any) => slugConvert(cat.name) === slug
+        );
 
-      useEffect(() => {
-        if (categories?.data && id) {
-          const found = categories?.data?.find((p: any) => slugConvert(p?.name) === id);
-          if (found) {
-            setCategoryId(found);
-          } else {
-          }
+        if (foundCategory) {
+            setCategoryData(foundCategory);
         }
-      }, [categories?.data, id]);
+    }, [categories?.data, slug]);
 
+    const categoryName = categoryData?.name || 'Category';
 
-    // Find the category name by ID
-    const category = categories?.data?.find(
-        (cat: any) => cat.id?.toString() === categoryId?.id?.toString()
-    );
-
-    const categoryName = category?.name || 'Category';
-
-    // Filter products by category ID
+    /* ✅ FILTER PRODUCTS BY CATEGORY */
     const filteredProducts = products?.data?.filter(
-        (product: any) => product.category?.toString() === categoryId?.id?.toString()
+        (product: any) =>
+            product.category?.toString() === categoryData?.id?.toString()
     );
 
-    // Keep only products with status === true (robust normalization)
+    /* ✅ ONLY ACTIVE PRODUCTS */
     const activeProducts = filteredProducts?.filter((p: any) => {
         const s = p?.status;
         return (
@@ -82,65 +84,87 @@ export default function CategoriesBasedProduct() {
         );
     });
 
-    // Merge cart quantities
+    /* ✅ MERGE CART QTY */
     const mergedProducts = activeProducts?.map((product: any, index: number) => {
         const matchingCartItem = cartItem?.data?.find(
             (item: any) => item?.product === product?.id
         );
-        if (matchingCartItem) {
-            return {
+
+        return matchingCartItem
+            ? {
                 ...product,
                 Aid: index,
-                cartQty: matchingCartItem?.quantity,
+                cartQty: matchingCartItem.quantity,
                 cartId: matchingCartItem.id,
-            };
-        }
-        return product;
+            }
+            : product;
     });
 
-    const totalPages = Math.ceil((mergedProducts?.length || 0) / ITEMS_PER_PAGE);
+    /* ✅ PAGINATION */
+    const totalPages = Math.ceil(
+        (mergedProducts?.length || 0) / ITEMS_PER_PAGE
+    );
 
     const paginatedItems = mergedProducts?.slice(
         (currentPage - 1) * ITEMS_PER_PAGE,
         currentPage * ITEMS_PER_PAGE
     );
 
-    function slugConvert(name: string) {
-        return name
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '-')         // Replace spaces with hyphens
-            .replace(/[^\w-]+/g, '');     // Remove non-word characters except hyphens
-    }
-
-
     return (
-        <div className="max-w-6xl mx-auto px-2 md:px-4 py-10" ref={topRef}>
-            <div className="my-2 mb-5 flex">
-                <ArrowLeft onClick={() => router.back()} className='text-gray-400 cursor-pointer' />
-                <div className="text-md text-gray-400 flex mt-0.5 gap-1">
-                    <span>
-                        Home</span><span className='cursor-pointer flex' onClick={() => router.back()}>/ {categoryName}</span>  <span className='text-orange-500'>/ Shop</span></div>
+        <div ref={topRef} className="max-w-6xl mx-auto px-2 md:px-4 py-10">
+            {/* 🔙 Breadcrumb */}
+            <div className="mb-5 flex items-center gap-2 text-gray-400">
+                <ArrowLeft
+                    onClick={() => router.back()}
+                    className="cursor-pointer"
+                />
+                <span>Home</span>
+                <span>/</span>
+                <span className="text-orange-500">{categoryName}</span>
             </div>
 
-            {/* <h1 className='m-2 font-bold text-2xl text-center text-orange-500'>
-                {categoryName}
-            </h1> */}
-            {/* <div className='m-2'>
-                <div className='quill-content' dangerouslySetInnerHTML={{ __html: category?.description2 }} />
-            </div> */}
-            <h1 className="text-3xl font-bold  text-orange-500 mb-6 mt-6 text-center">
+            {/* 🟠 HEADING */}
+            <h1 className="text-3xl font-bold text-orange-500 mb-8 text-center">
                 {categoryName} Products
             </h1>
+
             {paginatedItems?.length > 0 ? (
-                <div className="">
+                <>
                     <ProductCard
                         isLoading={isLoading}
                         products={paginatedItems}
                         gridCols="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
                     />
+
+                    {/* 🔥 SEO CONTENT */}
+                    {seoData?.content && (
+                        <div className="mt-14 bg-gray-50 p-6 rounded-lg">
+                            {/* REMOVE this heading if your content already has <h1> */}
+                            {/* <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      About {categoryName}
+    </h2> */}
+
+                            <div
+                                className={`prose prose-gray max-w-none transition-all duration-300 ${showMore ? '' : 'line-clamp-4'
+                                    }`}
+                                dangerouslySetInnerHTML={{ __html: seoData.content }}
+                            />
+
+                            {seoData.content.length > 300 && (
+                                <button
+                                    onClick={() => setShowMore(!showMore)}
+                                    className="mt-3 text-blue-600 font-medium hover:underline"
+                                >
+                                    {showMore ? 'Read less' : 'Read more'}
+                                </button>
+                            )}
+                        </div>
+                    )}
+
+
+                    {/* 📄 PAGINATION */}
                     {totalPages > 1 && (
-                        <div className="flex justify-center mt-6">
+                        <div className="flex justify-center mt-8">
                             <Pagination
                                 currentPage={currentPage}
                                 totalPages={totalPages}
@@ -151,13 +175,21 @@ export default function CategoriesBasedProduct() {
                             />
                         </div>
                     )}
-                </div>
+                </>
             ) : (
-                <p className="text-center text-gray-500">No products found for this category.</p>
+                <p className="text-center text-gray-500">
+                    No products found for this category.
+                </p>
             )}
+
+            {/* 🔐 LOGIN MODAL */}
             {signInmodal && (
-                <LoginModal open={signInmodal} handleClose={() => setSignInModal(false)} vendorId={vendorId} />
+                <LoginModal
+                    open={signInmodal}
+                    handleClose={() => setSignInModal(false)}
+                    vendorId={vendorId}
+                />
             )}
         </div>
     );
-} 
+}

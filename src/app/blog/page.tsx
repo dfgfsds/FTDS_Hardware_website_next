@@ -46,10 +46,10 @@ export async function generateMetadata() {
     ],
   };
   return {
-    title: "Tips for Buying Your Refurbished Hardwares | FTDS Blog",
+    title: "FTDS Hardware Blog | Refurbished Computers & Tech Insights",
 
     description:
-      "Read expert guides, tips, and insights on refurbished laptops, desktops, and IT hardware to help you make smarter and cost-effective choices.",
+      "Read expert blogs from FTDS Hardware on refurbished computers, buying guides, hardware tips, and cost-effective tech solutions.",
 
     robots: {
       index: true,
@@ -61,9 +61,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "Tips for Buying Your Refurbished Hardwares | FTDS Blog",
+      title: "FTDS Hardware Blog | Refurbished Computers & Tech Insights",
       description:
-        "Expert articles on refurbished laptops, desktops & IT hardware buying tips, guides, and cost-saving insights.",
+        "Read expert blogs from FTDS Hardware on refurbished computers, buying guides, hardware tips, and cost-effective tech solutions.",
       url: "https://www.ftds.in/blog",
       siteName: "FTDS Hardware",
       type: "website",
