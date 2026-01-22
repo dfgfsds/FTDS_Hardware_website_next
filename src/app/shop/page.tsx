@@ -41,7 +41,7 @@ export async function generateMetadata() {
     title: "Shop Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
 
     description:
-      "Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware. Tested systems with warranty and fast delivery in Chennai.",
+      " Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware.Tested with warranty and fast delivery in Chennai.",
 
     robots: {
       index: true,
@@ -55,7 +55,7 @@ export async function generateMetadata() {
     openGraph: {
       title: "Shop Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
       description:
-        "Certified refurbished laptops, desktops, monitors & accessories with warranty and fast delivery in Chennai.",
+        " Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware.Tested with warranty and fast delivery in Chennai.",
       url: "https://www.ftds.in/shop",
       siteName: "FTDS Hardware",
       type: "website",
