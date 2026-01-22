@@ -97,9 +97,9 @@ export default function CategoriesBasedProduct() {
         <span className="text-orange-500">{categoryName}</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-orange-500 mb-8 text-center">
-        {categoryName} Products
-      </h1>
+      <h2 className="text-3xl font-bold text-orange-500 mb-8 text-center">
+        {categoryName} 
+      </h2>
 
       {paginatedItems?.length > 0 ? (
         <>
