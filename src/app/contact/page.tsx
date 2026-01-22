@@ -6,10 +6,10 @@ import ContactSection from "./contentClinent";
 
 export async function generateMetadata() {
   return {
-    title: "Contact FTDS Hardware | Best Refurbished Laptops in Chennai",
+    title: "Contact FTDS Hardware | Refurbished Computer Store in Chennai",
 
     description:
-      "Get in touch with FTDS Hardware for certified refurbished laptops and desktops in Chennai. Call us, visit our store, or send an enquiry for expert assistance.",
+      " Get in touch with FTDS Hardware for refurbished laptops, desktops, and accessories in Chennai. Visit our store or contact us for expert assistance.",
 
     robots: {
       index: true,
@@ -21,9 +21,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "Contact FTDS Hardware | Best Refurbished Laptops in Chennai",
+      title: "Contact FTDS Hardware | Refurbished Computer Store in Chennai",
       description:
-        "Contact FTDS Hardware for certified refurbished laptops and desktops in Chennai. Call, visit our store, or enquire today.",
+        " Get in touch with FTDS Hardware for refurbished laptops, desktops, and accessories in Chennai. Visit our store or contact us for expert assistance.",
       url: "https://www.ftds.in/contact",
       siteName: "FTDS Hardware",
       type: "website",
