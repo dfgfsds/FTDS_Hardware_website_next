@@ -30,7 +30,6 @@ export default function CategoriesBasedProduct() {
   const topRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  /* ✅ FIXED PARAM */
   const params = useParams<{ slug: string }>();
   const slug = params?.slug;
 
@@ -46,17 +45,11 @@ export default function CategoriesBasedProduct() {
 
   const ITEMS_PER_PAGE = 12;
 
-  /* ✅ SEO DATA */
   const seoData = slug ? seoMap[slug] : null;
 
   const slugConvert = (name: string) =>
-    name
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w-]+/g, '');
+    name.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
 
-  /* ✅ FIND CATEGORY */
   useEffect(() => {
     if (!categories?.data || !slug) return;
 
@@ -69,7 +62,6 @@ export default function CategoriesBasedProduct() {
 
   const categoryName = categoryData?.name || 'Category';
 
-  /* ✅ FILTER PRODUCTS */
   const filteredProducts = products?.data?.filter(
     (p: any) => p.category?.toString() === categoryData?.id?.toString()
   );
@@ -97,74 +89,66 @@ export default function CategoriesBasedProduct() {
 
   return (
     <div ref={topRef} className="max-w-6xl mx-auto px-2 md:px-4 py-10">
-      {/* ✅ BREADCRUMB (CRAWLABLE) */}
+      {/* Breadcrumb */}
       <div className="mb-5 flex items-center gap-2 text-gray-400 text-sm">
-        <ArrowLeft
-          onClick={() => router.back()}
-          className="cursor-pointer"
-        />
-        <a href="/" className="hover:underline">
-          Home
-        </a>
+        <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
+        <a href="/" className="hover:underline">Home</a>
         <span>/</span>
         <span className="text-orange-500">{categoryName}</span>
       </div>
 
-      {/* ✅ MAIN H1 (IMPORTANT FOR INDEXING) */}
+      {/* ✅ STRONG H1 */}
       <h2 className="text-3xl font-bold text-orange-500 mb-8 text-center">
         {categoryName}
       </h2>
 
+      {/* PRODUCTS */}
       {paginatedItems?.length > 0 ? (
-        <>
-          <ProductCard
-            isLoading={isLoading}
-            products={paginatedItems}
-            gridCols="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-          />
-
-          {/* 🔥 SEO CONTENT */}
-          {seoData?.content && (
-            <div className="mt-14 bg-gray-50 p-6 rounded-lg">
-              <div
-                className={`prose max-w-none ${
-                  showMore ? '' : 'line-clamp-4'
-                }`}
-                dangerouslySetInnerHTML={{ __html: seoData.content }}
-              />
-
-              {seoData.content.length > 300 && (
-                <button
-                  onClick={() => setShowMore(!showMore)}
-                  className="mt-3 text-blue-600 font-medium hover:underline"
-                >
-                  {showMore ? 'Read less' : 'Read more'}
-                </button>
-              )}
-            </div>
-          )}
-
-          {/* ✅ PAGINATION */}
-          {totalPages > 1 && (
-            <div className="flex justify-center mt-8">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={(page) => {
-                  setCurrentPage(page);
-                  topRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              />
-            </div>
-          )}
-        </>
+        <ProductCard
+          isLoading={isLoading}
+          products={paginatedItems}
+          gridCols="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        />
       ) : (
         <p className="text-center text-gray-500">
-          No products found for this category.
+          Products will be available soon in this category.
         </p>
       )}
 
-      {/* ✅ LOGIN MODAL */}
+      {/* ✅ SEO CONTENT — ALWAYS RENDERED */}
+      {seoData?.content && (
+        <div className="mt-14 bg-gray-50 p-6 rounded-lg">
+          <div
+            className={`prose max-w-none ${showMore ? '' : 'line-clamp-4'}`}
+            dangerouslySetInnerHTML={{ __html: seoData.content }}
+          />
+
+          {seoData.content.length > 300 && (
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="mt-3 text-blue-600 font-medium hover:underline"
+            >
+              {showMore ? 'Read less' : 'Read more'}
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-8">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) => {
+              setCurrentPage(page);
+              topRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          />
+        </div>
+      )}
+
+      {/* Login Modal */}
       {signInModal && (
         <LoginModal
           open={signInModal}
