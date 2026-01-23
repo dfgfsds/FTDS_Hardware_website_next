@@ -2,6 +2,7 @@ import CategoriesBasedProduct from "@/components/CategoriesBasedProduct";
 import categorySeo from "../../../seo/categorySeo.json";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 /* 🔹 SEO TYPE */
 type FAQ = {
@@ -21,13 +22,13 @@ type CategorySeoMap = Record<string, CategorySEO>;
 
 const seoDataMap = categorySeo as CategorySeoMap;
 
-// ✅ Dynamic SEO
+// ✅ Dynamic SEO (CRITICAL FIX)
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
-}) {
-  const seo = seoDataMap[params.id];
+  params: { slug: string };
+}): Promise<Metadata> {
+  const seo = seoDataMap[params.slug];
 
   if (!seo) {
     return {
@@ -45,6 +46,10 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
     },
   };
 }
@@ -53,9 +58,9 @@ export async function generateMetadata({
 export default function CategoriesProduct({
   params,
 }: {
-  params: { id: string };
+  params: { slug: string };
 }) {
-  const seo = seoDataMap[params.id];
+  const seo = seoDataMap[params.slug];
 
   if (!seo) {
     notFound();
@@ -65,6 +70,9 @@ export default function CategoriesProduct({
 
   return (
     <>
+      {/* ✅ H1 FOR SEO */}
+      <h2 className="sr-only">{seo.metaTitle}</h2>
+
       <CategoriesBasedProduct />
 
       {/* ✅ FAQ SCHEMA */}

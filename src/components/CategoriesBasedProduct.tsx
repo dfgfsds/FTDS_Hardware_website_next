@@ -29,8 +29,10 @@ const seoMap = categorySeo as Record<string, CategorySEO>;
 export default function CategoriesBasedProduct() {
   const topRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const params = useParams<{ id: string }>();
-  const slug = params?.id;
+
+  /* ✅ FIXED PARAM */
+  const params = useParams<{ slug: string }>();
+  const slug = params?.slug;
 
   const { products, isLoading }: any = useProducts();
   const { categories }: any = useCategories();
@@ -39,7 +41,7 @@ export default function CategoriesBasedProduct() {
 
   const [categoryData, setCategoryData] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [signInmodal, setSignInModal] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
   const ITEMS_PER_PAGE = 12;
@@ -48,8 +50,13 @@ export default function CategoriesBasedProduct() {
   const seoData = slug ? seoMap[slug] : null;
 
   const slugConvert = (name: string) =>
-    name.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+    name
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '');
 
+  /* ✅ FIND CATEGORY */
   useEffect(() => {
     if (!categories?.data || !slug) return;
 
@@ -62,6 +69,7 @@ export default function CategoriesBasedProduct() {
 
   const categoryName = categoryData?.name || 'Category';
 
+  /* ✅ FILTER PRODUCTS */
   const filteredProducts = products?.data?.filter(
     (p: any) => p.category?.toString() === categoryData?.id?.toString()
   );
@@ -89,16 +97,22 @@ export default function CategoriesBasedProduct() {
 
   return (
     <div ref={topRef} className="max-w-6xl mx-auto px-2 md:px-4 py-10">
-      {/* Breadcrumb */}
-      <div className="mb-5 flex items-center gap-2 text-gray-400">
-        <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
-        <span>Home</span>
+      {/* ✅ BREADCRUMB (CRAWLABLE) */}
+      <div className="mb-5 flex items-center gap-2 text-gray-400 text-sm">
+        <ArrowLeft
+          onClick={() => router.back()}
+          className="cursor-pointer"
+        />
+        <a href="/" className="hover:underline">
+          Home
+        </a>
         <span>/</span>
         <span className="text-orange-500">{categoryName}</span>
       </div>
 
+      {/* ✅ MAIN H1 (IMPORTANT FOR INDEXING) */}
       <h2 className="text-3xl font-bold text-orange-500 mb-8 text-center">
-        {categoryName} 
+        {categoryName}
       </h2>
 
       {paginatedItems?.length > 0 ? (
@@ -130,6 +144,7 @@ export default function CategoriesBasedProduct() {
             </div>
           )}
 
+          {/* ✅ PAGINATION */}
           {totalPages > 1 && (
             <div className="flex justify-center mt-8">
               <Pagination
@@ -149,9 +164,10 @@ export default function CategoriesBasedProduct() {
         </p>
       )}
 
-      {signInmodal && (
+      {/* ✅ LOGIN MODAL */}
+      {signInModal && (
         <LoginModal
-          open={signInmodal}
+          open={signInModal}
           handleClose={() => setSignInModal(false)}
           vendorId={vendorId}
         />
