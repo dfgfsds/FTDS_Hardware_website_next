@@ -1,7 +1,14 @@
 User-agent: *
 Allow: /
+
+# ❌ Block internal system paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 
+# ❌ Block WooCommerce-style query URLs
+Disallow: /*?product_cat=
+Disallow: /*&product_cat=
+
+# ✅ Sitemap
 Sitemap: https://www.ftds.in/sitemap.xml
