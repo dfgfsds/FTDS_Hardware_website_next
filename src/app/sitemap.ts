@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
-
-const baseUrl = 'https://www.ftds.in'
 const lastMod = new Date()
+const baseUrl = 'https://www.ftds.in'
+
 
 /* ✅ ALL INDEXABLE PAGES */
 const staticPages = [
