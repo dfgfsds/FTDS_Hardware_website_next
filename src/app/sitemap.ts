@@ -22,8 +22,7 @@ const staticPages = [
   '/categories/mouse',
   '/categories/printers',
 
-  /* 🔥 SEO LANDING PAGE */
-  '/refurbished-laptop-in-chennai',
+
 
   /* 🧾 POLICY PAGES */
   '/privacy_policy',
@@ -54,8 +53,6 @@ const priorities: Record<string, number> = {
   '/categories/mouse': 0.78,
 
   '/categories/printers': 0.75,
-
-  '/refurbished-laptop-in-chennai': 0.9,
 
   '/about': 0.8,
   '/contact': 0.8,

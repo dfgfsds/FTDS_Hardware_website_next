@@ -188,7 +188,7 @@ export default function AboutPage() {
             <div className="order-2 md:order-1">
               <h1 className="text-2xl md:text-4xl text-gray-800  font-bold md:mt-8  mb-3">
                 About Our Company – Quality <Link
-                  href="/refurbished-laptop-in-chennai"> Refurbished Laptops & Desktops</Link> You Can Trust
+                  href="/categories/refurbished-laptops"> Refurbished Laptops & Desktops</Link> You Can Trust
               </h1>
               <p className="text-gray-700 text-base leading-relaxed mb-2">
                 At FTDS Hardware, we specialize in providing premium refurbished IT solutions that combine performance, quality, and value. Every laptop and desktop we sell goes through a thorough multi-point inspection and testing process, ensuring like-new performance and long-lasting durability.
