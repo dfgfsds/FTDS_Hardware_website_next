@@ -4,13 +4,14 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import axios from "axios";
-import { formatDate, slugConvert } from "../../lib/utils";
+import { formatDate, slugConvert } from "../../../lib/utils";
+import Link from "next/link";
 
 interface Blog {
   id: number;
   title: string;
   excerpt: string;
-  banner_url: string;
+  image: string;
   created_at: string;
   author: string;
 }
@@ -24,28 +25,20 @@ const cardVariants = {
   }),
 };
 
-export default function RecentBlogs() {
+export default function BlogsPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
+
+
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const vendorId = 87; // adjust if dynamic later
+        const vendorId = 87; // change if dynamic later
         const response = await axios.get(
           `https://test-ecomapi.justvy.in/blog/?vendor_id=${vendorId}`
         );
-
-        // Sort by created_at and take top 3
-        const sortedBlogs = (response.data?.blogs || [])
-          .sort(
-            (a: Blog, b: Blog) =>
-              new Date(b.created_at).getTime() -
-              new Date(a.created_at).getTime()
-          )
-          .slice(0, 3);
-
-        setBlogs(sortedBlogs);
+        setBlogs(response.data?.blogs || []);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       } finally {
@@ -63,18 +56,12 @@ export default function RecentBlogs() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.2 }}
           className="text-center mb-12"
         >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 text-center mb-8">
-           Latest Blog Posts from{" "}
-          <span className="text-orange-500">FTDS Hardware</span>
-        </h2>
-          
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Stay updated with the latest tech insights, maintenance tips, and
-            hardware news from FTDS Hardware — your trusted source for
-            refurbished laptops, desktops, and IT solutions in Chennai.
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Blog</h2>
+          <p className="text-gray-500">
+            Tips, trends, and advice for all things desktop, gaming, and IT accessories.
           </p>
         </motion.div>
 
@@ -84,7 +71,7 @@ export default function RecentBlogs() {
           <p className="text-center text-gray-500">No blogs found.</p>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog: Blog, i: number) => (
+            {blogs.map((blog: any, i: number) => (
               <motion.div
                 key={blog.id}
                 custom={i}
@@ -110,7 +97,7 @@ export default function RecentBlogs() {
                     <h3 className="text-lg font-semibold text-gray-800">
                       {blog.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                    <p className="text-sm text-gray-600 mt-2">
                       {blog.excerpt}
                     </p>
                   </div>
@@ -119,12 +106,12 @@ export default function RecentBlogs() {
                     <div className="text-xs text-gray-400">
                       {formatDate(blog.created_at)} · by {blog.author}
                     </div>
-                    <a
-                      href={`/blog/${slugConvert(blog.title)}`}
+                    <Link
+                      href={`/blog/${slugConvert(blog?.title)}`}
                       className="inline-block mt-2 text-orange-500 hover:underline font-medium text-sm"
                     >
                       Read More →
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -135,5 +122,3 @@ export default function RecentBlogs() {
     </section>
   );
 }
-
-
