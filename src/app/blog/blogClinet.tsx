@@ -11,7 +11,7 @@ interface Blog {
   id: number;
   title: string;
   excerpt: string;
-  image: string;
+  banner_url: string;
   created_at: string;
   author: string;
 }
@@ -29,18 +29,16 @@ export default function BlogsPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
 
-
-
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const vendorId = 87; // change if dynamic later
-        const response = await axios.get(
+        const vendorId = 87;
+        const res = await axios.get(
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`
         );
-        setBlogs(response.data?.blogs || []);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
+        setBlogs(res.data?.blogs || []);
+      } catch (err) {
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -71,7 +69,7 @@ export default function BlogsPage() {
           <p className="text-center text-gray-500">No blogs found.</p>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog: any, i: number) => (
+            {blogs.map((blog: Blog, i: number) => (
               <motion.div
                 key={blog.id}
                 custom={i}
@@ -81,7 +79,6 @@ export default function BlogsPage() {
                 variants={cardVariants}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
               >
-                {/* Image */}
                 <div className="relative w-full h-56">
                   <Image
                     src={blog.banner_url}
@@ -91,15 +88,10 @@ export default function BlogsPage() {
                   />
                 </div>
 
-                {/* Content */}
                 <div className="flex flex-col justify-between flex-grow p-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {blog.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mt-2">
-                      {blog.excerpt}
-                    </p>
+                    <h3 className="text-lg font-semibold text-gray-800">{blog.title}</h3>
+                    <p className="text-sm text-gray-600 mt-2">{blog.excerpt}</p>
                   </div>
 
                   <div className="mt-6">
@@ -107,7 +99,7 @@ export default function BlogsPage() {
                       {formatDate(blog.created_at)} · by {blog.author}
                     </div>
                     <Link
-                      href={`/blog/${slugConvert(blog?.title)}`}
+                      href={`/blog/${slugConvert(blog.title)}`}
                       className="inline-block mt-2 text-orange-500 hover:underline font-medium text-sm"
                     >
                       Read More →
