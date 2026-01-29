@@ -1,69 +1,64 @@
 import type { MetadataRoute } from 'next'
-const lastMod = new Date()
+
 const baseUrl = 'https://www.ftds.in'
 
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const lastMod = new Date()
 
-/* ✅ ALL INDEXABLE PAGES */
-const staticPages = [
-  '/',
-  '/shop',
-  '/categories',
-  '/about',
-  '/contact',
-  '/blog',
+  /* ✅ STATIC PAGES */
+  const staticPages = [
+    '/',
+    '/shop',
+    '/categories',
+    '/about',
+    '/contact',
+    '/blog',
 
-  /* 🔥 CATEGORY PAGES */
-  '/categories/refurbished-laptops',
-  '/categories/refurbished-desktops',
-  '/categories/laptops-and-desktops',
-  '/categories/refurbished-monitors',
-  '/categories/computer-components',
-  '/categories/keyboard-and-mouse',
-  '/categories/mouse',
-  '/categories/printers',
+    '/categories/refurbished-laptops',
+    '/categories/refurbished-desktops',
+    '/categories/laptops-and-desktops',
+    '/categories/refurbished-monitors',
+    '/categories/computer-components',
+    '/categories/keyboard-and-mouse',
+    '/categories/mouse',
+    '/categories/printers',
 
+    '/privacy_policy',
+    '/delivery_policy',
+    '/refund_and_cancellation_policy',
+    '/shipping_policy',
+    '/terms_and_conditions',
+  ]
 
+  /* ✅ FETCH BLOGS */
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=87`,
+    { cache: 'no-store' }
+  )
 
-  /* 🧾 POLICY PAGES */
-  '/privacy_policy',
-  '/delivery_policy',
-  '/refund_and_cancellation_policy',
-  '/shipping_policy',
-  '/terms_and_conditions',
+  const data = await res.json()
 
-  /* 👤 USER PAGES (OPTIONAL INDEX) */
-  '/profile',
-  '/cart'
-]
+  const blogPages =
+    data?.blogs?.map((blog: any) => ({
+      url: `${baseUrl}/blog/${slugConvert(blog.title)}`,
+      lastModified: new Date(blog.created_at),
+      priority: 0.7,
+    })) || []
 
-/* ✅ PRIORITY MAP (SEO OPTIMIZED) */
-const priorities: Record<string, number> = {
-  '/': 1.0,
-  '/shop': 0.9,
-  '/categories': 0.9,
-
-  '/categories/refurbished-laptops': 0.85,
-  '/categories/refurbished-desktops': 0.85,
-  '/categories/laptops-and-desktops': 0.82,
-
-  '/categories/refurbished-monitors': 0.8,
-  '/categories/computer-components': 0.8,
-
-  '/categories/keyboard-and-mouse': 0.78,
-  '/categories/mouse': 0.78,
-
-  '/categories/printers': 0.75,
-
-  '/about': 0.8,
-  '/contact': 0.8,
-  '/blog': 0.8
-}
-
-/* ✅ SITEMAP EXPORT */
-export default function sitemap(): MetadataRoute.Sitemap {
-  return staticPages.map((path) => ({
+  /* ✅ STATIC PAGE MAP */
+  const staticUrls = staticPages.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: lastMod,
-    priority: priorities[path] ?? 0.64
+    priority: path === '/' ? 1.0 : 0.8,
   }))
+
+  return [...staticUrls, ...blogPages]
+}
+
+/* ✅ SLUG FUNCTION */
+function slugConvert(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-')
 }
