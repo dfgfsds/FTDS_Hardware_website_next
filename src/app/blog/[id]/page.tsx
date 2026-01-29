@@ -26,7 +26,7 @@ export default function BlogDetail() {
             try {
                 const vendorId = 87; // change later if needed
                 const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`
+                    `https://test-ecomapi.justvy.in/blog/?vendor_id=${vendorId}`
                 );
 
                 const blogs: Blog[] = response.data?.blogs || [];
