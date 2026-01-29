@@ -28,6 +28,11 @@ const faqData = [
     answer:
       "Yes. Every refurbished computer sold by FTDS Hardware undergoes a rigorous multi-point inspection and testing process to ensure consistent performance. Which makes us the best sellers of Refurbished Computers in Chennai ",
   },
+   {
+    question: 'Which brands of refurbished computers do you sell?',
+    answer:
+      "We stock a rotating selection of Dell refurbished computers , HP refurbished computers , Lenovo refurbished computers , Acer refurbished computers , and ASUS refurbished computers",
+  },
  
 ];
 
