@@ -1,4 +1,4 @@
-import CategoriesBasedProduct from "@/components/CategoriesBasedProduct";
+import CategoriesBasedProduct from "../../../components/CategoriesBasedProduct";
 import categorySeo from "../../../seo/categorySeo.json";
 import Script from "next/script";
 import { notFound } from "next/navigation";
