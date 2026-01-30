@@ -1,64 +1,64 @@
 import type { MetadataRoute } from 'next'
 
-const lastMod = new Date()
 const baseUrl = 'https://www.ftds.in'
 
-/* ✅ ALL INDEXABLE PAGES */
-const staticPages = [
-  '/',
-  '/shop',
-  '/categories',
-  '/about',
-  '/contact',
-  '/blog',
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const lastMod = new Date()
 
-  /* 🔥 CATEGORY PAGES */
-  '/categories/refurbished-laptops',
-  '/categories/refurbished-desktops',
-  '/categories/laptops-and-desktops',
-  '/categories/refurbished-monitors',
-  '/categories/computer-components',
-  '/categories/keyboard-and-mouse',
-  '/categories/mouse',
-  '/categories/printers',
+  /* ✅ STATIC PAGES */
+  const staticPages = [
+    '/',
+    '/shop',
+    '/categories',
+    '/about',
+    '/contact',
+    '/blog',
 
-  /* 🧾 POLICY PAGES */
-  '/privacy_policy',
-  '/delivery_policy',
-  '/refund_and_cancellation_policy',
-  '/shipping_policy',
-  '/terms_and_conditions',
+    '/categories/refurbished-laptops',
+    '/categories/refurbished-desktops',
+    '/categories/laptops-and-desktops',
+    '/categories/refurbished-monitors',
+    '/categories/computer-components',
+    '/categories/keyboard-and-mouse',
+    '/categories/mouse',
+    '/categories/printers',
 
-  /* 👤 USER PAGES (OPTIONAL INDEX) */
-  '/profile',
-  '/cart',
-]
+    '/privacy_policy',
+    '/delivery_policy',
+    '/refund_and_cancellation_policy',
+    '/shipping_policy',
+    '/terms_and_conditions',
+  ]
 
-/* ✅ PRIORITY MAP (SEO OPTIMIZED) */
-const priorities: Record<string, number> = {
-  '/': 1.0,
-  '/shop': 0.9,
-  '/categories': 0.9,
+  /* ✅ FETCH BLOGS */
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=87`,
+    { cache: 'no-store' }
+  )
 
-  '/categories/refurbished-laptops': 0.85,
-  '/categories/refurbished-desktops': 0.85,
-  '/categories/laptops-and-desktops': 0.82,
-  '/categories/refurbished-monitors': 0.8,
-  '/categories/computer-components': 0.8,
-  '/categories/keyboard-and-mouse': 0.78,
-  '/categories/mouse': 0.78,
-  '/categories/printers': 0.75,
+  const data = await res.json()
 
-  '/about': 0.8,
-  '/contact': 0.8,
-  '/blog': 0.8,
+  const blogPages =
+    data?.blogs?.map((blog: any) => ({
+      url: `${baseUrl}/blog/${slugConvert(blog.title)}`,
+      lastModified: new Date(blog.created_at),
+      priority: 0.7,
+    })) || []
+
+  /* ✅ STATIC PAGE MAP */
+  const staticUrls = staticPages.map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: lastMod,
+    priority: path === '/' ? 1.0 : 0.8,
+  }))
+
+  return [...staticUrls, ...blogPages]
 }
 
-/* ✅ SITEMAP EXPORT */
-export default function sitemap(): MetadataRoute.Sitemap {
-  return staticPages.map((path) => ({
-    url: `${baseUrl}${path}`,   // ✅ FIXED
-    lastModified: lastMod,
-    priority: priorities[path] ?? 0.64,
-  }))
+/* ✅ SLUG FUNCTION */
+function slugConvert(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-')
 }
