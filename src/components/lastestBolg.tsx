@@ -33,7 +33,7 @@ export default function RecentBlogs() {
       try {
         const vendorId = 87; // adjust if dynamic later
         const response = await axios.get(
-          `https://test-ecomapi.justvy.in/blog/?vendor_id=${vendorId}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`
         );
 
         // Sort by created_at and take top 3
