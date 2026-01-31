@@ -36,7 +36,7 @@ export default function BlogsPage() {
       try {
         const vendorId = 87; // change if dynamic later
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`
+          `https://ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${vendorId}`
         );
         setBlogs(response.data?.blogs || []);
       } catch (error) {

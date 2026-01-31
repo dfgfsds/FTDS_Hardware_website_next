@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   /* ✅ FETCH BLOGS */
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=87`,
+    `https://ecomapi.ftdigitalsolutions.org/blog/?vendor_id=87`,
     { cache: 'no-store' }
   )
 
