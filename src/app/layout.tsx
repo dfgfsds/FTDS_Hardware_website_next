@@ -29,6 +29,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           content="FJCD5zIa7YpeZfrsyjdOCaUJu3Mar708F6yRrjljPXo"
         />
 
+        {/* Pinterest Verification  */}
+        <meta
+          name="p:domain_verify"
+          content="92dc67d15bc5cbc1f7663e2a5c78251e"
+        />
+
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`
