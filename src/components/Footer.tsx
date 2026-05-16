@@ -5,7 +5,7 @@ import Visa from '../../public/assets/visa.svg'
 import Paypal from '../../public/assets/paypal.svg'
 import MasterCard from '../../public/assets/mastercard.svg'
 import { FaXTwitter } from "react-icons/fa6";
-import { FaFacebookF, FaYoutube, FaInstagram , FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaFacebookF, FaYoutube, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
 
@@ -115,7 +115,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"
               >
-                <FaXTwitter   />
+                <FaXTwitter />
               </a>
 
             </div>
@@ -127,7 +127,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <p className="text-slate-800 mb-4 text-sm font-semibold"> &copy; 2025 <Link target='_blank' href='https://ftdigitalsolutions.in'>Ft Digital Solutions ( Agency ).</Link> All rights Reserved</p>
+            <p className="text-slate-800 mb-4 text-sm font-semibold"> &copy; {new Date().getFullYear()} <Link target='_blank' href='https://ftdigitalsolutions.in'>Ft Digital Solutions.</Link> All rights Reserved</p>
 
           </div>
 
