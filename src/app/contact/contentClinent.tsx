@@ -99,7 +99,7 @@ export default function ContactSection() {
               reach us directly using the info below.
             </p>
 
-            <div className="space-y-4">
+            {/* <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <FaPhone className="text-orange-500" />
                 <span className="text-gray-700">+91-7277929292</span>
@@ -114,11 +114,45 @@ export default function ContactSection() {
                   Chennai, Tamil Nadu, India
                 </span>
               </div>
+            </div> */}
+
+            <div className="flex items-center space-x-4">
+              <FaPhone className="text-orange-500" />
+              <a
+                href="tel:+917277929292"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              >
+                +91-7277929292
+              </a>
+            </div>
+
+            <div className="flex items-center space-x-4">
+              <FaEnvelope className="text-orange-500" />
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=ftdigitalsolution777@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              >
+                ftdigitalsolution777@gmail.com
+              </a>
+            </div>
+
+            <div className="flex items-center space-x-4">
+              <FaMapMarkerAlt className="text-orange-500" />
+              <a
+                href="https://maps.app.goo.gl/xGmPLEX6uZfUVmqz6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              >
+                Chennai, Tamil Nadu, India
+              </a>
             </div>
 
             <div className="mt-8 w-full h-64 rounded-xl overflow-hidden shadow-md">
               <iframe
-                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62189.32386072363!2d80.22680439855388!3d13.046316228125049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ba1580ee317297%3A0x5aa0f0c4f277d9f0!2sFT%20Digital%20Solutions%20hardware!5e0!3m2!1sen!2sin!4v1752645922724!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62189.32386072363!2d80.22680439855388!3d13.046316228125049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ba1580ee317297%3A0x5aa0f0c4f277d9f0!2sFT%20Digital%20Solutions%20hardware!5e0!3m2!1sen!2sin!4v1752645922724!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -130,7 +164,7 @@ export default function ContactSection() {
           </motion.div>
         </motion.div>
       </section>
-{/* 
+      {/* 
       <FeatureHighlights /> */}
     </div>
   );
