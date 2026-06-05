@@ -14,7 +14,7 @@ import aboutlogo from "../../../public/assets/about/2.webp";
 // app/about/page.tsx
 
 export async function generateMetadata() {
-   const aboutSchema = {
+  const aboutSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -54,10 +54,50 @@ export async function generateMetadata() {
   };
 
 
+  // return {
+  //   title: " About FTDS Hardware | Refurbished Laptops Chennai",
+  //   description:
+  //     " Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+
+  //   robots: {
+  //     index: true,
+  //     follow: true,
+  //   },
+
+  //   alternates: {
+  //     canonical: "https://www.ftds.in/about",
+  //   },
+  //   openGraph: {
+  //     title: " About FTDS Hardware | Refurbished Laptops Chennai",
+  //     description:
+  //       " Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+  //     url: "https://www.ftds.in/about",
+  //     siteName: "FTDS Hardware",
+  //     type: "website",
+  //   },
+  //   twitter: { card: "summary_large_image" },
+
+  //   // ⭐ SSR Script inside <head>
+  //   other: {
+  //     "application/ld+json": JSON.stringify(aboutSchema),
+  //   },
+  // };
+
   return {
-    title: " About FTDS Hardware | Trusted Refurbished Computer Store in Chennai",
+    title: "About FTDS Hardware | Refurbished Laptops Chennai",
+
     description:
-      " Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+      "Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+
+    keywords: [
+      "FTDS Hardware",
+      "refurbished laptops Chennai",
+      "computer store Chennai",
+      "refurbished desktops Chennai",
+      "used laptops Chennai",
+      "IT hardware Chennai",
+      "trusted laptop store Chennai",
+    ],
 
     robots: {
       index: true,
@@ -67,17 +107,23 @@ export async function generateMetadata() {
     alternates: {
       canonical: "https://www.ftds.in/about",
     },
+
     openGraph: {
-      title: " About FTDS Hardware | Trusted Refurbished Computer Store in Chennai",
+      title: "About FTDS Hardware | Refurbished Laptops Chennai",
       description:
-        " Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+        "Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
       url: "https://www.ftds.in/about",
       siteName: "FTDS Hardware",
       type: "website",
     },
-    twitter: { card: "summary_large_image" },
 
-    // ⭐ SSR Script inside <head>
+    twitter: {
+      card: "summary_large_image",
+      title: "About FTDS Hardware | Refurbished Laptops Chennai",
+      description:
+        "Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+    },
+
     other: {
       "application/ld+json": JSON.stringify(aboutSchema),
     },
