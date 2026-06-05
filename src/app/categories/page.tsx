@@ -42,7 +42,7 @@ export async function generateMetadata() {
 
   return {
     title:
-      "Explore Refurbished Laptops and Desktops in Chennai | FTDS Hardware",
+      "Shop IT Categories | Refurbished Laptops & Computers FTDS ",
 
     description:
       "Explore the best refurbished laptops and desktops in Chennai from Dell, HP, Lenovo, Acer, and ASUS. Tested and certified systems with 12-month warranty",
@@ -58,7 +58,7 @@ export async function generateMetadata() {
 
     openGraph: {
       title:
-        "Explore Refurbished Laptops and Desktops in Chennai | FTDS Hardware",
+        "Shop IT Categories | Refurbished Laptops & Computers FTDS ",
       description:
         "Explore the best refurbished laptops and desktops in Chennai from Dell, HP, Lenovo, Acer, and ASUS. Tested and certified systems with 12-month warranty",
       url: "https://www.ftds.in/categories",

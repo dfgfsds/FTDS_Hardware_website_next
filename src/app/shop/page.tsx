@@ -4,7 +4,7 @@ import ShopPageClient from "./ShopPageClient";
 
 export async function generateMetadata() {
 
-   const shopSchema = {
+  const shopSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -37,11 +37,53 @@ export async function generateMetadata() {
       },
     ],
   };
+  // return {
+  //   title: "Shop Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
+
+  //   description:
+  //     " Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware.Tested with warranty and fast delivery in Chennai.",
+
+  //   robots: {
+  //     index: true,
+  //     follow: true,
+  //   },
+
+  //   alternates: {
+  //     canonical: "https://www.ftds.in/shop",
+  //   },
+
+  //   openGraph: {
+  //     title: "Shop Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
+  //     description:
+  //       " Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware.Tested with warranty and fast delivery in Chennai.",
+  //     url: "https://www.ftds.in/shop",
+  //     siteName: "FTDS Hardware",
+  //     type: "website",
+  //   },
+
+  //   twitter: {
+  //     card: "summary_large_image",
+  //   },
+
+  //   other: {
+  //     "application/ld+json": JSON.stringify(shopSchema),
+  //   },
+  // };
+
   return {
-    title: "Shop Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
+    title: "Shop Refurbished Laptops & IT Products | FTDS",
 
     description:
-      " Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware.Tested with warranty and fast delivery in Chennai.",
+      "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
+
+    keywords: [
+      "refurbished laptops Chennai",
+      "buy laptops online India",
+      "IT hardware store Chennai",
+      "refurbished desktops",
+      "laptop deals FTDS",
+      "computer accessories India",
+    ],
 
     robots: {
       index: true,
@@ -53,9 +95,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "Shop Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
+      title: "Shop Refurbished Laptops & IT Products | FTDS",
       description:
-        " Buy certified refurbished laptops, desktops, monitors, and accessories at affordable prices from FTDS Hardware.Tested with warranty and fast delivery in Chennai.",
+        "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
       url: "https://www.ftds.in/shop",
       siteName: "FTDS Hardware",
       type: "website",
@@ -63,6 +105,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
+      title: "Shop Refurbished Laptops & IT Products | FTDS",
+      description:
+        "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
     },
 
     other: {
