@@ -13,6 +13,23 @@ export const metadata = {
   description:
     "Buy refurbished computers in Chennai from FTDS Hardware. Certified laptops and desktops with warranty, transparent specs, and reliable support.",
 
+  keywords: [
+    "refurbished laptops Chennai",
+    "refurbished desktops Chennai",
+    "refurbished computers Chennai",
+    "Dell refurbished laptops",
+    "HP refurbished laptops",
+    "Lenovo refurbished laptops",
+    "ASUS refurbished laptops",
+    "Acer refurbished laptops",
+    "certified refurbished systems",
+    "used laptops Chennai",
+    "second hand computers Chennai",
+    "affordable laptops Chennai",
+    "refurbished IT hardware",
+    "FTDS Hardware",
+  ],
+
   robots: {
     index: true,
     follow: true,
@@ -42,7 +59,7 @@ export const metadata = {
 
 export default function Home() {
   const schema = {
-   "@context": "https://schema.org",
+    "@context": "https://schema.org",
     "@type": "ComputerStore",
     "@id": "https://www.ftds.in/#computerstore",
     "name": "FTDS Hardware",
@@ -76,15 +93,15 @@ export default function Home() {
       }
     ],
     "sameAs": [
-    "https://www.facebook.com/ftdshardware",
-    "https://www.instagram.com/ftds_hardware"
-  ]
-};
+      "https://www.facebook.com/ftdshardware",
+      "https://www.instagram.com/ftds_hardware"
+    ]
+  };
 
-return (
-  <>
-   
-       <Script
+  return (
+    <>
+
+      <Script
         id="computer-store-schema"
         type="application/ld+json"
         strategy="beforeInteractive"
@@ -93,17 +110,17 @@ return (
         }}
       />
 
-    <main>
-      <MainSlider />
-      <SubBanners />
-      <TrandingProduct />
-      <WhyChoose />
-      <FaqSection />
-       <Testimonials/>
-      <FeatureHighlights />
-     
-      <RecentBlogs />
-    </main>
-  </>
-);
+      <main>
+        <MainSlider />
+        <SubBanners />
+        <TrandingProduct />
+        <WhyChoose />
+        <FaqSection />
+        <Testimonials />
+        <FeatureHighlights />
+
+        <RecentBlogs />
+      </main>
+    </>
+  );
 }
