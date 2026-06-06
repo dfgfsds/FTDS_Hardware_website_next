@@ -7,7 +7,7 @@ import BlogsPage from "./blogClinet";
 
 export async function generateMetadata() {
 
-   const blogSchema = {
+  const blogSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -50,6 +50,33 @@ export async function generateMetadata() {
 
     description:
       "Read expert blogs from FTDS Hardware on refurbished computers, buying guides, hardware tips, and cost-effective tech solutions.",
+
+    keywords: [
+      "FTDS Hardware Blog",
+      "refurbished laptop blog",
+      "refurbished computer blog",
+      "refurbished laptop buying guide",
+      "refurbished desktop buying guide",
+      "Dell refurbished laptops",
+      "HP refurbished laptops",
+      "Lenovo refurbished laptops",
+      "laptop reviews Chennai",
+      "refurbished laptop reviews",
+      "refurbished computer tips",
+      "laptop maintenance tips",
+      "computer hardware blog",
+      "business laptop guide",
+      "affordable laptops Chennai",
+      "refurbished IT hardware",
+      "refurbished technology blog",
+      "refurbished laptops Chennai",
+      "refurbished desktops Chennai",
+      "second hand laptop guide",
+      "used laptop buying tips",
+      "laptop comparison guide",
+      "computer upgrade tips",
+      "FTDS Chennai",
+    ],
 
     robots: {
       index: true,
