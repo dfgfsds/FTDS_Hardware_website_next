@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function WhatsAppFloatingButton({
   phone = "917277929292",
-  message = `👋 Welcome to FT Digital Solutions Hardware!
+  message = `👋 Welcome to FTDS Hardware!
 
 Thank you for contacting us. We specialize in Laptops, Desktops, Printers, CCTV Systems, Networking Solutions, Computer Accessories, IT Hardware Sales, Repairs, and AMC Services.
 
