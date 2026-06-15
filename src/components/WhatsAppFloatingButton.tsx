@@ -4,16 +4,7 @@ import Link from "next/link";
 
 export default function WhatsAppFloatingButton({
   phone = "917277929292",
-  message = `👋 Welcome to FTDS Hardware!
-
-Thank you for contacting us. We specialize in Laptops, Desktops, Printers, CCTV Systems, Networking Solutions, Computer Accessories, IT Hardware Sales, Repairs, and AMC Services.
-
-How can we help you today?
-
-📞 Call: +91 7277929292
-🌐 Website: https://www.ftds.in/
-
-Our team will get back to you shortly.`,
+  message = `Hello! I am interested in your services.`,
 }: {
   phone?: string;
   message?: string;
