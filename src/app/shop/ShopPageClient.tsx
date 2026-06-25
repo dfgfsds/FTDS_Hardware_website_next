@@ -6,6 +6,7 @@ import ProductCard from '../../components/ProductCard';
 import { useCategories } from '@/context/CategoriesContext';
 import { useProducts } from '@/context/ProductsContext';
 import { Pagination } from '@/components/Pagination';
+import Image from 'next/image';
 
 interface Product {
   id: number;
@@ -46,7 +47,7 @@ export default function ShopPage() {
     currentPage * ITEMS_PER_PAGE
   );
 
-  
+
 
   return (
     <div className="max-w-full mx-auto py-5 px-4 md:px-10">
@@ -61,12 +62,20 @@ export default function ShopPage() {
         />
 
         <div className="w-full">
-          <img
+          {/* <img
             src="https://pclmu.com/wp-content/uploads/2021/03/inner-banner.jpg"
             alt="Shop Banner"
             className="w-full h-[250px] object-cover hidden lg:block rounded-2xl mb-10"
-          />
-
+          /> */}
+          <div className="relative w-full h-[250px] hidden lg:block rounded-2xl mb-10 overflow-hidden">
+            <Image
+              src="https://pclmu.com/wp-content/uploads/2021/03/inner-banner.jpg"
+              alt="Shop Banner"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
           <div className="flex justify-between mb-4">
             <p className="text-sm">
               Showing {filteredProducts?.length} of {products?.data?.length} results

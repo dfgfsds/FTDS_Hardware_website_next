@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export default function Testimonials() {
@@ -72,10 +73,17 @@ export default function Testimonials() {
                     {item.role}
                   </span>
                 </h4>
-                <img
+                {/* <img
                   src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
                   alt="Google Review"
                   className="h-6"
+                /> */}
+                <Image
+                  src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                  alt="Google Review"
+                  width={92}
+                  height={30}
+                  className="h-6 w-auto"
                 />
               </div>
 

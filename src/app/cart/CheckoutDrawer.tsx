@@ -6,7 +6,7 @@ import { InvalidateQueryFilters, useQuery, useQueryClient } from '@tanstack/reac
 import axios from 'axios';
 import { Loader2, MapPin, X } from 'lucide-react';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useVendor } from '@/context/VendorContext';
 import { useUser } from '@/context/UserContext';
 import { useCartItem } from '@/context/CartItemContext';
@@ -41,10 +41,10 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
     const [userId, setUserId] = useState<string | null>(null);
     const [paymentMethod, setPaymentMethod] = useState("");
 
-    useEffect(() => {
-        setUserName(user?.data?.name);
-        setUserId(user?.data?.id || localStorage.getItem('userId'));
-    }, []);
+useEffect(() => {
+    setUserName(user?.data?.name);
+    setUserId(user?.data?.id || localStorage.getItem('userId'));
+}, [user?.data?.id, user?.data?.name]);
 
     const { data, isLoading }: any = useQuery({
         queryKey: ['getAddressData', userId],
@@ -71,23 +71,42 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
         }
     }
 
-    const getDeliveryCharge = async () => {
+    // const getDeliveryCharge = async () => {
 
-        try {
-            const userId = user?.data?.id || localStorage.getItem('userId');
-            if (!userId) throw new Error("User ID not found");
-            const res = await axios.get(`${baseUrl}/vendor-site-payment-delivery-partner-details/${vendorId}/`)
-            setDeliveryInfo(res.data[0]);
-            console.log(res?.data[0], "delivery");
+    //     try {
+    //         const userId = user?.data?.id || localStorage.getItem('userId');
+    //         if (!userId) throw new Error("User ID not found");
+    //         const res = await axios.get(`${baseUrl}/vendor-site-payment-delivery-partner-details/${vendorId}/`)
+    //         setDeliveryInfo(res.data[0]);
+    //         console.log(res?.data[0], "delivery");
 
-        } catch (error) {
-            console.error("Error fetching delivery charge:", error);
-        }
+    //     } catch (error) {
+    //         console.error("Error fetching delivery charge:", error);
+    //     }
+    // }
+
+    const getDeliveryCharge = useCallback(async () => {
+    try {
+        const userId = user?.data?.id || localStorage.getItem('userId');
+        if (!userId) throw new Error("User ID not found");
+
+        const res = await axios.get(
+            `${baseUrl}/vendor-site-payment-delivery-partner-details/${vendorId}/`
+        );
+
+        setDeliveryInfo(res.data[0]);
+    } catch (error) {
+        console.error("Error fetching delivery charge:", error);
     }
+}, [vendorId, user?.data?.id]);
+
+    // useEffect(() => {
+    //     getDeliveryCharge()
+    // }, [paymentMethod])
 
     useEffect(() => {
-        getDeliveryCharge()
-    }, [paymentMethod])
+    getDeliveryCharge();
+}, [paymentMethod, getDeliveryCharge]);
 
     // getAppliedCouponDataApi
     const getAppliedCouponData: any = useQuery({

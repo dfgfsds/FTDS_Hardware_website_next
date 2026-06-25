@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FaTimes } from 'react-icons/fa';
 
@@ -39,7 +40,7 @@ export default function CartModal({ product, onClose }: CartModalProps) {
 <div className="flex flex-col lg:flex-row gap-6">
   {/* Product Info - Left Half */}
   <div className="w-full lg:w-1/2 flex gap-4">
-    <img
+    <Image
       src={product.image}
       alt={product.title}
       className="w-28 h-28 object-contain border rounded"

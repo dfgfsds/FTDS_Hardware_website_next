@@ -25,17 +25,24 @@ export default function AddressForm({ openModal, handleClose, editData }: Addres
         email_address: ''
     });
 
-    const [userId, setUserId] = useState<string | null>(null);
-    const [userName, setUserName] = useState<string | null>(null);
+    // const [userId, setUserId] = useState<string | null>(null);
+    // const [userName, setUserName] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const queryClient = useQueryClient();
     const { user } = useUser();
+const userId = user?.data?.id || null;
+const userName = user?.data?.name || null;
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setUserName(user?.data?.name);
-        setUserId(user?.data?.id);
-    }, []);
+    //     setUserName(user?.data?.name);
+    //     setUserId(user?.data?.id);
+    // }, []);
+
+//     useEffect(() => {
+//     setUserName(user?.data?.name || null);
+//     setUserId(user?.data?.id || null);
+// }, [user?.data?.id, user?.data?.name]);
 
     useEffect(() => {
         if (editData !== null) {
