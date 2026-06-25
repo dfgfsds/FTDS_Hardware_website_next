@@ -28,7 +28,7 @@ export default function CheckoutPage() {
         <div className="lg:col-span-2 border rounded-md p-4">
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             <div className="flex items-center gap-4 w-full sm:w-auto">
-              <img
+              <Image
                 src={product.image}
                 alt={product.title}
                 className="w-24 h-24 object-contain border rounded"

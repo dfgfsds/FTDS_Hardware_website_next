@@ -11,6 +11,7 @@ import { deleteCartitemsApi, postCartitemApi, updateCartitemsApi } from '@/api-e
 import LoginModal from './LoginModel';
 import { ShoppingCart } from 'lucide-react';
 import { slugConvert } from '../../lib/utils';
+import Image from 'next/image';
 
 interface Product {
   id: number;
@@ -118,7 +119,7 @@ export default function ProductDetail({ productId, productDetails: currentProduc
         <div className="grid md:grid-cols-2 gap-6">
           {/* Product Images */}
           <div className=" h-fit rounded">
-            <img
+            <Image
               src={currentProduct.image_urls[0]}
               alt={currentProduct.title}
               className="w-full h-96 object-contain border p-4"
