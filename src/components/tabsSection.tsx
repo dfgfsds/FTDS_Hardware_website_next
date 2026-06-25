@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import TabsData from "../data/TabsData.json";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import Image from "next/image";
 
 
 
@@ -49,9 +50,9 @@ export default function TrendingTabs() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-4 md:py-12">
-      <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-700 mb-8 px-2">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-700 mb-8 px-2">
  FTDS Hardware Shop – Laptops on sale, demos to watch, happy customers to trust.
-      </h1>
+      </h2>
 
       {/* Tabs */}
       <div className="overflow-x-auto scrollbar-hide mb-6">
@@ -103,7 +104,7 @@ export default function TrendingTabs() {
 </div>
 
               ) : (
-                <img
+                <Image
                   src={item.src}
                   alt={`${activeTab} ${item.id}`}
                   className="w-full md:h-48 sm:h-60 lg:h-full object-cover"

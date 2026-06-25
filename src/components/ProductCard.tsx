@@ -4,6 +4,7 @@ import { Eye } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { slugConvert } from '../../lib/utils';
+import Image from 'next/image';
 
 interface Product {
   id: number;
@@ -74,7 +75,7 @@ export default function ProductCard({
             {/* Stretchable Content Area */}
             <div className="flex flex-col flex-grow justify-between h-full">
               <div>
-                <img
+                <Image
                   src={product?.image_urls[0]}
                   alt={product?.name}
                   className="h-32 object-contain mx-auto mb-2"

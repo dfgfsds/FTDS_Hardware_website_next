@@ -6,7 +6,7 @@ import { useUser } from '@/context/UserContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import {
   HiOutlineUser,
@@ -88,13 +88,39 @@ export default function Navbar() {
   }, [query, isOpen]);
 
   // fetchSearchResults
-  const fetchSearchResults = (term) => {
+  // const fetchSearchResults = (term) => {
+  //   if (!products?.data) return;
+
+  //   const lower = term.toLowerCase();
+  //   const activeProducts = finalProducts?.filter((p) => {
+  //     return String(p?.status).toLowerCase() === "true";
+  //   });
+
+  //   const titleMatches = activeProducts.filter((p) =>
+  //     p.name?.toLowerCase().includes(lower)
+  //   );
+
+  //   const related = activeProducts
+  //     .filter(
+  //       (p) =>
+  //         !titleMatches.includes(p) &&
+  //         (p.description?.toLowerCase().includes(lower) ||
+  //           p.category_name?.toLowerCase().includes(lower))
+  //     )
+  //     .slice(0, 5);
+
+  //   setResults({ products: titleMatches, related: related });
+  //   setShowDropdown(true);
+  // };
+
+  const fetchSearchResults = useCallback((term) => {
     if (!products?.data) return;
 
     const lower = term.toLowerCase();
-    const activeProducts = finalProducts?.filter((p) => {
-      return String(p?.status).toLowerCase() === "true";
-    });
+
+    const activeProducts = finalProducts?.filter(
+      (p) => String(p?.status).toLowerCase() === "true"
+    );
 
     const titleMatches = activeProducts.filter((p) =>
       p.name?.toLowerCase().includes(lower)
@@ -109,9 +135,13 @@ export default function Navbar() {
       )
       .slice(0, 5);
 
-    setResults({ products: titleMatches, related: related });
+    setResults({
+      products: titleMatches,
+      related,
+    });
+
     setShowDropdown(true);
-  };
+  }, [products, finalProducts]);
 
   const isActive = (href) =>
     pathname === href
@@ -166,8 +196,8 @@ export default function Navbar() {
         {/* Desktop Contact Info */}
         <div className="hidden md:flex items-center space-x-2 text-sm text-gray-500">
           <span>24-hour response</span>
-   <span className="font-semibold text-gray-700">| <a href="tel:+917277929292"> +91-7277929292</a></span>
-              
+          <span className="font-semibold text-gray-700">| <a href="tel:+917277929292"> +91-7277929292</a></span>
+
         </div>
       </div>
 
@@ -217,52 +247,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Account & Cart */}
-        {/* <div className="flex md:hidden flex-col gap-4 px-4 mt-4 border-t pt-4">
-          <span className="text-gray-700 font-semibold">My Account</span>
 
-          <Link
-            href="/login"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center gap-2 text-gray-700 hover:text-orange-500"
-          >
-            <HiOutlineUser className="text-lg" />
-            Login
-          </Link>
-
-          <Link
-            href="/profile"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center gap-2 text-gray-700 hover:text-orange-500"
-          >
-            <HiOutlineUser className="text-lg" />
-            Profile
-          </Link>
-
-          <Link
-            href="/forgot-password"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center gap-2 text-gray-700 hover:text-orange-500"
-          >
-            <HiOutlineUser className="text-lg" />
-            Forgot Password
-          </Link>
-
-          <Link
-            href="/cart"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center justify-between text-gray-700 hover:text-orange-500"
-          >
-            <div className="flex items-center gap-2">
-              <HiOutlineShoppingCart className="text-lg" />
-              Cart
-            </div>
-            {
-              cartItem?.data?.length > 0 &&
-              <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">{cartItem?.data?.length}</span>
-            }
-          </Link>
-        </div> */}
       </div>
 
       {/* Bottom Bar */}
@@ -368,7 +353,7 @@ export default function Navbar() {
         <div
           className="absolute top-full left-0 right-0 md:left-[220px] md:right-auto z-50 bg-white border shadow-md rounded-md 
                max-h-[300px] w-full md:max-w-[500px] overflow-y-auto text-sm animate-in fade-in slide-in-from-top-2"
-          role="listbox"
+          // role="listbox"
         >
           {results.products.length > 0 ? (
             <>
@@ -376,7 +361,7 @@ export default function Navbar() {
 
               {results.products.map((item, i) => (
                 <div
-                  key={i}
+                  key={`r-${i}`}
                   onClick={() => {
                     setShowDropdown(false);
                     setQuery('');
@@ -384,7 +369,8 @@ export default function Navbar() {
                     router.push(`/product/${slugConvert(item?.name)}`);
                   }}
                   className="flex gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  role="option"
+                  // role="option"
+                  // aria-selected={false}
                 >
                   {item.image_urls?.[0] && (
                     <Image
@@ -419,6 +405,7 @@ export default function Navbar() {
                       }}
                       className="flex gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
                       role="option"
+                      aria-selected="false"
                     >
                       {item.image_urls?.[0] && (
                         <Image

@@ -309,12 +309,10 @@ function AddressTab() {
     const [getUserName, setUserName] = useState<string | null>(null);
     const { user } = useUser();
 
-
-    useEffect(() => {
-
-        setUserName(user?.data?.name);
-        setUserId(user?.data?.id);
-    }, []);
+useEffect(() => {
+    setUserName(user?.data?.name || null);
+    setUserId(user?.data?.id || null);
+}, [user?.data?.name, user?.data?.id]);
 
     const { data, isLoading }: any = useQuery({
         queryKey: ['getAddressData', userId],

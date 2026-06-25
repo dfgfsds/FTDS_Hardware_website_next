@@ -6,6 +6,7 @@ import Paypal from '../../public/assets/paypal.svg'
 import MasterCard from '../../public/assets/mastercard.svg'
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaYoutube, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Footer() {
 
@@ -147,20 +148,26 @@ export default function Footer() {
           <div >
 
             <div className="flex justify-center  mb-20 md:mb-4 md:justify-start gap-3  transition-all flex-wrap">
-              <img
+              <Image
                 src='/assets/visa.svg'
                 alt="visa"
                 className="h-12 object-contain"
+                width={60}
+                height={40}
               />
-              <img
+              <Image
                 src='/assets/mastercard.svg'
                 alt="mastercard"
                 className="h-12 object-contain"
+                width={60}
+                height={40}
               />
-              <img
+              <Image
                 src='/assets/paypal.svg'
                 alt="paypal"
                 className="h-12 object-contain"
+                width={60}
+                height={40}
               />
 
             </div>
