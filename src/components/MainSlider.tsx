@@ -41,24 +41,24 @@ export default function HeroSection() {
   // }, [vendorId]);
 
   useEffect(() => {
-  const bannerGetApi = async () => {
-    try {
-      const res = await axios.get(
-        `${baseUrl}/banners/?vendorId=${vendorId}`
-      );
+    const bannerGetApi = async () => {
+      try {
+        const res = await axios.get(
+          `${baseUrl}/banners/?vendorId=${vendorId}`
+        );
 
-      if (res.data?.banners) {
-        setBanners(res.data.banners);
+        if (res.data?.banners) {
+          setBanners(res.data.banners);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
 
-  if (vendorId) {
-    bannerGetApi();
-  }
-}, [vendorId]);
+    if (vendorId) {
+      bannerGetApi();
+    }
+  }, [vendorId]);
 
 
   // Pick random product whenever products change
@@ -79,18 +79,18 @@ export default function HeroSection() {
   //   return () => clearInterval(timer);
   // }, []);
 
-  
-useEffect(() => {
-  if (!banners.length) return;
 
-  const timer = setInterval(() => {
-    setCurrentSlide((prev) =>
-      prev === banners.length - 1 ? 0 : prev + 1
-    );
-  }, 5000);
+  useEffect(() => {
+    if (!banners.length) return;
 
-  return () => clearInterval(timer);
-}, [banners.length]);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) =>
+        prev === banners.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [banners.length]);
 
   return (
     <section className="flex flex-col lg:flex-row items-center justify-center gap-6 px-4 py-6 lg:px-12">
@@ -99,8 +99,8 @@ useEffect(() => {
         className=" w-full h-[400px]  md:h-[450px]  rounded-2xl overflow-hidden flex items-center justify-start text-start px-4 sm:px-6 lg:px-12 transition-all duration-700 relative bg-cover bg-no-repeat bg-[position:right] sm:bg-[position:center] "
         style={{
           backgroundImage: `url(./assets/banner.jpg)`,
-           
-          }}
+
+        }}
       >
         {/* Black Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-75 md:bg-opacity-65 rounded-2xl"></div>
@@ -108,10 +108,12 @@ useEffect(() => {
         {/* Text Content */}
         <div className="max-w-md text-white z-10 relative">
           <h1 className="text-2xl md:text-3xl font-bold leading-snug drop-shadow-md">
-           Refurbished Computers in Chennai – Certified Systems from FTDS Hardware
+            Refurbished Laptops & Desktops in Chennai — Certified, Tested & Warranty-Backed
           </h1>
           <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
-            FTDS Hardware offers Refurbished Laptops and Desktops in Chennai supported by Warranty and Expert Service.
+            FTDS Hardware sells professionally tested refurbished laptops and
+            desktops in Chennai with a 12-month warranty, transparent specifications,
+            and support for individuals, students, and businesses.
           </p>
           <Link href={banners[currentSlide]?.link || '/shop'}>
             <button className="mt-5 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-orange-500 hover:bg-gray-100 transition">
@@ -120,12 +122,12 @@ useEffect(() => {
           </Link>
         </div>
 
-     
+
       </div>
 
 
 
-    
+
     </section>
   );
 }
