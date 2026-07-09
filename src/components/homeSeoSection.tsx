@@ -22,9 +22,9 @@ export default function HomeSeoSection() {
                             }`}
                     >
 
-                        <section className="bg-gray-50 py-8 md:py-12">
+                        {/* <section className="bg-gray-50 py-8 md:py-12"> */}
 
-                            {/* <div className="max-w-7xl mx-auto text-center">
+                        {/* <div className="max-w-7xl mx-auto text-center">
 
                                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                                     <span className="">What We </span>Do
@@ -51,7 +51,7 @@ export default function HomeSeoSection() {
 
                                 </div>
                             </div> */}
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
                                 <div className="text-center mb-8 md:mb-12">
                                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
@@ -64,7 +64,7 @@ export default function HomeSeoSection() {
 
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
 
-                                    {/* Card 1 */}
+               
                                     <div className="bg-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8">
                                         <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-orange-50 text-orange-600 mb-4 md:mb-6 mx-auto md:mx-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,7 +81,7 @@ export default function HomeSeoSection() {
                                         </p>
                                     </div>
 
-                                    {/* Card 2 */}
+                               
                                     <div className="bg-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8">
                                         <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-orange-50 text-orange-600 mb-4 md:mb-6 mx-auto md:mx-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,7 +98,7 @@ export default function HomeSeoSection() {
                                         </p>
                                     </div>
 
-                                    {/* Card 3 */}
+                        
                                     <div className="bg-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-all p-6 md:p-8">
                                         <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl bg-orange-50 text-orange-600 mb-4 md:mb-6 mx-auto md:mx-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,8 +116,8 @@ export default function HomeSeoSection() {
                                     </div>
 
                                 </div>
-                            </div>
-                        </section>
+                            </div> */}
+                        {/* </section> */}
 
 
                         <section className="bg-white py-8 md:py-12">
@@ -130,7 +130,9 @@ export default function HomeSeoSection() {
                                     </h2>
 
                                     <p className="mt-4 md:mt-5 text-gray-600 text-base md:text-lg max-w-xl">
-                                        Enterprise-grade refurbished IT hardware with certified quality, transparent pricing, and long-term reliability. Why we have the best Refurbished Computers in Chennai
+                                        FTDS Hardware has sold 10,000+ refurbished systems over 12+ years in
+                                        business, with a 98% customer satisfaction rate, serving students,
+                                        professionals, and businesses across Chennai.
                                     </p>
 
                                     <div className="mt-8 md:mt-12 space-y-8 md:space-y-10">
