@@ -53,7 +53,7 @@ export default function WhyChoose() {
           <div className="relative bg-white/70 backdrop-blur-xl border border-gray-200 rounded-3xl  p-6 md:p-10 mt-4 lg:p-12">
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-5">
-              FTDS Hardware's range of refurbished computers in Chennai covers portable
+              FTDS Hardware&apos;s range of refurbished computers in Chennai covers portable
               laptops for everyday use and workstation-grade desktops for continuous,
               heavy-duty operation.
 
