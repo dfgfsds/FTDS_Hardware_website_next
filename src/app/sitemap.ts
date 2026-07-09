@@ -31,19 +31,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   /* ✅ FETCH BLOGS */
-  const res = await fetch(
-    `https://ecomapi.ftdigitalsolutions.org/blog/?vendor_id=87`,
-    { cache: 'no-store' }
-  )
+  let blogPages: any[] = []
+  try {
+    const res = await fetch(
+      `https://ecomapi.ftdigitalsolutions.org/blog/?vendor_id=87`,
+      { 
+        cache: 'no-store',
+        headers: {
+          'Origin': baseUrl
+        }
+      }
+    )
 
-  const data = await res.json()
-
-  const blogPages =
-    data?.blogs?.map((blog: any) => ({
-      url: `${baseUrl}/blog/${slugConvert(blog.title)}`,
-      lastModified: new Date(blog.created_at),
-      priority: 0.7,
-    })) || []
+    if (res.ok) {
+      const data = await res.json()
+      blogPages =
+        data?.blogs?.map((blog: any) => ({
+          url: `${baseUrl}/blog/${slugConvert(blog.title)}`,
+          lastModified: new Date(blog.created_at),
+          priority: 0.7,
+        })) || []
+    } else {
+      console.error('Failed to fetch blogs for sitemap:', await res.text())
+    }
+  } catch (error) {
+    console.error('Error fetching blogs for sitemap:', error)
+  }
 
   /* ✅ STATIC PAGE MAP */
   const staticUrls = staticPages.map((path) => ({

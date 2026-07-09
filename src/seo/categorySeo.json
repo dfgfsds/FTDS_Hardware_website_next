@@ -15,15 +15,15 @@
     ],
     "ogTitle": "Refurbished Desktops in Chennai | Certified Desktop PCs",
     "ogDescription": "Explore affordable refurbished desktop PCs from leading brands. Tested, certified and backed by expert support in Chennai.",
-    "ogImage": "/logo.png",
+    "ogImage": "https://www.ftds.in/logo.png",
     "ogWidth": 1200,
     "ogHeight": 630,
     "ogImageAlt": "Refurbished Desktop Computers in Chennai",
     "ogLocale": "en_IN",
     "twitterTitle": "Refurbished Desktops in Chennai | Certified Desktop PCs",
     "twitterDescription": "Shop quality refurbished desktop computers at affordable prices with warranty and support.",
-    "twitterImage": "/logo.png",
-    "imageSrc": "/logo.png",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
     "geoRegion": "IN-TN",
     "geoPlaceName": "Chennai",
     "geoPosition": "13.0827;80.2707",
@@ -53,7 +53,7 @@
         "name": "FTDS Hardware",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.ftds.in/images/logo.png"
+          "url": "https://www.ftds.in/logo.png"
         }
       },
       "inLanguage": "en-IN"
@@ -74,15 +74,15 @@
     ],
     "ogTitle": "Refurbished Laptops in Chennai | Certified Used Laptops",
     "ogDescription": "Shop quality refurbished laptops from top brands. Fully tested, affordable, and backed by expert support in Chennai.",
-    "ogImage": "/logo.png",
+    "ogImage": "https://www.ftds.in/logo.png",
     "ogWidth": 1200,
     "ogHeight": 630,
     "ogImageAlt": "Refurbished Laptops in Chennai",
     "ogLocale": "en_IN",
     "twitterTitle": "Refurbished Laptops in Chennai | Certified Used Laptops",
     "twitterDescription": "Buy certified refurbished laptops from trusted brands at affordable prices in Chennai.",
-    "twitterImage": "/logo.png",
-    "imageSrc": "/logo.png",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
     "geoRegion": "IN-TN",
     "geoPlaceName": "Chennai",
     "geoPosition": "13.0827;80.2707",
@@ -112,7 +112,7 @@
         "name": "FTDS Hardware",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.ftds.in/images/logo.png"
+          "url": "https://www.ftds.in/logo.png"
         }
       },
       "inLanguage": "en-IN"
@@ -134,15 +134,15 @@
     ],
     "ogTitle": "Keyboard & Mouse in Chennai | Wired & Wireless Combos",
     "ogDescription": "Explore keyboards, mice and combo sets for office, home and gaming. Genuine products with affordable pricing.",
-    "ogImage": "/logo.png",
+    "ogImage": "https://www.ftds.in/logo.png",
     "ogWidth": 1200,
     "ogHeight": 630,
     "ogImageAlt": "Keyboard and Mouse Accessories in Chennai",
     "ogLocale": "en_IN",
     "twitterTitle": "Keyboard & Mouse in Chennai | Wired & Wireless Combos",
     "twitterDescription": "Shop quality keyboards, mice and combo sets for office, gaming and everyday computing.",
-    "twitterImage": "/logo.png",
-    "imageSrc": "/logo.png",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
     "geoRegion": "IN-TN",
     "geoPlaceName": "Chennai",
     "geoPosition": "13.0827;80.2707",
@@ -172,7 +172,7 @@
         "name": "FTDS Hardware",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.ftds.in/images/logo.png"
+          "url": "https://www.ftds.in/logo.png"
         }
       },
       "inLanguage": "en-IN"
@@ -195,15 +195,15 @@
     ],
     "ogTitle": "Laptops & Desktops in Chennai | Buy Computers Online",
     "ogDescription": "Explore laptops and desktops from top brands for work, study, gaming and business needs in Chennai.",
-    "ogImage": "/logo.png",
+    "ogImage": "https://www.ftds.in/logo.png",
     "ogWidth": 1200,
     "ogHeight": 630,
     "ogImageAlt": "Laptops and Desktops in Chennai",
     "ogLocale": "en_IN",
     "twitterTitle": "Laptops & Desktops in Chennai | Buy Computers Online",
     "twitterDescription": "Shop laptops and desktop computers from trusted brands at competitive prices.",
-    "twitterImage": "/logo.png",
-    "imageSrc": "/logo.png",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
     "geoRegion": "IN-TN",
     "geoPlaceName": "Chennai",
     "geoPosition": "13.0827;80.2707",
@@ -233,7 +233,7 @@
         "name": "FTDS Hardware",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.ftds.in/images/logo.png"
+          "url": "https://www.ftds.in/logo.png"
         }
       },
       "inLanguage": "en-IN"
@@ -255,15 +255,15 @@
     ],
     "ogTitle": "Refurbished Monitors in Chennai | Certified Display Screens",
     "ogDescription": "Shop quality refurbished monitors and display screens for office, home and professional use at affordable prices.",
-    "ogImage": "/logo.png",
+    "ogImage": "https://www.ftds.in/logo.png",
     "ogWidth": 1200,
     "ogHeight": 630,
     "ogImageAlt": "Refurbished Monitors in Chennai",
     "ogLocale": "en_IN",
     "twitterTitle": "Refurbished Monitors in Chennai | Certified Display Screens",
     "twitterDescription": "Explore affordable refurbished monitors for office, business, home and professional setups.",
-    "twitterImage": "/logo.png",
-    "imageSrc": "/logo.png",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
     "geoRegion": "IN-TN",
     "geoPlaceName": "Chennai",
     "geoPosition": "13.0827;80.2707",
@@ -293,219 +293,194 @@
         "name": "FTDS Hardware",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.ftds.in/images/logo.png"
+          "url": "https://www.ftds.in/logo.png"
         }
       },
       "inLanguage": "en-IN"
     }
   },
-
-   
-"computer-components": {
-  "metaTitle": "Computer Components in Chennai | PC Parts & Hardware",
-  "metaDescription": "Buy computer components in Chennai including processors, RAM, SSDs, motherboards, graphics cards and PC hardware at great prices.",
-  "canonical": "https://www.ftds.in/categories/computer-components",
-
-  "keywords": [
-    "computer components Chennai",
-    "PC parts Chennai",
-    "computer hardware",
-    "SSD",
-    "RAM",
-    "motherboard",
-    "processor",
-    "graphics card",
-    "gaming PC parts",
-    "FTDS Hardware"
-  ],
-
-  "ogTitle": "Computer Components in Chennai | PC Parts & Hardware",
-  "ogDescription": "Buy computer components, PC parts and hardware accessories for gaming, business and custom PC builds.",
-  "ogImage": "/logo.png",
-  "ogWidth": 1200,
-  "ogHeight": 630,
-  "ogImageAlt": "Computer Components and PC Parts in Chennai",
-  "ogLocale": "en_IN",
-
-  "twitterTitle": "Computer Components in Chennai | PC Parts & Hardware",
-  "twitterDescription": "Explore processors, RAM, SSDs, graphics cards, motherboards and PC hardware components.",
-  "twitterImage": "/logo.png",
-
-  "imageSrc": "/logo.png",
-
-  "geoRegion": "IN-TN",
-  "geoPlaceName": "Chennai",
-  "geoPosition": "13.0827;80.2707",
-  "icbm": "13.0827,80.2707",
-
-  "subject": "Computer Components and PC Hardware in Chennai",
-  "classification": "Computer Hardware Store",
-  "coverage": "Chennai, Tamil Nadu, India",
-  "distribution": "global",
-  "rating": "general",
-
-  "schema": {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Computer Components in Chennai - FTDS Hardware",
-    "url": "https://www.ftds.in/categories/computer-components",
-    "description": "Buy computer components, PC parts and hardware accessories for gaming, business and custom PC builds.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "FTDS Hardware",
-      "url": "https://www.ftds.in"
-    },
-    "about": {
-      "@type": "Thing",
-      "name": "Computer Components"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "FTDS Hardware",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.ftds.in/images/logo.png"
-      }
-    },
-    "inLanguage": "en-IN"
+  "computer-components": {
+    "metaTitle": "Computer Components in Chennai | PC Parts & Hardware",
+    "metaDescription": "Buy computer components in Chennai including processors, RAM, SSDs, motherboards, graphics cards and PC hardware at great prices.",
+    "canonical": "https://www.ftds.in/categories/computer-components",
+    "keywords": [
+      "computer components Chennai",
+      "PC parts Chennai",
+      "computer hardware",
+      "SSD",
+      "RAM",
+      "motherboard",
+      "processor",
+      "graphics card",
+      "gaming PC parts",
+      "FTDS Hardware"
+    ],
+    "ogTitle": "Computer Components in Chennai | PC Parts & Hardware",
+    "ogDescription": "Buy computer components, PC parts and hardware accessories for gaming, business and custom PC builds.",
+    "ogImage": "https://www.ftds.in/logo.png",
+    "ogWidth": 1200,
+    "ogHeight": 630,
+    "ogImageAlt": "Computer Components and PC Parts in Chennai",
+    "ogLocale": "en_IN",
+    "twitterTitle": "Computer Components in Chennai | PC Parts & Hardware",
+    "twitterDescription": "Explore processors, RAM, SSDs, graphics cards, motherboards and PC hardware components.",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
+    "geoRegion": "IN-TN",
+    "geoPlaceName": "Chennai",
+    "geoPosition": "13.0827;80.2707",
+    "icbm": "13.0827,80.2707",
+    "subject": "Computer Components and PC Hardware in Chennai",
+    "classification": "Computer Hardware Store",
+    "coverage": "Chennai, Tamil Nadu, India",
+    "distribution": "global",
+    "rating": "general",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Computer Components in Chennai - FTDS Hardware",
+      "url": "https://www.ftds.in/categories/computer-components",
+      "description": "Buy computer components, PC parts and hardware accessories for gaming, business and custom PC builds.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "FTDS Hardware",
+        "url": "https://www.ftds.in"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Computer Components"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FTDS Hardware",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ftds.in/logo.png"
+        }
+      },
+      "inLanguage": "en-IN"
+    }
+  },
+  "printers": {
+    "metaTitle": "Printers in Chennai | Inkjet, Laser & All-in-One Printers",
+    "metaDescription": "Buy printers in Chennai including inkjet, laser and all-in-one printers for home, office and business use at competitive prices.",
+    "canonical": "https://www.ftds.in/categories/printers",
+    "keywords": [
+      "printers Chennai",
+      "laser printers Chennai",
+      "inkjet printers",
+      "all in one printers",
+      "office printers",
+      "wireless printers",
+      "printer shop Chennai",
+      "printer accessories",
+      "FTDS Hardware"
+    ],
+    "ogTitle": "Printers in Chennai | Inkjet, Laser & All-in-One Printers",
+    "ogDescription": "Shop printers for home, office and business use. Explore inkjet, laser and multifunction printers from top brands.",
+    "ogImage": "https://www.ftds.in/logo.png",
+    "ogWidth": 1200,
+    "ogHeight": 630,
+    "ogImageAlt": "Printers in Chennai",
+    "ogLocale": "en_IN",
+    "twitterTitle": "Printers in Chennai | Inkjet, Laser & All-in-One Printers",
+    "twitterDescription": "Explore quality printers for home, office and business printing needs at affordable prices.",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
+    "geoRegion": "IN-TN",
+    "geoPlaceName": "Chennai",
+    "geoPosition": "13.0827;80.2707",
+    "icbm": "13.0827,80.2707",
+    "subject": "Printers in Chennai",
+    "classification": "Computer & Printer Store",
+    "coverage": "Chennai, Tamil Nadu, India",
+    "distribution": "global",
+    "rating": "general",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Printers in Chennai - FTDS Hardware",
+      "url": "https://www.ftds.in/categories/printers",
+      "description": "Shop printers for home, office and business use. Explore inkjet, laser and multifunction printers from top brands.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "FTDS Hardware",
+        "url": "https://www.ftds.in"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Printers"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FTDS Hardware",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ftds.in/logo.png"
+        }
+      },
+      "inLanguage": "en-IN"
+    }
+  },
+  "mouse": {
+    "metaTitle": "Buy Computer Mouse in Chennai | Gaming & Office Mouse",
+    "metaDescription": "Buy wired and wireless computer mouse in Chennai. Explore office, gaming and ergonomic mice from trusted brands at great prices.",
+    "canonical": "https://www.ftds.in/categories/mouse",
+    "keywords": [
+      "computer mouse Chennai",
+      "wireless mouse Chennai",
+      "wired mouse",
+      "gaming mouse Chennai",
+      "optical mouse",
+      "USB mouse",
+      "ergonomic mouse",
+      "computer accessories Chennai",
+      "FTDS Hardware"
+    ],
+    "ogTitle": "Computer Mouse in Chennai | Wired & Wireless Mouse",
+    "ogDescription": "Shop wired, wireless, gaming and ergonomic computer mice from leading brands for work and gaming.",
+    "ogImage": "https://www.ftds.in/logo.png",
+    "ogWidth": 1200,
+    "ogHeight": 630,
+    "ogImageAlt": "Computer Mouse in Chennai",
+    "ogLocale": "en_IN",
+    "twitterTitle": "Computer Mouse in Chennai | Wired & Wireless Mouse",
+    "twitterDescription": "Explore wired, wireless and gaming mouse options for office, home and professional use.",
+    "twitterImage": "https://www.ftds.in/logo.png",
+    "imageSrc": "https://www.ftds.in/logo.png",
+    "geoRegion": "IN-TN",
+    "geoPlaceName": "Chennai",
+    "geoPosition": "13.0827;80.2707",
+    "icbm": "13.0827,80.2707",
+    "subject": "Computer Mouse in Chennai",
+    "classification": "Computer Accessories Store",
+    "coverage": "Chennai, Tamil Nadu, India",
+    "distribution": "global",
+    "rating": "general",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Computer Mouse in Chennai - FTDS Hardware",
+      "url": "https://www.ftds.in/categories/mouse",
+      "description": "Shop wired, wireless, gaming and ergonomic computer mice from leading brands for work and gaming.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "FTDS Hardware",
+        "url": "https://www.ftds.in"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Computer Mouse"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FTDS Hardware",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ftds.in/logo.png"
+        }
+      },
+      "inLanguage": "en-IN"
+    }
   }
-},
-
-"printers": {
-  "metaTitle": "Printers in Chennai | Inkjet, Laser & All-in-One Printers",
-  "metaDescription": "Buy printers in Chennai including inkjet, laser and all-in-one printers for home, office and business use at competitive prices.",
-  "canonical": "https://www.ftds.in/categories/printers",
-
-  "keywords": [
-    "printers Chennai",
-    "laser printers Chennai",
-    "inkjet printers",
-    "all in one printers",
-    "office printers",
-    "wireless printers",
-    "printer shop Chennai",
-    "printer accessories",
-    "FTDS Hardware"
-  ],
-
-  "ogTitle": "Printers in Chennai | Inkjet, Laser & All-in-One Printers",
-  "ogDescription": "Shop printers for home, office and business use. Explore inkjet, laser and multifunction printers from top brands.",
-  "ogImage": "/logo.png",
-  "ogWidth": 1200,
-  "ogHeight": 630,
-  "ogImageAlt": "Printers in Chennai",
-  "ogLocale": "en_IN",
-
-  "twitterTitle": "Printers in Chennai | Inkjet, Laser & All-in-One Printers",
-  "twitterDescription": "Explore quality printers for home, office and business printing needs at affordable prices.",
-  "twitterImage": "/logo.png",
-
-  "imageSrc": "/logo.png",
-
-  "geoRegion": "IN-TN",
-  "geoPlaceName": "Chennai",
-  "geoPosition": "13.0827;80.2707",
-  "icbm": "13.0827,80.2707",
-
-  "subject": "Printers in Chennai",
-  "classification": "Computer & Printer Store",
-  "coverage": "Chennai, Tamil Nadu, India",
-  "distribution": "global",
-  "rating": "general",
-
-  "schema": {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Printers in Chennai - FTDS Hardware",
-    "url": "https://www.ftds.in/categories/printers",
-    "description": "Shop printers for home, office and business use. Explore inkjet, laser and multifunction printers from top brands.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "FTDS Hardware",
-      "url": "https://www.ftds.in"
-    },
-    "about": {
-      "@type": "Thing",
-      "name": "Printers"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "FTDS Hardware",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.ftds.in/images/logo.png"
-      }
-    },
-    "inLanguage": "en-IN"
-  }
-},
-
-"mouse": {
-  "metaTitle": "Buy Computer Mouse in Chennai | Gaming & Office Mouse",
-  "metaDescription": "Buy wired and wireless computer mouse in Chennai. Explore office, gaming and ergonomic mice from trusted brands at great prices.",
-  "canonical": "https://www.ftds.in/categories/mouse",
-
-  "keywords": [
-    "computer mouse Chennai",
-    "wireless mouse Chennai",
-    "wired mouse",
-    "gaming mouse Chennai",
-    "optical mouse",
-    "USB mouse",
-    "ergonomic mouse",
-    "computer accessories Chennai",
-    "FTDS Hardware"
-  ],
-
-  "ogTitle": "Computer Mouse in Chennai | Wired & Wireless Mouse",
-  "ogDescription": "Shop wired, wireless, gaming and ergonomic computer mice from leading brands for work and gaming.",
-  "ogImage": "/logo.png",
-  "ogWidth": 1200,
-  "ogHeight": 630,
-  "ogImageAlt": "Computer Mouse in Chennai",
-  "ogLocale": "en_IN",
-
-  "twitterTitle": "Computer Mouse in Chennai | Wired & Wireless Mouse",
-  "twitterDescription": "Explore wired, wireless and gaming mouse options for office, home and professional use.",
-  "twitterImage": "/logo.png",
-
-  "imageSrc": "/logo.png",
-
-  "geoRegion": "IN-TN",
-  "geoPlaceName": "Chennai",
-  "geoPosition": "13.0827;80.2707",
-  "icbm": "13.0827,80.2707",
-
-  "subject": "Computer Mouse in Chennai",
-  "classification": "Computer Accessories Store",
-  "coverage": "Chennai, Tamil Nadu, India",
-  "distribution": "global",
-  "rating": "general",
-
-  "schema": {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Computer Mouse in Chennai - FTDS Hardware",
-    "url": "https://www.ftds.in/categories/mouse",
-    "description": "Shop wired, wireless, gaming and ergonomic computer mice from leading brands for work and gaming.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "FTDS Hardware",
-      "url": "https://www.ftds.in"
-    },
-    "about": {
-      "@type": "Thing",
-      "name": "Computer Mouse"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "FTDS Hardware",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.ftds.in/images/logo.png"
-      }
-    },
-    "inLanguage": "en-IN"
-  }
-}
 }

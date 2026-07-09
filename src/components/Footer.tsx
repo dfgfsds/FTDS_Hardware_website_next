@@ -11,7 +11,7 @@ import Image from 'next/image';
 export default function Footer() {
 
   return (
-    <footer className="bg-[#f8f5f5] text-slate-500 mt-10 pt-10 text-sm">
+    <footer className="bg-[#f8f5f5] text-slate-500 mt-10 pt-10 text-sm ">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {/* Information */}
@@ -109,7 +109,7 @@ export default function Footer() {
 
               <a href="https://www.youtube.com/@ftdshardware" target="_blank" className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"><FaYoutube /></a>
 
-              <a href="https://www.instagram.com/p/DK6HiCwBZSm/?utm_source=ig_web_copy_link" target="_blank" className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"><FaInstagram /></a>
+              <a href="https://www.instagram.com/ftds_hardware" target="_blank" className="bg-gray-200 border border-gray-400 rounded-full p-3 flex items-center justify-center hover:bg-gray-300 hover:text-red-600 transition"><FaInstagram /></a>
               <a
                 href="https://x.com/ftdshardware"
                 target="_blank"
@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
 
         {/* Social Links / Payment / Apps */}
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-300 pt-8 gap-4 md:gap-8 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-300 pt-8 gap-4 md:gap-8 text-center md:text-left mx-24">
 
           {/* Social Links */}
           <div>
@@ -169,6 +169,7 @@ export default function Footer() {
                 width={60}
                 height={40}
               />
+             
 
             </div>
           </div>
