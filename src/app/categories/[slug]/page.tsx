@@ -60,38 +60,6 @@ type CategorySeoMap = Record<string, CategorySEO>;
 
 const seoDataMap = categorySeo as any;
 
-// ✅ Dynamic SEO (CRITICAL FIX)
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string };
-// }): Promise<Metadata> {
-//   const seo = seoDataMap[params.slug];
-
-//   if (!seo) {
-//     return {
-//       title: "Category Not Found | FTDS Hardware",
-//       robots: { index: false, follow: false },
-//     };
-//   }
-
-//   return {
-//     title: seo.metaTitle,
-//     description: seo.metaDescription,
-//     alternates: {
-//       canonical: seo.canonical,
-//     },
-//     robots: {
-//       index: true,
-//       follow: true,
-//       googleBot: {
-//         index: true,
-//         follow: true,
-//       },
-//     },
-//   };
-// }
-
 export async function generateMetadata({
   params,
 }: {
