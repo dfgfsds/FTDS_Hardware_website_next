@@ -7,19 +7,17 @@ import { slugConvert } from '../../lib/utils';
 
 
 
-export default function CategoriesPage() {
+export default function CategoriesPage({title}: {title: string}) {
 
 
     const { categories }: any = useCategories();
 
-    console.log(categories,"categories");
-    
 
     return (
         <div className="bg-white">
             <div className="container mx-auto px-4 py-12">
                 <div className="text-center mb-12">
-                    <h1 className="text-3xl font-bold mb-4 mt-3">Shop by Category</h1>
+                    <h1 className="text-3xl font-bold mb-4 mt-3">{title}</h1>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Browse our collection of sustainable and eco-friendly products organized by category.
                     </p>

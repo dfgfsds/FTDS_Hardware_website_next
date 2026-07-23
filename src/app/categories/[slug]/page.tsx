@@ -164,7 +164,7 @@ export default function CategoriesProduct({
   return (
     <>
       {/* ✅ H1 FOR SEO */}
-      <h2 className="sr-only">{seo.metaTitle}</h2>
+      <h1 className="sr-only">{seo.metaTitle}</h1>
 
       <CategoriesBasedProduct />
 

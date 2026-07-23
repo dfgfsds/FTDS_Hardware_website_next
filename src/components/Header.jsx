@@ -260,9 +260,9 @@ export default function Navbar() {
               Categories
             </button>
 
-            <button className="p-3 border border-orange-500 rounded-md text-orange-500 hover:bg-orange-500 hover:text-white transition">
+            {/* <button className="p-3 border border-orange-500 rounded-md text-orange-500 hover:bg-orange-500 hover:text-white transition">
               <FaRegCalendarAlt />
-            </button>
+            </button> */}
           </div>
 
           {/* Search Input */}
@@ -353,7 +353,7 @@ export default function Navbar() {
         <div
           className="absolute top-full left-0 right-0 md:left-[220px] md:right-auto z-50 bg-white border shadow-md rounded-md 
                max-h-[300px] w-full md:max-w-[500px] overflow-y-auto text-sm animate-in fade-in slide-in-from-top-2"
-          // role="listbox"
+        // role="listbox"
         >
           {results.products.length > 0 ? (
             <>
@@ -369,8 +369,8 @@ export default function Navbar() {
                     router.push(`/product/${slugConvert(item?.name)}`);
                   }}
                   className="flex gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  // role="option"
-                  // aria-selected={false}
+                // role="option"
+                // aria-selected={false}
                 >
                   {item.image_urls?.[0] && (
                     <Image
