@@ -1,81 +1,5 @@
 import CategoriesPage from "@/components/Categories";
 
-// export async function generateMetadata() {
-
-//   const categorySchema = {
-//     "@context": "https://schema.org",
-//     "@graph": [
-//       {
-//         "@type": "CollectionPage",
-//         "@id": "https://www.ftds.in/categories#collectionpage",
-//         url: "https://www.ftds.in/categories",
-//         name: "Products – FTDS",
-//         isPartOf: {
-//           "@type": "WebSite",
-//           "@id": "https://www.ftds.in/#website",
-//         },
-//         about: {
-//           "@type": "Thing",
-//           name: "Computer Hardware and Electronics Categories",
-//         },
-//       },
-//       {
-//         "@type": "BreadcrumbList",
-//         "@id": "https://www.ftds.in/categories#breadcrumb",
-//         itemListElement: [
-//           {
-//             "@type": "ListItem",
-//             position: 1,
-//             name: "Home",
-//             item: "https://www.ftds.in/",
-//           },
-//           {
-//             "@type": "ListItem",
-//             position: 2,
-//             name: "Categories",
-//             item: "https://www.ftds.in/categories",
-//           },
-//         ],
-//       },
-//     ],
-//   };
-
-//   return {
-//     title:
-//       "Shop IT Categories | Refurbished Laptops & Computers FTDS ",
-
-//     description:
-//       "Explore the best refurbished laptops and desktops in Chennai from Dell, HP, Lenovo, Acer, and ASUS. Tested and certified systems with 12-month warranty",
-
-//     robots: {
-//       index: true,
-//       follow: true,
-//     },
-
-//     alternates: {
-//       canonical: "https://www.ftds.in/categories",
-//     },
-
-//     openGraph: {
-//       title:
-//         "Shop IT Categories | Refurbished Laptops & Computers FTDS ",
-//       description:
-//         "Explore the best refurbished laptops and desktops in Chennai from Dell, HP, Lenovo, Acer, and ASUS. Tested and certified systems with 12-month warranty",
-//       url: "https://www.ftds.in/categories",
-//       siteName: "FTDS Hardware",
-//       type: "website",
-//     },
-
-//     twitter: {
-//       card: "summary_large_image",
-//     },
-
-//       other: {
-//       "application/ld+json": JSON.stringify(categorySchema),
-//     },
-//   };
-// }
-
 export async function generateMetadata() {
   const categorySchema = {
     "@context": "https://schema.org",
@@ -155,7 +79,7 @@ export async function generateMetadata() {
       locale: "en_IN",
       images: [
         {
-          url: "/logo.png",
+          url: "https://www.ftds.in/logo.png",
           width: 1200,
           height: 630,
           alt: "Computer Product Categories at FTDS Hardware",
@@ -168,7 +92,7 @@ export async function generateMetadata() {
       title: "Computer Categories | Laptops, Desktops & Accessories",
       description:
         "Explore all computer product categories including laptops, desktops, printers, monitors and accessories.",
-      images: ["/logo.png"],
+      images: ["https://www.ftds.in/logo.png"],
     },
 
     other: {
@@ -191,5 +115,5 @@ export async function generateMetadata() {
 }
 
 export default function CatePage() {
-    return <CategoriesPage />;
+  return <CategoriesPage title="Shop IT Categories | Refurbished Laptops & Computers FTDS"/>;
 }

@@ -8,53 +8,6 @@ import FeatureHighlights from "@/components/FeatureHighlights";
 import RecentBlogs from "@/components/lastestBolg";
 import Testimonials from "@/components/Testimonials";
 
-// export const metadata = {
-//   title: "Buy Refurbished Computers in Chennai | FTDS Hardware",
-//   description:
-//     "Buy refurbished computers in Chennai from FTDS Hardware. Certified laptops and desktops with warranty, transparent specs, and reliable support.",
-
-//   keywords: [
-//     "refurbished laptops Chennai",
-//     "refurbished desktops Chennai",
-//     "refurbished computers Chennai",
-//     "Dell refurbished laptops",
-//     "HP refurbished laptops",
-//     "Lenovo refurbished laptops",
-//     "ASUS refurbished laptops",
-//     "Acer refurbished laptops",
-//     "certified refurbished systems",
-//     "used laptops Chennai",
-//     "second hand computers Chennai",
-//     "affordable laptops Chennai",
-//     "refurbished IT hardware",
-//     "FTDS Hardware",
-//   ],
-
-//   robots: {
-//     index: true,
-//     follow: true,
-//   },
-
-//   alternates: {
-//     canonical: "https://www.ftds.in/",
-//   },
-
-//   openGraph: {
-//     type: "website",
-//     title: "Refurbished Laptops & Desktops in Chennai | FTDS Hardware",
-//     description:
-//       "Buy certified refurbished laptops and desktops in Chennai with warranty. Trusted brands, affordable pricing, and fast delivery across South India.",
-//     url: "https://www.ftds.in/",
-//     images: [
-//       {
-//         url: "https://www.ftds.in/assets/banner.jpg",
-//         width: 1200,
-//         height: 630,
-//         alt: "FTDS Hardware Refurbished Laptops Chennai",
-//       },
-//     ],
-//   },
-// };
 
 export const metadata = {
   title: "Refurbished Laptops & Desktops in Chennai with 12-Month Warranty | FTDS Hardware",

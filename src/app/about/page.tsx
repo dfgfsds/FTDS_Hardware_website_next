@@ -162,7 +162,8 @@ export default function AboutPage() {
               <Image
                 src={aboutImg}
                 alt="FTDS Hardware"
-                fill
+                width={1200}
+                height={400}
                 className="object-cover w-full h-full sm:object-center object-right"
               />
               {/* Dark overlay */}
@@ -170,26 +171,16 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Desktop Text Overlay */}
-          <div className="absolute inset-0 hidden sm:flex items-center justify-center text-center px-4">
+          {/* Responsive Text Block */}
+          <div className="relative sm:absolute sm:inset-0 flex items-center justify-center text-center px-4 py-12 sm:py-0">
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 mb-4">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 sm:text-yellow-400 mb-3 sm:mb-4">
                 About Us – FTDS Hardware
               </h2>
-              <p className="text-white text-sm sm:text-base max-w-3xl mx-auto">
+              <p className="text-gray-800 sm:text-white text-sm sm:text-base max-w-3xl mx-auto">
                 Welcome to FTDS Hardware, your trusted source for certified refurbished laptops and desktops in South India. Based in Chennai, we provide high-quality, warranty-backed IT hardware from top brands like Dell, HP, Lenovo, Acer, and ASUS — ensuring powerful performance, reliability, and affordability for individuals, businesses, and institutions.
               </p>
             </div>
-          </div>
-
-          {/* Mobile Text Below Image */}
-          <div className="block sm:hidden text-center px-4 py-12">
-            <h2 className="text-2xl font-bold text-gray-800  mb-3">
-              About Us – FTDS Hardware
-            </h2>
-            <p className="text-gray-800 text-sm">
-              Welcome to FTDS Hardware, your trusted source for certified refurbished laptops and desktops in South India. Based in Chennai, we provide high-quality, warranty-backed IT hardware from top brands like Dell, HP, Lenovo, Acer, and ASUS — ensuring powerful performance, reliability, and affordability for individuals, businesses, and institutions.
-            </p>
           </div>
         </section>
 
@@ -206,7 +197,9 @@ export default function AboutPage() {
                 <Image
                   src={aboutsub1}
                   alt="Store"
-                  fill
+                  // fill
+                  height={350}
+                  width={350}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -216,7 +209,9 @@ export default function AboutPage() {
                 <Image
                   src={aboutsub}
                   alt="Showroom"
-                  fill
+                  // fill
+                  height={350}
+                  width={350}
                   className="object-cover group-hover:scale-105 transition-transform duration-500 sm:object-center object-right"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
