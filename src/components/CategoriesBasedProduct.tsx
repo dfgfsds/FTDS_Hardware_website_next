@@ -92,7 +92,7 @@ export default function CategoriesBasedProduct() {
       {/* Breadcrumb */}
       <div className="mb-5 flex items-center gap-2 text-gray-400 text-sm">
         <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
-        <a href="/" className="hover:underline">Home</a>
+        <a href="/categories" className="hover:underline">Categories</a>
         <span>/</span>
         <span className="text-orange-500">{categoryName}</span>
       </div>

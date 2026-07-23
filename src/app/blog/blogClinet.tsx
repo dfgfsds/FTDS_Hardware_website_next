@@ -30,13 +30,13 @@ export default function BlogsPage() {
   const [loading, setLoading] = useState(true);
 
 
-
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const vendorId = 87; // change if dynamic later
         const response = await axios.get(
           `https://ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${vendorId}`
+          // `https://test-ecomapi.justvy.in/blog/?vendor_id=${vendorId}`
         );
         setBlogs(response.data?.blogs || []);
       } catch (error) {
@@ -53,23 +53,23 @@ export default function BlogsPage() {
     <section className="bg-white py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto">
 
-          <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.2 }}
-                    className="text-center mb-12"
-                  >
-                    <h1 className="text-3xl md:text-3xl font-bold text-gray-900 mb-4">
-                      Refurbished Laptop Buying Guides & Tech Tips
-                    </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.2 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-3xl md:text-3xl font-bold text-gray-900 mb-4">
+            Refurbished Laptop Buying Guides & Tech Tips
+          </h1>
 
-                    {/* <p className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-8">
+          {/* <p className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-8">
     Explore expert insights, refurbished laptop buying guides,
     computer maintenance tips, hardware comparisons, upgrade advice,
     and the latest technology trends from FTDS Hardware Chennai.
   </p> */}
-                  </motion.div>
+        </motion.div>
 
 
         <motion.div
@@ -114,7 +114,7 @@ export default function BlogsPage() {
                 {/* Content */}
                 <div className="flex flex-col justify-between flex-grow p-6">
 
-                
+
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">
                       {blog.title}
