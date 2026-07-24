@@ -17,11 +17,11 @@ interface Blog {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.6 },
+    transition: { delay: Math.min(i * 0.05, 0.5), duration: 0.3 },
   }),
 };
 
@@ -107,6 +107,7 @@ export default function BlogsPage() {
                     src={blog.banner_url}
                     alt={blog.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                   />
                 </div>
