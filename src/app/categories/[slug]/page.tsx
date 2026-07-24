@@ -163,8 +163,6 @@ export default function CategoriesProduct({
 
   return (
     <>
-      {/* ✅ H1 FOR SEO */}
-      <h1 className="sr-only">{seo.metaTitle}</h1>
 
       <CategoriesBasedProduct />
 
