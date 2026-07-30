@@ -8,6 +8,7 @@ import { useCartItem } from '@/context/CartItemContext';
 
 import { ArrowLeft } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 import ProductCard from './ProductCard';
 import { Pagination } from './Pagination';
@@ -92,15 +93,15 @@ export default function CategoriesBasedProduct() {
       {/* Breadcrumb */}
       <div className="mb-5 flex items-center gap-2 text-gray-400 text-sm">
         <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
-        <a href="/" className="hover:underline">Home</a>
+        <Link href="/categories" className="hover:underline">Categories</Link>
         <span>/</span>
         <span className="text-orange-500">{categoryName}</span>
       </div>
 
-      {/* ✅ STRONG H1 */}
-      <h2 className="text-3xl font-bold text-orange-500 mb-8 text-center">
+  
+      <p className="text-3xl font-bold text-orange-500 mb-8 text-center">
         {categoryName}
-      </h2>
+      </p>
 
       {/* PRODUCTS */}
       {paginatedItems?.length > 0 ? (
@@ -115,24 +116,7 @@ export default function CategoriesBasedProduct() {
         </p>
       )}
 
-      {/* ✅ SEO CONTENT — ALWAYS RENDERED */}
-      {seoData?.content && (
-        <div className="mt-14 bg-gray-50 p-6 rounded-lg">
-          <div
-            className={`prose max-w-none ${showMore ? '' : 'line-clamp-4'}`}
-            dangerouslySetInnerHTML={{ __html: seoData.content }}
-          />
 
-          {seoData.content.length > 300 && (
-            <button
-              onClick={() => setShowMore(!showMore)}
-              className="mt-3 text-blue-600 font-medium hover:underline"
-            >
-              {showMore ? 'Read less' : 'Read more'}
-            </button>
-          )}
-        </div>
-      )}
 
       {/* Pagination */}
       {totalPages > 1 && (
@@ -145,6 +129,25 @@ export default function CategoriesBasedProduct() {
               topRef.current?.scrollIntoView({ behavior: 'smooth' });
             }}
           />
+        </div>
+      )}
+
+      {/* ✅ SEO CONTENT & FAQs — ALWAYS RENDERED BELOW PAGINATION */}
+      {seoData?.content && (
+        <div className="mt-14 bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm">
+          <div
+            className={`prose max-w-none text-gray-700 ${showMore ? '' : 'line-clamp-4'}`}
+            dangerouslySetInnerHTML={{ __html: seoData.content }}
+          />
+
+          {seoData.content.length > 300 && (
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="mt-3 text-orange-500 font-medium hover:underline flex items-center gap-1"
+            >
+              {showMore ? 'Read less' : 'Read more'}
+            </button>
+          )}
         </div>
       )}
 

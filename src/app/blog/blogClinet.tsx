@@ -17,18 +17,17 @@ interface Blog {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.6 },
+    transition: { delay: Math.min(i * 0.05, 0.5), duration: 0.3 },
   }),
 };
 
 export default function BlogsPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
-
 
 
   useEffect(() => {
@@ -55,23 +54,23 @@ export default function BlogsPage() {
     <section className="bg-white py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto">
 
-          <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.2 }}
-                    className="text-center mb-12"
-                  >
-                    <h1 className="text-3xl md:text-3xl font-bold text-gray-900 mb-4">
-                      Refurbished Laptop Buying Guides & Tech Tips
-                    </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.2 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-3xl md:text-3xl font-bold text-gray-900 mb-4">
+            Refurbished Laptop Buying Guides & Tech Tips
+          </h1>
 
-                    {/* <p className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-8">
+          {/* <p className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-8">
     Explore expert insights, refurbished laptop buying guides,
     computer maintenance tips, hardware comparisons, upgrade advice,
     and the latest technology trends from FTDS Hardware Chennai.
   </p> */}
-                  </motion.div>
+        </motion.div>
 
 
         <motion.div
@@ -109,6 +108,7 @@ export default function BlogsPage() {
                     src={blog.banner_url}
                     alt={blog.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                   />
                 </div>
@@ -116,7 +116,7 @@ export default function BlogsPage() {
                 {/* Content */}
                 <div className="flex flex-col justify-between flex-grow p-6">
 
-                
+
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">
                       {blog.title}

@@ -105,6 +105,8 @@ export default function TrendingTabs() {
 
               ) : (
                 <Image
+                width={600}
+                height={600}
                   src={item.src}
                   alt={`${activeTab} ${item.id}`}
                   className="w-full md:h-48 sm:h-60 lg:h-full object-cover"
