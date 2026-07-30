@@ -19,7 +19,8 @@ interface Props {
 export default async function BlogDetail({ params }: Props) {
   const vendorId = 87;
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/blog/?vendor_id=${vendorId}`,
+    { cache: "no-store" }
   );
   const data = await res.json();
 
@@ -98,4 +99,3 @@ export default async function BlogDetail({ params }: Props) {
     </>
   );
 }
- 
