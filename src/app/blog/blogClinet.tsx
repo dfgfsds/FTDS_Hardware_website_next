@@ -37,7 +37,7 @@ export default function BlogsPage() {
         const response = await axios.get(
           `https://ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${vendorId}`
           //  `https://test-ecomapi.justvy.in/blog/?vendor_id=${vendorId}`
- 
+
         );
         setBlogs(response.data?.blogs || []);
       } catch (error) {
