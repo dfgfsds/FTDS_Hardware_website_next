@@ -18,8 +18,10 @@
     "next-seo": "^7.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
-    "react-markdown": "^10.1.0"
+    "react-markdown": "^10.1.0",
+    "react-toast": "^1.0.3"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
