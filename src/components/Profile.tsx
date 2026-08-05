@@ -11,6 +11,7 @@ import { useUser } from '@/context/UserContext';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { formatDate } from '../../lib/utils';
+import toast from 'react-hot-toast';
 
 const tabs = ['Orders', 
     // 'Wishlist', 
@@ -341,7 +342,8 @@ useEffect(() => {
             if (upadetApi) {
                 queryClient.invalidateQueries(['getAddressData'] as InvalidateQueryFilters);
             }
-        } catch (error) {
+        } catch (error:any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message ||"Failed to update address. Please try again later.");
             console.error(error);
         }
     };
@@ -531,7 +533,8 @@ function AccountInfoTab() {
                 queryClient.invalidateQueries(["gerUserData"] as InvalidateQueryFilters);
                 // Optional: show toast or success message
             }
-        } catch (error) {
+        } catch (error:any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message ||"Failed to update account info. Please try again later.");
             console.error("Update failed:", error);
         }
     };

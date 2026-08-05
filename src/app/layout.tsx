@@ -6,6 +6,7 @@ import "./globals.css";
 import Script from "next/script";
 import ClientShell from "./ClientShell";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
+import { Toaster } from "react-hot-toast"; // <-- ADD THIS
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body className={`${inter.className} min-h-screen custom-cursor`}>
+        <Toaster position="top-right" reverseOrder={false} /> {/* <-- ADD THIS */}
         {/* GTM noscript */}
         <noscript>
           <iframe
