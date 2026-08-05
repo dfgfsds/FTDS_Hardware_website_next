@@ -60,20 +60,6 @@ const nextConfig = {
         destination: '/shop',
         permanent: true, // ✅ 301 redirect (SEO safe)
       },
-
-
-      {
-        source: '/',
-        has: [
-          {
-            type: 'query',
-            key: 'product_cat',
-            value: 'processors',
-          },
-        ],
-        destination: '/',
-        permanent: true,
-      },
     ]
   },
 }

@@ -7,6 +7,7 @@ import { useCategories } from '@/context/CategoriesContext';
 import { useProducts } from '@/context/ProductsContext';
 import { Pagination } from '@/components/Pagination';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Product {
   id: number;
@@ -52,7 +53,9 @@ export default function ShopPage() {
   return (
     <div className="max-w-full mx-auto py-5 px-4 md:px-10">
       <h1 className="text-2xl font-bold mb-2">Shop Product</h1>
-      <p className="text-sm text-gray-500 mb-6">Home &gt; Shop Product</p>
+      <p className="text-sm text-gray-500 mb-6">
+        <Link href="/" className="hover:underline">Home</Link> &gt; Shop Product
+      </p>
 
       <div className="flex flex-col md:flex-row gap-6" ref={topRef}>
         <FilterSidebar

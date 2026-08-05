@@ -2,88 +2,6 @@
 
 import ShopPageClient from "./ShopPageClient";
 
-// export async function generateMetadata() {
-
-//   const shopSchema = {
-//     "@context": "https://schema.org",
-//     "@graph": [
-//       {
-//         "@type": "CollectionPage",
-//         "@id": "https://www.ftds.in/shop#collectionpage",
-//         url: "https://www.ftds.in/shop",
-//         name: "Shop – FTDS",
-//         isPartOf: {
-//           "@type": "WebSite",
-//           "@id": "https://www.ftds.in/#website",
-//         },
-//       },
-//       {
-//         "@type": "BreadcrumbList",
-//         "@id": "https://www.ftds.in/shop#breadcrumb",
-//         itemListElement: [
-//           {
-//             "@type": "ListItem",
-//             position: 1,
-//             name: "Home",
-//             item: "https://www.ftds.in/",
-//           },
-//           {
-//             "@type": "ListItem",
-//             position: 2,
-//             name: "Shop",
-//             item: "https://www.ftds.in/shop",
-//           },
-//         ],
-//       },
-//     ],
-//   };
-//   return {
-//     title: "Shop Refurbished Laptops & IT Products | FTDS",
-
-//     description:
-//       "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
-
-//     keywords: [
-//       "refurbished laptops Chennai",
-//       "buy laptops online India",
-//       "IT hardware store Chennai",
-//       "refurbished desktops",
-//       "laptop deals FTDS",
-//       "computer accessories India",
-//     ],
-
-//     robots: {
-//       index: true,
-//       follow: true,
-//     },
-
-//     alternates: {
-//       canonical: "https://www.ftds.in/shop",
-//     },
-
-//     openGraph: {
-//       title: "Shop Refurbished Laptops & IT Products | FTDS",
-//       description:
-//         "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
-//       url: "https://www.ftds.in/shop",
-//       siteName: "FTDS Hardware",
-//       type: "website",
-//     },
-
-//     twitter: {
-//       card: "summary_large_image",
-//       title: "Shop Refurbished Laptops & IT Products | FTDS",
-//       description:
-//         "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
-//     },
-
-//     other: {
-//       "application/ld+json": JSON.stringify(shopSchema),
-//     },
-//   };
-// }
-
-
 export async function generateMetadata() {
   const shopSchema = {
     "@context": "https://schema.org",
@@ -177,7 +95,7 @@ export async function generateMetadata() {
       locale: "en_IN",
       images: [
         {
-          url: "/logo.png",
+          url: "https://www.ftds.in/logo.png",
           width: 1200,
           height: 630,
           alt: "Shop Computers and IT Products at FTDS Hardware",
@@ -190,7 +108,7 @@ export async function generateMetadata() {
       title: "Shop Computers & IT Products | FTDS Hardware Chennai",
       description:
         "Explore laptops, desktops, refurbished computers, printers and accessories at competitive prices.",
-      images: ["/logo.png"],
+      images: ["https://www.ftds.in/logo.png"],
     },
 
     other: {
