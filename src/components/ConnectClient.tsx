@@ -274,7 +274,7 @@ export default function ConnectClient() {
                 Welcome to the official FTDS Hardware Connect page.
               </p>
               <p>
-                Whether you're looking for certified refurbished laptops, refurbished desktops, printers, computer accessories, business IT solutions, or affordable technology for your home, office, or educational institution, this page connects you with all of FTDS Hardware's official platforms in one convenient place.
+                Whether you&apos;re looking for certified refurbished laptops, refurbished desktops, printers, computer accessories, business IT solutions, or affordable technology for your home, office, or educational institution, this page connects you with all of FTDS Hardware&apos;s official platforms in one convenient place.
               </p>
               <p className="text-slate-500 text-sm">
                 Join thousands of satisfied customers who trust FTDS Hardware for quality-tested refurbished IT products, expert technical support, warranty-backed devices, and exceptional customer service. Stay connected through our website, social media channels, WhatsApp support, and visit our showroom in Chennai to explore the latest refurbished laptops, desktops, printers, monitors, and computer accessories.
@@ -458,7 +458,7 @@ export default function ConnectClient() {
                 Your feedback helps us continue providing reliable and affordable IT solutions.
               </p>
               <p>
-                If you've purchased a refurbished laptop, desktop, printer, monitor, or computer accessories from FTDS Hardware, we'd love to hear about your experience.
+                If you&apos;ve purchased a refurbished laptop, desktop, printer, monitor, or computer accessories from FTDS Hardware, we&apos;d love to hear about your experience.
               </p>
               <p className="text-slate-600 text-sm">
                 Your review helps students, professionals, businesses, startups, and organizations discover trusted refurbished IT products, quality service, and dependable technical support.
@@ -611,7 +611,7 @@ export default function ConnectClient() {
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs text-center max-w-4xl mx-auto">
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Whether you're purchasing a certified refurbished laptop, upgrading your office with reliable desktops, equipping your business with cost-effective IT hardware, or looking for quality refurbished computers and accessories, FTDS Hardware provides thoroughly tested products, expert guidance, competitive pricing, warranty-backed solutions, and dependable technical support to help you choose the right technology for your needs.
+              Whether you&apos;re purchasing a certified refurbished laptop, upgrading your office with reliable desktops, equipping your business with cost-effective IT hardware, or looking for quality refurbished computers and accessories, FTDS Hardware provides thoroughly tested products, expert guidance, competitive pricing, warranty-backed solutions, and dependable technical support to help you choose the right technology for your needs.
             </p>
           </div>
         </section>
