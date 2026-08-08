@@ -1,14 +1,166 @@
+# ==================================================
+# ROBOTS.TXT - FTDS HARDWARE
+# SEO + AEO + GEO OPTIMIZED
+# https://www.ftds.in
+# ==================================================
+
 User-agent: *
 Allow: /
 
-# ❌ Block internal system paths
+# ==================================================
+# NEXT.JS ASSETS
+# ==================================================
+
+Allow: /_next/static/
+Allow: /_next/image/
+
+# ==================================================
+# IMPORTANT PUBLIC PAGES
+# ==================================================
+
+Allow: /
+Allow: /shop
+Allow: /categories
+Allow: /connect
+Allow: /about
+Allow: /contact
+Allow: /blog
+
+# ==================================================
+# CATEGORY PAGES
+# ==================================================
+
+Allow: /categories/refurbished-laptops
+Allow: /categories/refurbished-desktops
+Allow: /categories/keyboard-and-mouse
+Allow: /categories/laptops-and-desktops
+Allow: /categories/refurbished-monitors
+Allow: /categories/computer-components
+Allow: /categories/printers
+Allow: /categories/mouse
+
+# ==================================================
+# BLOG PAGES
+# ==================================================
+
+Allow: /blog/
+
+# ==================================================
+# BLOCK CUSTOMER ACCOUNT PAGES
+# ==================================================
+
+Disallow: /login
+Disallow: /signup
+Disallow: /register
+Disallow: /profile
+Disallow: /account
+Disallow: /cart
+Disallow: /checkout
+Disallow: /wishlist
+Disallow: /orders
+
+# ==================================================
+# BLOCK INTERNAL SEARCH & FILTER URLS
+# ==================================================
+
+Disallow: /search
+Disallow: /*?q=
+Disallow: /*?search=
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
+
+# ==================================================
+# BLOCK ADMIN & SYSTEM DIRECTORIES
+# ==================================================
+
+Disallow: /admin
+Disallow: /administrator
+Disallow: /backend
+Disallow: /dashboard
 Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /private/
+Disallow: /server/
 
-# ❌ Block WooCommerce-style query URLs
-Disallow: /*?product_cat=
-Disallow: /*&product_cat=
+# ==================================================
+# BLOCK DUPLICATE PARAMETERS
+# ==================================================
 
-# ✅ Sitemap
+Disallow: /*utm_source=
+Disallow: /*utm_medium=
+Disallow: /*utm_campaign=
+Disallow: /*fbclid=
+Disallow: /*gclid=
+
+# ==================================================
+# ALLOW AI SEARCH & ANSWER ENGINES
+# ==================================================
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ==================================================
+# OPTIONAL CRAWL RATE CONTROL
+# ==================================================
+
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# ==================================================
+# XML SITEMAP
+# ==================================================
+
 Sitemap: https://www.ftds.in/sitemap.xml
+
+# ==================================================
+# HOST
+# ==================================================
+
+Host: https://www.ftds.in

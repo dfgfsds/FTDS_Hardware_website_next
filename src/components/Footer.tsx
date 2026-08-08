@@ -16,7 +16,7 @@ export default function Footer() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Information */}
           <div>
             <h5 className="font-bold text-white mb-6 tracking-wide uppercase text-sm border-b border-slate-800 pb-3">Information</h5>
@@ -28,6 +28,7 @@ export default function Footer() {
                 { name: 'Refund & Cancellation Policy', link: '/refund_and_cancellation_policy' },
                 { name: 'Shipping Policy', link: '/shipping_policy' },
                 { name: 'Terms & Conditions', link: '/terms_and_conditions' },
+                { name: 'Connect', link: '/connect' },
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link href={item.link} className="group flex items-center gap-2 hover:text-orange-500 transition-colors">
@@ -167,7 +168,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Floating Phone Button */}
       <Link
         href="tel:+917277929292"
