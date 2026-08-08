@@ -29,6 +29,7 @@ export default function Footer() {
                 { name: 'Shipping Policy', link: '/shipping_policy' },
                 { name: 'Terms & Conditions', link: '/terms_and_conditions' },
                 { name: 'Connect', link: '/connect' },
+
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link href={item.link} className="group flex items-center gap-2 hover:text-orange-500 transition-colors">
