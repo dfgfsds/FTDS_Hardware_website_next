@@ -23,7 +23,7 @@ export async function generateMetadata({
 }) {
   const res = await fetch(
     'https://test-ecomapi.justvy.in/api/products/?vendor_id=87',
-    { cache: 'force-cache' }
+    {  cache: 'no-store', }
   );
 
   const data = await res.json();
@@ -72,7 +72,7 @@ export default async function ProductPage({
 }) {
   const res = await fetch(
     'https://test-ecomapi.justvy.in/api/products/?vendor_id=87',
-    { cache: 'force-cache' }
+    { cache: 'no-store' }
   );
 
   const data = await res.json();
