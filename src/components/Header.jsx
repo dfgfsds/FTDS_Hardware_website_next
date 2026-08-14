@@ -7,6 +7,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useCallback } from 'react';
+import axios from 'axios';
+import url from '@/api-endpoints/ApiUrls';
+import { useVendor } from '@/context/VendorContext';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import {
   HiOutlineUser,
@@ -26,6 +29,7 @@ export default function Navbar() {
   const router = useRouter()
   const { cartItem } = useCartItem();
   const { user, setUser } = useUser();
+  const { vendorId } = useVendor();
   const pathname = usePathname(); // current URL path
   const userName = user?.data?.name || "";
   const dropdownRef = useRef(null);
@@ -61,15 +65,34 @@ export default function Navbar() {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
   }, [isMobileMenuOpen]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      const storedUserId = localStorage.getItem('userId');
+      if (storedUserId) {
+        // Generate or retrieve device ID
+        let deviceId = localStorage.getItem('deviceId');
+        if (!deviceId) {
+           deviceId = 'WEB-' + Math.random().toString(36).substr(2, 9);
+           localStorage.setItem('deviceId', deviceId);
+        }
+        await axios.post(url.deviceLogout, {
+          vendor_id: vendorId,
+          device_id: deviceId,
+          user_id: storedUserId
+        });
+      }
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+    
     setUser(null);
     if (typeof window !== 'undefined') {
       localStorage.clear();
       localStorage.removeItem("email");
       localStorage.removeItem("userName");
     }
-    window.location.reload()
-    handleDropdownClick()
+    window.location.reload();
+    handleDropdownClick();
     router.push('/');
   };
 
