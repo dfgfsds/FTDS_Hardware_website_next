@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Loader, X } from 'lucide-react';
 import { postAddressCreateApi, updateAddressApi } from '@/api-endpoints/CartsApi';
+import toast from 'react-hot-toast';
 import { InvalidateQueryFilters, useQueryClient } from '@tanstack/react-query';
 import { useUser } from '@/context/UserContext';
 
@@ -29,7 +30,7 @@ export default function AddressForm({ openModal, handleClose, editData }: Addres
     const [pincodeLoading, setPincodeLoading] = useState(false);
     const queryClient = useQueryClient();
     const { user } = useUser();
-    
+
     const userId = user?.data?.id || null;
     const userName = user?.data?.name || null;
 
@@ -96,7 +97,14 @@ export default function AddressForm({ openModal, handleClose, editData }: Addres
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        if (name === 'postal_code') {
+            const onlyNums = value.replace(/[^0-9]/g, '');
+            if (onlyNums.length <= 6) {
+                setFormData((prev) => ({ ...prev, [name]: onlyNums }));
+            }
+        } else {
+            setFormData((prev) => ({ ...prev, [name]: value }));
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -117,10 +125,12 @@ export default function AddressForm({ openModal, handleClose, editData }: Addres
 
             if (response) {
                 queryClient.invalidateQueries(['getAddressData'] as InvalidateQueryFilters);
+                toast.success(editData ? "Address updated successfully!" : "Address added successfully!");
                 handleClose();
                 setLoading(false);
             }
-        } catch (error) {
+        } catch (error: any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message || "Failed to save address. Please try again.");
             console.error(error);
             setLoading(false);
         }
@@ -166,14 +176,14 @@ export default function AddressForm({ openModal, handleClose, editData }: Addres
                                 Pin Code
                                 {pincodeLoading && <Loader className="animate-spin text-orange-500" size={14} />}
                             </label>
-                            <input 
-                                type="text" 
-                                name="postal_code" 
-                                maxLength={6} 
-                                value={formData.postal_code} 
-                                onChange={handleChange} 
-                                required 
-                                className={inputClass} 
+                            <input
+                                type="text"
+                                name="postal_code"
+                                maxLength={6}
+                                value={formData.postal_code}
+                                onChange={handleChange}
+                                required
+                                className={inputClass}
                                 placeholder="Enter 6 digit pincode"
                             />
                         </div>
@@ -199,7 +209,7 @@ export default function AddressForm({ openModal, handleClose, editData }: Addres
                         <button type="button" onClick={handleClose} className="px-4 py-2 border rounded-md text-sm text-gray-700 hover:bg-gray-50 transition-colors">
                             Cancel
                         </button>
-                        <button type="submit" disabled={loading} className="px-4 py-2 bg-orange-500 text-white rounded-md text-sm hover:bg-orange-600 disabled:opacity-50 flex items-center gap-2 transition-colors">
+                        <button type="submit" disabled={loading || formData.postal_code.length !== 6} className="px-4 py-2 bg-orange-500 text-white rounded-md text-sm hover:bg-orange-600 disabled:opacity-50 flex items-center gap-2 transition-colors">
                             Save {loading && <Loader className="animate-spin" size={20} />}
                         </button>
                     </div>

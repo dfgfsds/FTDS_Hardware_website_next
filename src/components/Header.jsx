@@ -43,7 +43,6 @@ export default function Navbar() {
 
 
   // const finalProducts = products?.data;
-
   useEffect(() => {
     // Close dropdown when clicked outside
     const handleClickOutside = (event) => {
@@ -60,7 +59,6 @@ export default function Navbar() {
 
   const handleDropdownClick = () => setIsDropdownOpen(!isDropdownOpen);
 
-
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
   }, [isMobileMenuOpen]);
@@ -72,8 +70,8 @@ export default function Navbar() {
         // Generate or retrieve device ID
         let deviceId = localStorage.getItem('deviceId');
         if (!deviceId) {
-           deviceId = 'WEB-' + Math.random().toString(36).substr(2, 9);
-           localStorage.setItem('deviceId', deviceId);
+          deviceId = 'WEB-' + Math.random().toString(36).substr(2, 9);
+          localStorage.setItem('deviceId', deviceId);
         }
         await axios.post(url.deviceLogout, {
           vendor_id: vendorId,
@@ -84,7 +82,7 @@ export default function Navbar() {
     } catch (error) {
       console.error('Logout error:', error);
     }
-    
+
     setUser(null);
     if (typeof window !== 'undefined') {
       localStorage.clear();
@@ -109,32 +107,6 @@ export default function Navbar() {
 
     return () => clearTimeout(tid);
   }, [query, isOpen]);
-
-  // fetchSearchResults
-  // const fetchSearchResults = (term) => {
-  //   if (!products?.data) return;
-
-  //   const lower = term.toLowerCase();
-  //   const activeProducts = finalProducts?.filter((p) => {
-  //     return String(p?.status).toLowerCase() === "true";
-  //   });
-
-  //   const titleMatches = activeProducts.filter((p) =>
-  //     p.name?.toLowerCase().includes(lower)
-  //   );
-
-  //   const related = activeProducts
-  //     .filter(
-  //       (p) =>
-  //         !titleMatches.includes(p) &&
-  //         (p.description?.toLowerCase().includes(lower) ||
-  //           p.category_name?.toLowerCase().includes(lower))
-  //     )
-  //     .slice(0, 5);
-
-  //   setResults({ products: titleMatches, related: related });
-  //   setShowDropdown(true);
-  // };
 
   const fetchSearchResults = useCallback((term) => {
     if (!products?.data) return;
@@ -268,6 +240,31 @@ export default function Navbar() {
           <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/blog")}>
             Blog
           </Link>
+
+          {/* Mobile Login / Logout */}
+          <div className="mt-2 pt-4 border-t border-gray-100">
+            {userName ? (
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleLogout();
+                }}
+                className="text-red-600 hover:text-red-700 font-medium w-full text-left"
+              >
+                Logout
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  router.push('/login');
+                }}
+                className="text-orange-600 hover:text-orange-700 font-medium w-full text-left"
+              >
+                Login
+              </button>
+            )}
+          </div>
         </div>
 
 
