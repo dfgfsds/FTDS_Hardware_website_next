@@ -13,7 +13,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { formatDate } from '../../lib/utils';
 import toast from 'react-hot-toast';
 
-const tabs = ['Orders', 
+const tabs = ['Orders',
     // 'Wishlist', 
     'Address', 'AccountInfo'];
 
@@ -59,29 +59,28 @@ export default function Profile() {
 
             {/* Tab Buttons */}
             {/* Tab Buttons */}
-<div className="flex overflow-x-auto whitespace-nowrap gap-0 md:gap-4 border-b pb-2 mb-6 scrollbar-hide justify-start md:justify-center">
-  {tabs.map((tab) => (
-    <button
-      key={tab}
-      className={`px-4 py-2 font-medium rounded-t-md ${
-        activeTab === tab
-          ? "text-orange-500 border-b-2 border-orange-500"
-          : "text-gray-600 hover:text-orange-500"
-      }`}
-      onClick={() => setActiveTab(tab)}
-    >
-      {tab}
-    </button>
-  ))}
-</div>
+            <div className="flex overflow-x-auto whitespace-nowrap gap-0 md:gap-4 border-b pb-2 mb-6 scrollbar-hide justify-start md:justify-center">
+                {tabs.map((tab) => (
+                    <button
+                        key={tab}
+                        className={`px-4 py-2 font-medium rounded-t-md ${activeTab === tab
+                            ? "text-orange-500 border-b-2 border-orange-500"
+                            : "text-gray-600 hover:text-orange-500"
+                            }`}
+                        onClick={() => setActiveTab(tab)}
+                    >
+                        {tab}
+                    </button>
+                ))}
+            </div>
 
-{/* Tab Content */}
-<div className="p-4 bg-gray-50 rounded-md flex text-center flex-row overflow-x-auto sm:flex-col gap-2 sm:gap-4">
-  {activeTab === "Orders" && <OrdersTab />}
-  {/* {activeTab === "Wishlist" && <WishlistTab />} */}
-  {activeTab === "Address" && <AddressTab />}
-  {activeTab === "AccountInfo" && <AccountInfoTab />}
-</div>
+            {/* Tab Content */}
+            <div className="p-4 bg-gray-50 rounded-md flex text-center flex-row overflow-x-auto sm:flex-col gap-2 sm:gap-4">
+                {activeTab === "Orders" && <OrdersTab />}
+                {/* {activeTab === "Wishlist" && <WishlistTab />} */}
+                {activeTab === "Address" && <AddressTab />}
+                {activeTab === "AccountInfo" && <AccountInfoTab />}
+            </div>
 
 
 
@@ -111,43 +110,42 @@ function OrdersTab() {
     return (
         <div>
             <h2 className="text-xl font-semibold mb-4 text-gray-800">Your Orders</h2>
-
-            {/* {orders.length > 0 ? (
-                <div className="space-y-6">
+            {orders.length > 0 ? (
+                <div className="space-y-8">
                     {orders.map((order: any) => (
                         <div
                             key={order.id}
-                            className="rounded-lg border bg-white shadow-sm hover:shadow-md transition-shadow"
+                            className="rounded-xl border bg-white shadow hover:shadow-md transition-shadow overflow-hidden"
                         >
-                            <div className="bg-white p-4 flex flex-wrap justify-between gap-4 rounded-t-lg">
+                            <div className="bg-gray-50 px-6 py-4 flex flex-wrap items-center justify-between gap-6 border-b">
                                 <div>
-                                    <p className="text-sm text-gray-500">Order Placed</p>
+                                    <p className="text-xs text-gray-500">Order Placed</p>
                                     <p className="font-medium text-gray-800">{formatDate(order.created_at)}</p>
                                 </div>
 
                                 <div>
-                                    <p className="text-sm text-gray-500">Order ID</p>
-                                    <p className="font-medium text-gray-800">#{order.id}</p>
+                                    <p className="text-xs text-gray-500">Order ID</p>
+                                    <p className="font-semibold text-gray-900">#{order.id}</p>
                                 </div>
 
                                 <div>
-                                    <p className="text-sm text-gray-500">Total</p>
-                                    <p className="font-medium text-orange-500">{order.total_amount}</p>
+                                    <p className="text-xs text-gray-500">Total</p>
+                                    <p className="font-semibold text-orange-600">₹{order.total_amount}</p>
                                 </div>
 
                                 <div>
                                     <span
-                                        className={`px-3 py-1 text-xs font-semibold rounded-full ${order.status === 'Delivered'
-                                            ? 'bg-orange-100 text-orange-800'
-                                            : order.status === 'Pending'
-                                                ? 'bg-yellow-100 text-yellow-700'
-                                                : order.status === 'Processing'
-                                                    ? 'bg-orange-100 text-orange-700'
-                                                    : order.status === 'Shipped'
-                                                        ? 'bg-indigo-100 text-indigo-700'
-                                                        : order.status === 'Cancelled'
-                                                            ? 'bg-red-100 text-red-700'
-                                                            : 'bg-gray-100 text-gray-700'
+                                        className={`px-3 py-1 text-xs font-semibold rounded-full ${order.status === "Delivered"
+                                            ? "bg-green-100 text-green-700"
+                                            : order.status === "Pending"
+                                                ? "bg-yellow-100 text-yellow-700"
+                                                : order.status === "Processing"
+                                                    ? "bg-orange-100 text-orange-700"
+                                                    : order.status === "Shipped"
+                                                        ? "bg-indigo-100 text-indigo-700"
+                                                        : order.status === "Cancelled"
+                                                            ? "bg-red-100 text-red-700"
+                                                            : "bg-gray-100 text-gray-700"
                                             }`}
                                     >
                                         {order.status}
@@ -155,19 +153,19 @@ function OrdersTab() {
                                 </div>
                             </div>
 
-                            <div className="p-4 bg-white space-y-4">
+                            <div className="px-6 py-5 space-y-5">
                                 {order.order_items.map((product: any) => (
                                     <div
                                         key={product.id}
-                                        className="flex items-center gap-4 border-b pb-4 last:border-none"
+                                        className="flex items-center gap-4 border-b pb-4 last:border-b-0"
                                     >
-                                        <div className="w-16 h-16 rounded overflow-hidden bg-white border">
+                                        <div className="w-20 h-20 rounded-lg overflow-hidden border bg-gray-50 flex-shrink-0">
                                             <Image
                                                 src={
                                                     product?.product?.image_urls?.[0] ||
-                                                    'https://semantic-ui.com/images/wireframe/image.png'
+                                                    "https://semantic-ui.com/images/wireframe/image.png"
                                                 }
-                                                alt={product.name}
+                                                alt={product?.product?.name}
                                                 className="w-full h-full object-cover"
                                                 height={100}
                                                 width={100}
@@ -175,8 +173,18 @@ function OrdersTab() {
                                         </div>
 
                                         <div className="flex-1">
-                                            <p className="text-sm font-medium text-gray-800">{product?.product?.name}</p>
-                                            <p className="text-xs text-gray-500">Qty: {product.quantity}</p>
+                                            <p className="text-sm font-medium text-gray-900">
+                                                {product?.product?.name}
+                                            </p>
+                                            <p className="text-xs text-gray-500">
+                                                Qty: {product.quantity}
+                                            </p>
+                                        </div>
+
+                                        <div className="text-right">
+                                            <p className="text-sm font-semibold text-gray-800">
+                                                ₹{product.price}
+                                            </p>
                                         </div>
                                     </div>
                                 ))}
@@ -185,105 +193,14 @@ function OrdersTab() {
                     ))}
                 </div>
             ) : (
-                <div className="text-center px-3 py-10 bg-white shadow rounded-md">
-                    <Package className="mx-auto h-10 w-10 text-gray-400" />
-                    <h3 className="mt-3 text-md font-semibold text-gray-800">No Orders Found</h3>
-                    <p className="text-sm text-gray-500">Looks like you havent placed any orders yet.</p>
+                <div className="text-center px-6 py-16 bg-white shadow rounded-xl">
+                    <Package className="mx-auto h-12 w-12 text-gray-400" />
+                    <h3 className="mt-4 text-lg font-semibold text-gray-800">No Orders Found</h3>
+                    <p className="text-sm text-gray-500">
+                        Looks like you haven’t placed any orders yet.
+                    </p>
                 </div>
-            )} */}
-
-            {orders.length > 0 ? (
-  <div className="space-y-8">
-    {orders.map((order: any) => (
-      <div
-        key={order.id}
-        className="rounded-xl border bg-white shadow hover:shadow-md transition-shadow overflow-hidden"
-      >
-        <div className="bg-gray-50 px-6 py-4 flex flex-wrap items-center justify-between gap-6 border-b">
-          <div>
-            <p className="text-xs text-gray-500">Order Placed</p>
-            <p className="font-medium text-gray-800">{formatDate(order.created_at)}</p>
-          </div>
-
-          <div>
-            <p className="text-xs text-gray-500">Order ID</p>
-            <p className="font-semibold text-gray-900">#{order.id}</p>
-          </div>
-
-          <div>
-            <p className="text-xs text-gray-500">Total</p>
-            <p className="font-semibold text-orange-600">₹{order.total_amount}</p>
-          </div>
-
-          <div>
-            <span
-              className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                order.status === "Delivered"
-                  ? "bg-green-100 text-green-700"
-                  : order.status === "Pending"
-                  ? "bg-yellow-100 text-yellow-700"
-                  : order.status === "Processing"
-                  ? "bg-orange-100 text-orange-700"
-                  : order.status === "Shipped"
-                  ? "bg-indigo-100 text-indigo-700"
-                  : order.status === "Cancelled"
-                  ? "bg-red-100 text-red-700"
-                  : "bg-gray-100 text-gray-700"
-              }`}
-            >
-              {order.status}
-            </span>
-          </div>
-        </div>
-
-        <div className="px-6 py-5 space-y-5">
-          {order.order_items.map((product: any) => (
-            <div
-              key={product.id}
-              className="flex items-center gap-4 border-b pb-4 last:border-b-0"
-            >
-              <div className="w-20 h-20 rounded-lg overflow-hidden border bg-gray-50 flex-shrink-0">
-                <Image
-                  src={
-                    product?.product?.image_urls?.[0] ||
-                    "https://semantic-ui.com/images/wireframe/image.png"
-                  }
-                  alt={product?.product?.name}
-                  className="w-full h-full object-cover"
-                  height={100}
-                  width={100}
-                />
-              </div>
-
-              <div className="flex-1">
-                <p className="text-sm font-medium text-gray-900">
-                  {product?.product?.name}
-                </p>
-                <p className="text-xs text-gray-500">
-                  Qty: {product.quantity}
-                </p>
-              </div>
-
-              <div className="text-right">
-                <p className="text-sm font-semibold text-gray-800">
-                  ₹{product.price}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
-  </div>
-) : (
-  <div className="text-center px-6 py-16 bg-white shadow rounded-xl">
-    <Package className="mx-auto h-12 w-12 text-gray-400" />
-    <h3 className="mt-4 text-lg font-semibold text-gray-800">No Orders Found</h3>
-    <p className="text-sm text-gray-500">
-      Looks like you haven’t placed any orders yet.
-    </p>
-  </div>
-)}
+            )}
 
         </div>
     );
@@ -310,10 +227,10 @@ function AddressTab() {
     const [getUserName, setUserName] = useState<string | null>(null);
     const { user } = useUser();
 
-useEffect(() => {
-    setUserName(user?.data?.name || null);
-    setUserId(user?.data?.id || null);
-}, [user?.data?.name, user?.data?.id]);
+    useEffect(() => {
+        setUserName(user?.data?.name || null);
+        setUserId(user?.data?.id || null);
+    }, [user?.data?.name, user?.data?.id]);
 
     const { data, isLoading }: any = useQuery({
         queryKey: ['getAddressData', userId],
@@ -342,8 +259,8 @@ useEffect(() => {
             if (upadetApi) {
                 queryClient.invalidateQueries(['getAddressData'] as InvalidateQueryFilters);
             }
-        } catch (error:any) {
-            toast.error(error?.response?.data?.error || error?.response?.data?.message ||"Failed to update address. Please try again later.");
+        } catch (error: any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message || "Failed to update address. Please try again later.");
             console.error(error);
         }
     };
@@ -513,11 +430,18 @@ function AccountInfoTab() {
     }, [user]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData((prev) => ({
-            ...prev,
-            [e.target.id]: e.target.value,
-        }));
+        const { id, value } = e.target;
+        if (id === 'phone') {
+            const onlyNums = value.replace(/[^0-9]/g, '');
+            if (onlyNums.length <= 10) {
+                setFormData((prev) => ({ ...prev, [id]: onlyNums }));
+            }
+        } else {
+            setFormData((prev) => ({ ...prev, [id]: value }));
+        }
     };
+
+    const isPhoneValid = formData.phone?.length === 10;
 
     const handleUpdate = async () => {
         try {
@@ -531,10 +455,10 @@ function AccountInfoTab() {
 
             if (response) {
                 queryClient.invalidateQueries(["gerUserData"] as InvalidateQueryFilters);
-                // Optional: show toast or success message
+                toast.success("Account info updated successfully!");
             }
-        } catch (error:any) {
-            toast.error(error?.response?.data?.error || error?.response?.data?.message ||"Failed to update account info. Please try again later.");
+        } catch (error: any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message || "Failed to update account info. Please try again later.");
             console.error("Update failed:", error);
         }
     };
@@ -581,15 +505,19 @@ function AccountInfoTab() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="Enter phone number"
-                        className="w-full border border-gray-300 rounded-md p-2 focus:ring-orange-500 focus:border-orange-500"
+                        className={`w-full border rounded-md p-2 focus:outline-none ${!isPhoneValid && formData.phone?.length > 0 ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-orange-500 focus:border-orange-500'}`}
                     />
+                    {!isPhoneValid && formData.phone?.length > 0 && (
+                        <p className="text-red-500 text-xs mt-1">Phone number must be exactly 10 digits.</p>
+                    )}
                 </div>
             </div>
 
             <div className="flex justify-end">
                 <button
                     onClick={handleUpdate}
-                    className="px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-md hover:bg-orange-700 transition"
+                    disabled={!isPhoneValid}
+                    className={`px-4 py-2 text-white text-sm font-medium rounded-md transition ${isPhoneValid ? 'bg-orange-600 hover:bg-orange-700' : 'bg-gray-400 cursor-not-allowed'}`}
                 >
                     Save Changes
                 </button>

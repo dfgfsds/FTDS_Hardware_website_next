@@ -37,7 +37,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
       if (!ticking.current) {
         window.requestAnimationFrame(() => {
           const goingDown = current > lastScrollY.current;
-            // Hide when scrolling down past 100px, show when scrolling up
+          // Hide when scrolling down past 100px, show when scrolling up
           if (goingDown && current > 100 && showHeader) {
             setShowHeader(false);
           } else if (!goingDown && !showHeader) {
