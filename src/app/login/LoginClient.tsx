@@ -286,6 +286,7 @@ const LoginClient = () => {
                 if (cartRes) {
                     localStorage.setItem('cartId', cartRes.data[0]?.id);
                     setLoading(false);
+                    router.push('/');
                     window.location.reload();
                 }
             }
@@ -355,8 +356,8 @@ const LoginClient = () => {
                         console.error("Error syncing cart on google login:", cartErr);
                     }
                 }
-
-                window.location.reload();
+                router.push('/');
+                // window.location.reload();
             }
         } catch (err: any) {
             console.error("Google login error:", err);
@@ -448,6 +449,13 @@ const LoginClient = () => {
                                     onChange={(e) => {
                                         setMobile(e.target.value);
                                         setErrors({ ...errors, mobile: '' });
+                                        // Reset OTP state when mobile number is changed
+                                        if (otpSent) {
+                                            setOtpSent(false);
+                                            setOtp('');
+                                            setToken(null);
+                                            setError('');
+                                        }
                                     }}
                                     className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.mobile ? 'border-red-500' : 'border-gray-300'
                                         }`}
