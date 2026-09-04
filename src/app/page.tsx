@@ -386,7 +386,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.ftdigitalsolutions.in/refurbished-laptops-desktops-chennai",
+    canonical: "https://www.ftds.in",
   },
 
   robots: {
