@@ -205,9 +205,9 @@ export default function ProductCard({
                     }}
                   />
 
-                  <h2 className="text-sm font-semibold text-gray-800 mb-1 line-clamp-2 text-center">
+                  <h3 className="text-sm font-semibold text-gray-800 mb-1 line-clamp-2 text-center">
                     {product.name}
-                  </h2>
+                  </h3>
 
                 </div>
 

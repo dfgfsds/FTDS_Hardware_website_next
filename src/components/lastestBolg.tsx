@@ -66,15 +66,16 @@ export default function RecentBlogs() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 text-center mb-8">
-           Latest Blog Posts from{" "}
-          <span className="text-orange-500">FTDS Hardware</span>
-        </h2>
-          
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 text-center mb-8">
+            Latest Blog Posts from{" "}
+            <span className="text-orange-500">FTDS Hardware</span>
+          </h2>
+
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Stay updated with the latest tech insights, maintenance tips, and
-            hardware news from FTDS Hardware — your trusted source for
-            refurbished laptops, desktops, and IT solutions in Chennai.
+            Stay updated with the latest tech insights,
+            maintenance tips, and hardware news from FTDS Hardware,
+            your trusted source for refurbished laptops, desktops,
+            and IT solutions in Chennai.
           </p>
         </motion.div>
 
