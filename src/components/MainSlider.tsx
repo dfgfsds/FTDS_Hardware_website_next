@@ -81,11 +81,10 @@ export default function HeroSection() {
           backgroundImage: `url(/assets/banner.jpg)`,
         }}
       >
-        {/* Black Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-75 md:bg-opacity-65 rounded-2xl"></div>
 
-        {/* Text Content */}
-        <div className="max-w-md text-white z-10 relative">
+        <div className="absolute inset-0 bg-black bg-opacity-10 md:bg-opacity-10 rounded-2xl"></div>
+
+        {/* <div className="max-w-md text-white z-10 relative">
           <h1 className="text-2xl md:text-3xl font-bold leading-snug drop-shadow-md">
             Refurbished Laptops & Desktops in Chennai — Certified, Tested & Warranty-Backed
           </h1>
@@ -99,8 +98,9 @@ export default function HeroSection() {
               Shop Now <FaArrowRightLong />
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
+
 
       {/* --- BANNER POPUP MODAL --- */}
       {/* {isModalOpen && (
@@ -108,83 +108,41 @@ export default function HeroSection() {
 
           <div className="absolute inset-0 w-full h-full" onClick={() => setIsModalOpen(false)}></div>
 
-          <div className="relative w-full max-w-3xl bg-transparent rounded-2xl overflow-hidden shadow-2xl transition-all scale-100 transform z-10 mx-auto">
+          <div className="relative w-full max-w-xs sm:max-w-3xl bg-transparent rounded-2xl overflow-hidden shadow-2xl transition-all scale-100 transform z-10 mx-auto">
+
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 z-[10000] p-2 text-gray-700 hover:text-black bg-white/90 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-105"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-[10000] p-2 text-gray-700 hover:text-black bg-white/90 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-105"
               aria-label="Close modal"
             >
-              <HiX size={22} />
+              <HiX size={20} className="sm:w-[22px] sm:h-[22px]" />
             </button>
+
             <a
-              href="https://wa.me/917277929292?text=Hi%20FTDS%20Hardware,%20I%20am%20interested%20in%20the%20Aadi%20Sale%20offers!"
               target="_blank"
               rel="noopener noreferrer"
-              className="block relative w-full h-auto cursor-pointer"
+              className="block relative w-full h-auto cursor-pointer flex justify-center"
             >
-              <img
-                src="/assets/banner-2.webp"
-                alt="Aadi Sale Offer Banner"
-                className="w-full h-auto object-contain select-none max-h-[85vh]"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/assets/banner.jpg';
-                }}
-              />
+              <picture className="w-full h-auto flex justify-center">
+                <source
+                  media="(max-width: 639px)"
+                  srcSet="./assets/banner-mobile.jpeg" // <-- Unoda mobile banner path-ah inga podu machan
+                />
+
+                <img
+                  src="./assets/banner-2.webp"
+                  alt="Aadi Sale Offer Banner"
+                  className="w-full h-auto object-contain select-none max-h-[80vh] rounded-2xl"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = './assets/banner.jpg';
+                  }}
+                />
+              </picture>
             </a>
 
           </div>
         </div>
       )} */}
-
-{/* --- BANNER POPUP MODAL --- */}
-{isModalOpen && (
-  <div className="fixed inset-0 w-screen h-screen z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300">
-
-    {/* Backdrop overlay layout detector */}
-    <div className="absolute inset-0 w-full h-full" onClick={() => setIsModalOpen(false)}></div>
-
-    {/* Modal Container - Mobile-la compact max-w-xs (480px image-ku), Desktop-la max-w-3xl */}
-    <div className="relative w-full max-w-xs sm:max-w-3xl bg-transparent rounded-2xl overflow-hidden shadow-2xl transition-all scale-100 transform z-10 mx-auto">
-
-      {/* Top Close (X) Icon Button */}
-      <button
-        onClick={() => setIsModalOpen(false)}
-        className="absolute top-3 right-3 sm:top-4 sm:right-4 z-[10000] p-2 text-gray-700 hover:text-black bg-white/90 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-105"
-        aria-label="Close modal"
-      >
-        <HiX size={20} className="sm:w-[22px] sm:h-[22px]" />
-      </button>
-
-      {/* WhatsApp Link Wrapper */}
-      <a
-        // href="https://wa.me/917277929292?text=Hi%20FTDS%20Hardware,%20I%20am%20interested%20in%20the%20Aadi%20Sale%20offers!"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block relative w-full h-auto cursor-pointer flex justify-center"
-      >
-        {/* Responsive Picture Tag - Mobile & Desktop Automatic Switcher */}
-        <picture className="w-full h-auto flex justify-center">
-          {/* Mobile view (< 640px) - 480x800 image load aagum */}
-          <source 
-            media="(max-width: 639px)" 
-            srcSet="./assets/banner-mobile.jpeg" // <-- Unoda mobile banner path-ah inga podu machan
-          />
-          
-          {/* Desktop view (>= 640px) - Original Landscape banner load aagum */}
-          <img
-            src="./assets/banner-2.webp"
-            alt="Aadi Sale Offer Banner"
-            className="w-full h-auto object-contain select-none max-h-[80vh] rounded-2xl"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = './assets/banner.jpg';
-            }}
-          />
-        </picture>
-      </a>
-
-    </div>
-  </div>
-)}
     </section>
   );
 }
