@@ -660,9 +660,9 @@ export default function ConnectClient() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-semibold uppercase tracking-wider">
               AEO &amp; Search Optimized FAQs
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
               Frequently Asked Questions (FAQ)
-            </h2>
+            </h3>
             <p className="text-slate-600 text-base">
               Quick answers about FTDS Hardware, warranty policies, locations, and IT services.
             </p>

@@ -45,9 +45,9 @@ export default function Testimonials() {
 
         {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+          <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
             What Our Customers Say
-          </h2>
+          </h3>
           <p className="mt-3 text-lg text-gray-600 font-medium">
             Trusted Choice for Refurbished Computers in Chennai
           </p>
