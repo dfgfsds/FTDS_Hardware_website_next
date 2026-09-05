@@ -139,9 +139,9 @@ export default function Footer() {
               <a href="https://www.instagram.com/ftds_hardware" target="_blank" rel="noopener noreferrer" className="bg-slate-800 border border-slate-700 text-slate-300 rounded-lg p-3 hover:bg-pink-600 hover:text-white hover:border-pink-600 hover:-translate-y-1 transition-all shadow-sm">
                 <FaInstagram size={18} />
               </a>
-              <a href="https://x.com/ftdshardware" target="_blank" rel="noopener noreferrer" className="bg-slate-800 border border-slate-700 text-slate-300 rounded-lg p-3 hover:bg-black hover:text-white hover:border-black hover:-translate-y-1 transition-all shadow-sm">
+              {/* <a href="https://x.com/ftdshardware" target="_blank" rel="noopener noreferrer" className="bg-slate-800 border border-slate-700 text-slate-300 rounded-lg p-3 hover:bg-black hover:text-white hover:border-black hover:-translate-y-1 transition-all shadow-sm">
                 <FaXTwitter size={18} />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
