@@ -35,9 +35,9 @@ export default function CategorySlider() {
 
   return (
     <div className="relative bg-white p-4 md:px-10 shadow-sm rounded-md">
-      <h2 className="text-center md:text-start py-6 text-2xl font-semibold">
+      <h4 className="text-center md:text-start py-6 text-2xl font-semibold">
         Categories
-      </h2>
+      </h4>
 
       {/* Left Arrow (Desktop) */}
       <button
@@ -103,11 +103,10 @@ export default function CategorySlider() {
                 behavior: 'smooth',
               })
             }
-            className={`h-2 rounded-full transition-all duration-300 ${
-              activeIndex === index
+            className={`h-2 rounded-full transition-all duration-300 ${activeIndex === index
                 ? 'bg-orange-500 w-4'
                 : 'bg-gray-300 w-2'
-            }`}
+              }`}
           />
         ))}
       </div>
