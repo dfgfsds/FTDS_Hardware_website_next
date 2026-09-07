@@ -1,148 +1,193 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { HiOutlineChevronLeft, HiOutlineChevronRight, HiX } from 'react-icons/hi';
-import { FaArrowRightLong } from 'react-icons/fa6';
-import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { useProducts } from '@/context/ProductsContext';
 import { useRouter, usePathname } from 'next/navigation';
-import axios from 'axios';
-import { baseUrl } from '@/api-endpoints/ApiUrls';
 import { useVendor } from '@/context/VendorContext';
-import { slugConvert } from '../../lib/utils';
+import Mobilebanner1 from "../../public/assets/banners/FTDS MOBILE BANNER 01.jpg.jpeg"
+import Mobilebanner2 from "../../public/assets/banners/FTDS MOBILE BANNER 02.jpg.jpeg"
+import Mobilebanner3 from "../../public/assets/banners/FTDS MOBILE BANNER 03.jpg.jpeg"
+import banner1 from "../../public/assets/banners/FTDS WEB BANNER 01.jpg.jpeg"
+import banner2 from "../../public/assets/banners/FTDS WEB BANNER 02.jpg.jpeg"
+import banner3 from "../../public/assets/banners/FTDS WEB BANNER 03.jpg.jpeg"
+// Default banner slides with PC and Mobile versions from /assets/banners
+const defaultBanners = [
+  {
+    id: 1,
+    title: 'Certified Refurbished Laptops & Desktops in Chennai',
+    pcSrc: banner1,
+    mobileSrc: Mobilebanner1,
+    link: '/shop',
+  },
+  {
+    id: 2,
+    title: 'Smart Technology, Better Value',
+    pcSrc: banner2,
+    mobileSrc: Mobilebanner2,
+    link: '/shop',
+  },
+  {
+    id: 3,
+    title: 'Reliable Tech, Sustainable Choice',
+    pcSrc: banner3,
+    mobileSrc: Mobilebanner3,
+    link: '/shop',
+  },
+];
+
+// Helper to safely extract image URL whether it is a direct import (StaticImageData) or string path
+const getImgSrc = (img: any): string => {
+  if (!img) return '';
+  if (typeof img === 'string') return encodeURI(img);
+  if (typeof img === 'object' && img.src) return img.src;
+  return String(img);
+};
 
 export default function HeroSection() {
   const router = useRouter();
   const pathname = usePathname();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [randomProduct, setRandomProduct] = useState<any>(null);
-  const [banners, setBanners] = useState<any[]>([]);
+  const [isPaused, setIsPaused] = useState(false);
+  const [banners, setBanners] = useState<any[]>(defaultBanners);
   const { products } = useProducts();
   const { vendorId } = useVendor();
 
-  // Modal show state management
+  // Touch swipe support for mobile
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  // Modal state management (kept for future promo popup if needed)
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Trigger modal when returning to this page
-  useEffect(() => {
-    setIsModalOpen(true);
-  }, []);
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
+  }, [banners.length]);
 
-  // Fetch banners
-  useEffect(() => {
-    const bannerGetApi = async () => {
-      try {
-        const res = await axios.get(
-          `${baseUrl}/banners/?vendorId=${vendorId}`
-        );
-
-        if (res.data?.banners) {
-          setBanners(res.data.banners);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    if (vendorId) {
-      bannerGetApi();
-    }
-  }, [vendorId]);
-
-  // Pick random product whenever products change
-  useEffect(() => {
-    if (products?.data?.length > 0) {
-      const randomIndex = Math.floor(Math.random() * products.data.length);
-      setRandomProduct(products.data[randomIndex]);
-    }
-  }, [products]);
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
+  }, [banners.length]);
 
   // Auto slide management
   useEffect(() => {
-    if (!banners.length) return;
+    if (banners.length <= 1 || isPaused) return;
 
     const timer = setInterval(() => {
-      setCurrentSlide((prev) =>
-        prev === banners.length - 1 ? 0 : prev + 1
-      );
+      nextSlide();
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [banners.length]);
+  }, [banners.length, isPaused, nextSlide]);
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const distance = touchStartX - touchEndX;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
 
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-center gap-6 px-4 py-6 lg:px-12 relative">
-
+    <section className="w-full px-4 py-4 sm:px-6 lg:px-12 relative select-none">
       <div
-        className=" w-full h-[400px]  md:h-[450px]  rounded-2xl overflow-hidden flex items-center justify-start text-start px-4 sm:px-6 lg:px-12 transition-all duration-700 relative bg-cover bg-no-repeat bg-[position:right] sm:bg-[position:center] "
-        style={{
-          backgroundImage: `url(/assets/banner.jpg)`,
-        }}
+        className="relative w-full overflow-hidden rounded-2xl shadow-md bg-gray-100 group"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
+        {/* Banner Slides Carousel */}
+        <div className="relative w-full">
+          {banners.map((slide, index) => {
+            const isActive = index === currentSlide;
+            const pcUrl = getImgSrc(slide.pcSrc);
+            const mobileUrl = getImgSrc(slide.mobileSrc || slide.pcSrc);
 
-        <div className="absolute inset-0 bg-black bg-opacity-10 md:bg-opacity-10 rounded-2xl"></div>
+            return (
+              <div
+                key={slide.id || index}
+                className={`w-full transition-opacity duration-700 ease-in-out ${isActive
+                  ? 'opacity-100 relative z-10'
+                  : 'opacity-0 absolute inset-0 z-0 pointer-events-none'
+                  }`}
+              >
+                <Link
+                  href={slide.link || '/shop'}
+                  className="block w-full focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-2xl"
+                >
+                  <picture className="w-full block">
+                    {/* Mobile Banner: screen width < 768px */}
+                    <source media="(max-width: 767px)" srcSet={mobileUrl} />
+                    {/* Desktop / PC Banner: screen width >= 768px */}
+                    <img
+                      src={pcUrl}
+                      alt={slide.title}
+                      className="w-full h-auto object-cover sm:object-contain rounded-2xl block"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                  </picture>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
 
-        {/* <div className="max-w-md text-white z-10 relative">
-          <h1 className="text-2xl md:text-3xl font-bold leading-snug drop-shadow-md">
-            Refurbished Laptops & Desktops in Chennai — Certified, Tested & Warranty-Backed
-          </h1>
-          <p className="mt-3 text-sm opacity-90 drop-shadow-sm">
-            FTDS Hardware sells professionally tested refurbished laptops and
-            desktops in Chennai with a 12-month warranty, transparent specifications,
-            and support for individuals, students, and businesses.
-          </p>
-          <Link href={banners[currentSlide]?.link || '/shop'}>
-            <button className="mt-5 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-orange-500 hover:bg-gray-100 transition">
-              Shop Now <FaArrowRightLong />
+        {/* Prev / Next Navigation Arrows */}
+        {banners.length > 1 && (
+          <>
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-md backdrop-blur-sm transition-all hover:scale-110 active:scale-95 focus:outline-none opacity-80 group-hover:opacity-100"
+              aria-label="Previous Slide"
+            >
+              <HiOutlineChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
             </button>
-          </Link>
-        </div> */}
-      </div>
-
-
-      {/* --- BANNER POPUP MODAL --- */}
-      {/* {isModalOpen && (
-        <div className="fixed inset-0 w-screen h-screen z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300">
-
-          <div className="absolute inset-0 w-full h-full" onClick={() => setIsModalOpen(false)}></div>
-
-          <div className="relative w-full max-w-xs sm:max-w-3xl bg-transparent rounded-2xl overflow-hidden shadow-2xl transition-all scale-100 transform z-10 mx-auto">
 
             <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-[10000] p-2 text-gray-700 hover:text-black bg-white/90 backdrop-blur-md rounded-full shadow-lg transition-all hover:scale-105"
-              aria-label="Close modal"
+              onClick={nextSlide}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-md backdrop-blur-sm transition-all hover:scale-110 active:scale-95 focus:outline-none opacity-80 group-hover:opacity-100"
+              aria-label="Next Slide"
             >
-              <HiX size={20} className="sm:w-[22px] sm:h-[22px]" />
+              <HiOutlineChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
             </button>
+          </>
+        )}
 
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block relative w-full h-auto cursor-pointer flex justify-center"
-            >
-              <picture className="w-full h-auto flex justify-center">
-                <source
-                  media="(max-width: 639px)"
-                  srcSet="./assets/banner-mobile.jpeg" // <-- Unoda mobile banner path-ah inga podu machan
-                />
-
-                <img
-                  src="./assets/banner-2.webp"
-                  alt="Aadi Sale Offer Banner"
-                  className="w-full h-auto object-contain select-none max-h-[80vh] rounded-2xl"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = './assets/banner.jpg';
-                  }}
-                />
-              </picture>
-            </a>
-
+        {/* Dot Indicators */}
+        {banners.length > 1 && (
+          <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+            {banners.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                onClick={() => setCurrentSlide(dotIdx)}
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${dotIdx === currentSlide
+                  ? 'w-6 sm:w-8 bg-orange-500 shadow-sm'
+                  : 'w-2 sm:w-2.5 bg-white/70 hover:bg-white'
+                  }`}
+                aria-label={`Go to slide ${dotIdx + 1}`}
+              />
+            ))}
           </div>
-        </div>
-      )} */}
+        )}
+      </div>
     </section>
   );
 }

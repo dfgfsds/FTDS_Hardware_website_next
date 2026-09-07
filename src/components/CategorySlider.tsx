@@ -104,8 +104,8 @@ export default function CategorySlider() {
               })
             }
             className={`h-2 rounded-full transition-all duration-300 ${activeIndex === index
-                ? 'bg-orange-500 w-4'
-                : 'bg-gray-300 w-2'
+              ? 'bg-orange-500 w-4'
+              : 'bg-gray-300 w-2'
               }`}
           />
         ))}
