@@ -30,10 +30,10 @@ export async function generateMetadata() {
   };
 
   return {
-    title: "Privacy Policy | Refurbished Laptops & Computers Chennai",
+    title: "Used Desktops in Chennai | Quality PCs at Best Prices",
 
     description:
-      "Read FTDS Hardware privacy policy on data collection, usage, cookies, and security for refurbished laptops and IT products in Chennai.",
+      "Find reliable used desktops in Chennai at affordable prices. Explore quality-tested PCs from top brands for home, office, business, and more.",
 
     keywords: [
       "FTDS Hardware privacy policy",
@@ -53,9 +53,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "Privacy Policy | Refurbished Laptops & Computers Chennai",
+      title: "Used Desktops in Chennai | Quality PCs at Best Prices",
       description:
-        "Learn how FTDS Hardware protects your personal data, privacy, and security when purchasing refurbished laptops and IT products.",
+        "Find reliable used desktops in Chennai at affordable prices. Explore quality-tested PCs from top brands for home, office, business, and more.",
       url: "https://www.ftds.in/privacy_policy",
       siteName: "FTDS Hardware",
       type: "website",
@@ -71,9 +71,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
-      title: "Privacy Policy | Refurbished Laptops & Computers Chennai",
+      title: "Used Desktops in Chennai | Quality PCs at Best Prices",
       description:
-        "Understand how FTDS Hardware collects, uses, and protects your personal data securely.",
+        "Find reliable used desktops in Chennai at affordable prices. Explore quality-tested PCs from top brands for home, office, business, and more.",
       images: [
         "/logo.png",
       ],

@@ -84,10 +84,10 @@ export async function generateMetadata() {
   // };
 
   return {
-    title: "About FTDS Hardware | Refurbished Laptops Chennai",
+    title: "Certified Refurbished Desktops in Chennai | FTDS",
 
     description:
-      "Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+      "Find certified refurbished laptops & desktops in Chennai at FTDS. Shop quality business computers, affordable systems, and reliable devices for every need.",
 
     keywords: [
       "FTDS Hardware",
@@ -109,9 +109,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "About FTDS Hardware | Refurbished Laptops Chennai",
+      title: "Certified Refurbished Desktops in Chennai | FTDS",
       description:
-        "Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+        "Find certified refurbished laptops and desktops in Chennai at FTDS. Shop quality business computers, affordable systems, and reliable devices for every need.",
       url: "https://www.ftds.in/about",
       siteName: "FTDS Hardware",
       type: "website",
@@ -119,9 +119,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
-      title: "About FTDS Hardware | Refurbished Laptops Chennai",
+      title: "Certified Refurbished Desktops in Chennai | FTDS",
       description:
-        "Learn about FTDS Hardware, a trusted refurbished computer store in Chennai delivering quality-tested systems, transparent specs, and customer support.",
+        "Find certified refurbished laptops and desktops in Chennai at FTDS. Shop quality business computers, affordable systems, and reliable devices for every need.",
     },
 
     other: {

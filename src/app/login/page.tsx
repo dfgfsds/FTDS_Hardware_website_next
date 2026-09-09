@@ -21,10 +21,10 @@ export async function generateMetadata() {
     };
 
     return {
-        title: "Login | Buy Refurbished Laptops & Desktops – FTDS Hardware",
+        title: "Refurbished Laptop Dealers Chennai | Login",
 
         description:
-            "Login to your FTDS Hardware account to manage orders, track purchases, and shop refurbished laptops and IT products securely.",
+            "Login to your account with trusted refurbished laptop dealers in Chennai. Manage orders, track purchases, and access your account details.",
 
         keywords: [
             "FTDS login",
@@ -44,9 +44,9 @@ export async function generateMetadata() {
         },
 
         openGraph: {
-            title: "Login | Buy Refurbished Laptops & Desktops – FTDS Hardware",
+            title: "Refurbished Laptop Dealers Chennai | Login",
             description:
-                "Login to your FTDS Hardware account to manage orders, track purchases, and shop refurbished laptops and IT products securely.",
+                "Login to your account with trusted refurbished laptop dealers in Chennai. Manage orders, track purchases, and access your account details.",
             url: "https://www.ftds.in/login",
             siteName: "FTDS Hardware",
             type: "website",
@@ -54,9 +54,9 @@ export async function generateMetadata() {
 
         twitter: {
             card: "summary_large_image",
-            title: "Login | Buy Refurbished Laptops & Desktops – FTDS Hardware",
+            title: "Refurbished Laptop Dealers Chennai | Login",
             description:
-                "Login to your FTDS Hardware account to manage orders, track purchases, and shop refurbished laptops and IT products securely.",
+                "Login to your account with trusted refurbished laptop dealers in Chennai. Manage orders, track purchases, and access your account details.",
         },
 
         other: {

@@ -30,10 +30,10 @@ export async function generateMetadata() {
     };
 
     return {
-        title: "Terms & Conditions | FTDS Hardware Chennai",
+        title: "Refurbished Desktops with Warranty Chennai | Terms & Conditions",
 
         description:
-            "Read FTDS Hardware terms and conditions for buying refurbished laptops, desktops, and IT hardware with clear policies and user guidelines.",
+            "Review the terms and conditions for refurbished desktops with warranty in Chennai, including warranty coverage, purchases, returns, and usage terms.",
 
         keywords: [
             "FTDS terms and conditions",
@@ -60,9 +60,9 @@ export async function generateMetadata() {
         },
 
         openGraph: {
-            title: "Terms & Conditions | FTDS Hardware Chennai",
+            title: "Refurbished Desktops with Warranty Chennai | Terms & Conditions",
             description:
-                "Review FTDS Hardware terms and conditions for secure purchases of refurbished laptops and IT products.",
+                "Review the terms and conditions for refurbished desktops with warranty in Chennai, including warranty coverage, purchases, returns, and usage terms.",
             url: "https://www.ftds.in/terms_and_conditions",
             type: "website",
             siteName: "FTDS Hardware",
@@ -78,9 +78,9 @@ export async function generateMetadata() {
 
         twitter: {
             card: "summary_large_image",
-            title: "Terms & Conditions | FTDS Hardware Chennai",
+            title: "Refurbished Desktops with Warranty Chennai | Terms & Conditions",
             description:
-                "Check FTDS Hardware terms for buying refurbished laptops and IT hardware with transparency and security.",
+                "Review the terms and conditions for refurbished desktops with warranty in Chennai, including warranty coverage, purchases, returns, and usage terms.",
             images: [
                 "/logo.png",
             ],

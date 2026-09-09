@@ -46,10 +46,10 @@ export async function generateMetadata() {
     ],
   };
   return {
-    title: "FTDS Hardware Blog | Refurbished Computers & Tech Insights",
+    title: "Second Hand Laptops in Chennai | Buying Guide & Tips",
 
     description:
-      "Read expert blogs from FTDS Hardware on refurbished computers, buying guides, hardware tips, and cost-effective tech solutions.",
+      "Explore our guide to second hand laptops in Chennai. Learn how to choose reliable laptops, compare prices, check quality, and get the best deals.",
 
     keywords: [
       "FTDS Hardware Blog",
@@ -88,9 +88,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "FTDS Hardware Blog | Refurbished Computers & Tech Insights",
+      title: "Second Hand Laptops in Chennai | Buying Guide & Tips",
       description:
-        "Read expert blogs from FTDS Hardware on refurbished computers, buying guides, hardware tips, and cost-effective tech solutions.",
+        "Explore our guide to second hand laptops in Chennai. Learn how to choose reliable laptops, compare prices, check quality, and get the best deals.",
       url: "https://www.ftds.in/blog",
       siteName: "FTDS Hardware",
       type: "website",
@@ -98,6 +98,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
+      title: "Second Hand Laptops in Chennai | Buying Guide & Tips",
+      description:
+        "Explore our guide to second hand laptops in Chennai. Learn how to choose reliable laptops, compare prices, check quality, and get the best deals.",
     },
 
     other: {

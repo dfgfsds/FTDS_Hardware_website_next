@@ -30,10 +30,10 @@ export async function generateMetadata() {
     };
 
     return {
-        title: "Refund and Cancellation Terms | FTDS Hardware Chennai",
+        title: "Refurbished Desktop Computers in Chennai | Refund Policy",
 
         description:
-            "Read FTDS Hardware refund and cancellation policy for refurbished laptops and IT products, including eligibility, timelines, and process.",
+            "Check our refund and cancellation policy for refurbished desktop computers in Chennai, including eligibility, cancellation terms, and refund details.",
 
         keywords: [
             "FTDS refund policy",
@@ -60,9 +60,9 @@ export async function generateMetadata() {
         },
 
         openGraph: {
-            title: "Refund and Cancellation Terms | FTDS Hardware Chennai",
+            title: "Refurbished Desktop Computers in Chennai | Refund Policy",
             description:
-                "Check FTDS Hardware refund and cancellation terms for refurbished laptops and IT hardware purchases.",
+                "Check our refund and cancellation policy for refurbished desktop computers in Chennai, including eligibility, cancellation terms, and refund details.",
             url: "https://www.ftds.in/refund_and_cancellation_policy",
             type: "website",
             siteName: "FTDS Hardware",
@@ -78,9 +78,9 @@ export async function generateMetadata() {
 
         twitter: {
             card: "summary_large_image",
-            title: "Refund and Cancellation Terms | FTDS Hardware Chennai",
+            title: "Refurbished Desktop Computers in Chennai | Refund Policy",
             description:
-                "Learn about FTDS Hardware refund eligibility, cancellation process, and timelines for IT products.",
+                "Check our refund and cancellation policy for refurbished desktop computers in Chennai, including eligibility, cancellation terms, and refund details.",
             images: [
                 "/logo.png",
             ],

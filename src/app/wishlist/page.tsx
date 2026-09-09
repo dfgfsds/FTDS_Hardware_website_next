@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Profile from '@/components/Profile';
+import WishlistClient from './WishlistClient';
 
 export const metadata: Metadata = {
-  title: 'Refurbished Laptop Shop Chennai | Login',
+  title: 'Refurbished Laptops with Warranty Chennai | Wishlist',
   description:
     'Login to your account at a trusted refurbished laptop shop in Chennai. Manage orders, track purchases, and securely access your account details.',
   robots: {
@@ -10,24 +10,24 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: 'https://www.ftds.in/profile',
+    canonical: 'https://www.ftds.in/wishlist',
   },
   openGraph: {
-    title: 'Refurbished Laptop Shop Chennai | Login',
+    title: 'Refurbished Laptops with Warranty Chennai | Wishlist',
     description:
       'Login to your account at a trusted refurbished laptop shop in Chennai. Manage orders, track purchases, and securely access your account details.',
-    url: 'https://www.ftds.in/profile',
+    url: 'https://www.ftds.in/wishlist',
     siteName: 'FTDS Hardware',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Refurbished Laptop Shop Chennai | Login',
+    title: 'Refurbished Laptops with Warranty Chennai | Wishlist',
     description:
       'Login to your account at a trusted refurbished laptop shop in Chennai. Manage orders, track purchases, and securely access your account details.',
   },
 };
 
-export default function ProfilePage() {
-  return <Profile />;
+export default function WishlistPage() {
+  return <WishlistClient />;
 }
