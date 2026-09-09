@@ -31,10 +31,10 @@ export async function generateMetadata() {
     };
 
     return {
-        title: "Shipping Policy for Laptops & Computers | FTDS Hardware",
+        title: "Reliable Refurbished Laptops Chennai | Shipping Policy",
 
         description:
-            "Read FTDS Hardware shipping policy covering delivery charges, timelines, courier partners, and nationwide shipping for laptops and IT products.",
+            "Learn about our shipping policy for reliable refurbished laptops in Chennai, including delivery timelines, charges, shipping areas, and order tracking.",
 
         keywords: [
             "FTDS shipping policy",
@@ -61,9 +61,9 @@ export async function generateMetadata() {
         },
 
         openGraph: {
-            title: "Shipping Policy for Laptops & Computers | FTDS Hardware",
+            title: "Reliable Refurbished Laptops Chennai | Shipping Policy",
             description:
-                "Explore FTDS Hardware shipping charges, delivery timelines, and logistics details for IT products across India.",
+                "Learn about our shipping policy for reliable refurbished laptops in Chennai, including delivery timelines, charges, shipping areas, and order tracking.",
             url: "https://www.ftds.in/shipping_policy",
             type: "website",
             siteName: "FTDS Hardware",
@@ -79,9 +79,9 @@ export async function generateMetadata() {
 
         twitter: {
             card: "summary_large_image",
-            title: "Shipping Policy for Laptops & Computers | FTDS Hardware",
+            title: "Reliable Refurbished Laptops Chennai | Shipping Policy",
             description:
-                "Check FTDS Hardware shipping policy including charges, delivery time, and service areas.",
+                "Learn about our shipping policy for reliable refurbished laptops in Chennai, including delivery timelines, charges, shipping areas, and order tracking.",
             images: [
                 "/logo.png",
             ],

@@ -5,10 +5,10 @@ export const metadata: Metadata = {
     metadataBase: new URL("https://www.ftds.in"),
 
     title:
-        "FTDS Hardware | Certified Refurbished Laptops, Desktops & IT Hardware Chennai",
+        "Bulk Refurbished Computers Chennai | Best Business Deals",
 
     description:
-        "Connect with FTDS Hardware for certified refurbished laptops, desktops, printers, computer accessories, Google Reviews and our Chennai showroom.",
+        "Buy bulk refurbished computers in Chennai at competitive prices. Get quality-tested systems from top brands, ideal for offices, schools, and businesses.",
 
     keywords: [
         "FTDS Hardware",
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
 
     openGraph: {
         title:
-            "FTDS Hardware | Certified Refurbished IT Hardware Chennai",
+            "Bulk Refurbished Computers Chennai | Best Business Deals",
 
         description:
-            "Official FTDS Hardware Connect page for refurbished laptops, desktops, printers and IT accessories.",
+            "Buy bulk refurbished computers in Chennai at competitive prices. Get quality-tested systems from top brands, ideal for offices, schools, and businesses.",
 
         url: "https://www.ftds.in/connect",
 
@@ -78,10 +78,10 @@ export const metadata: Metadata = {
         card: "summary_large_image",
 
         title:
-            "FTDS Hardware | Refurbished Laptops & IT Hardware",
+            "Bulk Refurbished Computers Chennai | Best Business Deals",
 
         description:
-            "Follow FTDS Hardware for refurbished laptops, desktops, printers and exclusive offers.",
+            "Buy bulk refurbished computers in Chennai at competitive prices. Get quality-tested systems from top brands, ideal for offices, schools, and businesses.",
 
         images: ["https://www.ftds.in/logo.png"],
     },
