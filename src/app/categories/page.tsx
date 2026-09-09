@@ -41,10 +41,10 @@ export async function generateMetadata() {
 
   return {
     title:
-      "Shop IT Categories | Refurbished Laptops & Computers FTDS",
+      "Certified Refurbished Laptops and Desktops in Chennai | FTDS",
 
     description:
-      "Explore the best refurbished laptops and desktops in Chennai from Dell, HP, Lenovo, Acer, and ASUS. Tested and certified systems with 12-month warranty",
+      "Find certified refurbished laptops & desktops in Chennai at FTDS. Shop quality business computers, affordable systems, and reliable devices for every need.",
 
     keywords: [
       "computer categories Chennai",
@@ -71,9 +71,9 @@ export async function generateMetadata() {
 
     openGraph: {
       type: "website",
-      title: "Computer Categories | Laptops, Desktops & Accessories",
+      title: "Certified Refurbished Laptops and Desktops in Chennai | FTDS",
       description:
-        "Browse laptops, desktops, refurbished systems, printers, monitors, computer components and accessories in Chennai.",
+        "Find certified refurbished laptops and desktops in Chennai at FTDS. Shop quality business computers, affordable systems, and reliable devices for every need.",
       url: "https://www.ftds.in/categories",
       siteName: "FTDS Hardware",
       locale: "en_IN",
@@ -89,9 +89,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
-      title: "Computer Categories | Laptops, Desktops & Accessories",
+      title: "Certified Refurbished Laptops and Desktops in Chennai | FTDS",
       description:
-        "Explore all computer product categories including laptops, desktops, printers, monitors and accessories.",
+        "Find certified refurbished laptops and desktops in Chennai at FTDS. Shop quality business computers, affordable systems, and reliable devices for every need.",
       images: ["https://www.ftds.in/logo.png"],
     },
 
@@ -115,5 +115,5 @@ export async function generateMetadata() {
 }
 
 export default function CatePage() {
-  return <CategoriesPage title="Shop IT Categories | Refurbished Laptops & Computers FTDS"/>;
+  return <CategoriesPage title="Shop IT Categories | Refurbished Laptops & Computers FTDS" />;
 }

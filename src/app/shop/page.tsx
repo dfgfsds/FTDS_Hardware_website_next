@@ -62,10 +62,10 @@ export async function generateMetadata() {
   };
 
   return {
-    title: "Shop Refurbished Laptops & IT Products | FTDS",
+    title: "Second Hand & Refurbished Laptops in Chennai | FTDS",
 
     description:
-      "Shop refurbished laptops, desktops, and IT accessories at FTDS Hardware Chennai. Best prices, tested products, and warranty included.",
+      "Explore second hand laptops and refurbished laptops in Chennai at FTDS. Find quality business laptops, affordable options & great deals for every budget.",
 
     keywords: [
       "refurbished laptops Chennai",
@@ -87,9 +87,9 @@ export async function generateMetadata() {
 
     openGraph: {
       type: "website",
-      title: "Shop Computers & IT Products | FTDS Hardware Chennai",
+      title: "Second Hand & Refurbished Laptops in Chennai | FTDS",
       description:
-        "Browse laptops, desktops, refurbished PCs, printers, monitors, accessories and computer components at FTDS Hardware.",
+        "Explore second hand laptops and refurbished laptops in Chennai at FTDS. Find quality business laptops, affordable options & great deals for every budget.",
       url: "https://www.ftds.in/shop",
       siteName: "FTDS Hardware",
       locale: "en_IN",
@@ -105,9 +105,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
-      title: "Shop Computers & IT Products | FTDS Hardware Chennai",
+      title: "Second Hand & Refurbished Laptops in Chennai | FTDS",
       description:
-        "Explore laptops, desktops, refurbished computers, printers and accessories at competitive prices.",
+        "Explore second hand laptops and refurbished laptops in Chennai at FTDS. Find quality business laptops, affordable options & great deals for every budget.",
       images: ["https://www.ftds.in/logo.png"],
     },
 

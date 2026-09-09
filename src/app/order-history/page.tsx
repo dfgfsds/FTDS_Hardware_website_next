@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: 'https://www.ftds.in/profile',
+    canonical: 'https://www.ftds.in/order-history',
   },
   openGraph: {
     title: 'Refurbished Laptop Shop Chennai | Login',
     description:
       'Login to your account at a trusted refurbished laptop shop in Chennai. Manage orders, track purchases, and securely access your account details.',
-    url: 'https://www.ftds.in/profile',
+    url: 'https://www.ftds.in/order-history',
     siteName: 'FTDS Hardware',
     type: 'website',
   },
@@ -28,6 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProfilePage() {
+export default function OrderHistoryPage() {
   return <Profile />;
 }

@@ -30,10 +30,10 @@ export async function generateMetadata() {
     };
 
     return {
-        title: "Delivery Policy for Laptops & Computers | FTDS Hardware",
+        title: "Second Hand Desktops in Chennai | Delivery Policy",
 
         description:
-            "Read FTDS Hardware delivery policy covering order processing, delivery timelines, and service areas for laptops and IT products.",
+            "Learn about our delivery policy for second hand desktops in Chennai, including delivery areas, timelines, charges, and order tracking details.",
 
         keywords: [
             "FTDS delivery policy",
@@ -60,9 +60,9 @@ export async function generateMetadata() {
         },
 
         openGraph: {
-            title: "Delivery Policy for Laptops & Computers | FTDS Hardware",
+            title: "Second Hand Desktops in Chennai | Delivery Policy",
             description:
-                "Check FTDS Hardware delivery timelines, order processing details, and service areas for IT products.",
+                "Learn about our delivery policy for second hand desktops in Chennai, including delivery areas, timelines, charges, and order tracking details.",
             url: "https://www.ftds.in/delivery_policy",
             type: "website",
             siteName: "FTDS Hardware",
@@ -78,9 +78,9 @@ export async function generateMetadata() {
 
         twitter: {
             card: "summary_large_image",
-            title: "Delivery Policy for Laptops & Computers | FTDS Hardware",
+            title: "Second Hand Desktops in Chennai | Delivery Policy",
             description:
-                "Learn about FTDS Hardware delivery timelines and shipping process for laptops and IT products.",
+                "Learn about our delivery policy for second hand desktops in Chennai, including delivery areas, timelines, charges, and order tracking details.",
             images: [
                 "/logo.png",
             ],

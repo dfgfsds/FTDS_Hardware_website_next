@@ -6,10 +6,10 @@ import ContactSection from "./contentClinent";
 
 export async function generateMetadata() {
   return {
-    title: "Contact FTDS Hardware | Refurbished Computer Store in Chennai",
+    title: "Premium Refurbished Laptops in Chennai | Contact FTDS Hardware",
 
     description:
-      " Get in touch with FTDS Hardware for refurbished laptops, desktops, and accessories in Chennai. Visit our store or contact us for expert assistance.",
+      "Discover premium refurbished laptops in Chennai at affordable prices. Shop quality-tested top brands with reliable performance and great value.",
 
     robots: {
       index: true,
@@ -21,9 +21,9 @@ export async function generateMetadata() {
     },
 
     openGraph: {
-      title: "Contact FTDS Hardware | Refurbished Computer Store in Chennai",
+      title: "Premium Refurbished Laptops in Chennai | Contact FTDS Hardware",
       description:
-        " Get in touch with FTDS Hardware for refurbished laptops, desktops, and accessories in Chennai. Visit our store or contact us for expert assistance.",
+        "Discover premium refurbished laptops in Chennai at affordable prices. Shop quality-tested top brands with reliable performance and great value.",
       url: "https://www.ftds.in/contact",
       siteName: "FTDS Hardware",
       type: "website",
@@ -31,6 +31,9 @@ export async function generateMetadata() {
 
     twitter: {
       card: "summary_large_image",
+      title: "Premium Refurbished Laptops in Chennai | Contact FTDS Hardware",
+      description:
+        "Discover premium refurbished laptops in Chennai at affordable prices. Shop quality-tested top brands with reliable performance and great value.",
     },
   };
 }
