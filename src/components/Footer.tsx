@@ -98,10 +98,10 @@ export default function Footer() {
                   <FaEnvelope className="text-base" />
                 </div>
                 <a
-                  href="mailto:ftdigitalsolution777@gmail.com"
+                  href="mailto:info@ftds.in"
                   className="hover:text-orange-400 transition-colors font-medium text-sm break-all"
                 >
-                  ftdigitalsolution777@gmail.com
+                  info@ftds.in
                 </a>
               </li>
             </ul>

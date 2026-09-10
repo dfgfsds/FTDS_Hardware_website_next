@@ -96,7 +96,7 @@ export default function ConnectPage() {
         "name": "FTDS Hardware",
         "url": "https://www.ftds.in",
         "logo": "https://www.ftds.in/logo.png",
-        "email": "ftdigitalsolution777@gmail.com",
+        "email": "info@ftds.in",
         "telephone": "+91-7277929292",
         "sameAs": [
             "https://www.facebook.com/ftdshardware",
@@ -118,7 +118,7 @@ export default function ConnectPage() {
         "logo": "https://www.ftds.in/logo.png",
         "image": "https://www.ftds.in/logo.png",
         "telephone": "+91-7277929292",
-        "email": "ftdigitalsolution777@gmail.com",
+        "email": "info@ftds.in",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "New No.46, Old No.45, 1st Floor (North Side), Giri Road",

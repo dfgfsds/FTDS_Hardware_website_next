@@ -512,8 +512,8 @@ export default function ConnectClient() {
                   <Mail className="text-orange-600 shrink-0" size={20} />
                   <div>
                     <div className="text-xs text-slate-500 uppercase font-semibold">Email Us</div>
-                    <a href="mailto:ftdigitalsolution777@gmail.com" className="text-xs sm:text-sm font-bold text-slate-800 hover:text-orange-600 transition-colors break-all">
-                      ftdigitalsolution777@gmail.com
+                    <a href="mailto:info@ftds.in" className="text-xs sm:text-sm font-bold text-slate-800 hover:text-orange-600 transition-colors break-all">
+                      info@ftds.in
                     </a>
                   </div>
                 </div>
