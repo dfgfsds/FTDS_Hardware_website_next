@@ -107,7 +107,7 @@
 //     "@id": "https://www.ftdigitalsolutions.in/#organization",
 //     "name": "FTDS Hardware",
 //     "url": "https://www.ftdigitalsolutions.in/",
-//     "email": "ftdigitalsolution777@gmail.com",
+//     "email": "info@ftds.in",
 //     "address": {
 //       "@type": "PostalAddress",
 //       "streetAddress": "New no.46, Old no.45, 1st Floor (North side), Giri Road, T.Nagar",
@@ -188,7 +188,7 @@
 //     "image": "https://www.ftds.in/assets/banner.jpg",
 //     "description": "FTDS Hardware sells certified refurbished laptops and desktops in Chennai with 12-month warranty, transparent specifications, and support for individuals and businesses.",
 //     "telephone": "+91-7277929292",
-//     "email": "ftdigitalsolution777@gmail.com",
+//     "email": "info@ftds.in",
 //     "priceRange": "₹₹",
 //     "address": {
 //       "@type": "PostalAddress",
@@ -482,7 +482,7 @@ export default function Home() {
     "@id": "https://www.ftds.in/#organization",
     name: "FTDS Hardware",
     url: "https://www.ftds.in/",
-    email: "ftdigitalsolution777@gmail.com",
+    email: "info@ftds.in",
     address: {
       "@type": "PostalAddress",
       streetAddress:
@@ -568,7 +568,7 @@ export default function Home() {
     description:
       "FTDS Hardware sells certified refurbished laptops and desktops in Chennai with 12-month warranty, transparent specifications, and support for individuals and businesses.",
     telephone: "+91-7277929292",
-    email: "ftdigitalsolution777@gmail.com",
+    email: "info@ftds.in",
     priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",

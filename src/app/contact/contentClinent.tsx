@@ -26,11 +26,11 @@ export default function ContactSection() {
       <section className="bg-[#fffcfc] py-20 px-6 md:px-20">
 
         <div className="text-center mb-16">
-<h1 className="text-4xl md:text-4xl font-bold text-gray-900">
-  Contact Chennai&#39;s Trusted Refurbished Laptop Store
-</h1>
+          <h1 className="text-4xl md:text-4xl font-bold text-gray-900">
+            Contact Chennai&#39;s Trusted Refurbished Laptop Store
+          </h1>
 
-</div>
+        </div>
 
         <motion.div
           initial="hidden"
@@ -114,7 +114,7 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-orange-500" />
-                <span className="text-gray-700">ftdigitalsolution777@gmail.com</span>
+                <span className="text-gray-700">info@ftds.in</span>
               </div>
               <div className="flex items-center space-x-4">
                 <FaMapMarkerAlt className="text-orange-500" />
@@ -137,12 +137,12 @@ export default function ContactSection() {
             <div className="flex items-center space-x-4">
               <FaEnvelope className="text-orange-500" />
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=ftdigitalsolution777@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@ftds.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-blue-600 transition-colors duration-300"
               >
-                ftdigitalsolution777@gmail.com
+                info@ftds.in
               </a>
             </div>
 
