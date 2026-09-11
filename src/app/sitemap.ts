@@ -253,7 +253,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { slug: 'is-the-dell-latitude-5420-refurbished-laptop-worth-buying-in-2025', priority: 0.8 },
     { slug: 'how-the-hp-elitebook-830-g7-refurbished-supports-remote-work-efficiency', priority: 0.7 },
     { slug: 'are-refurbished-laptops-worth-buying-in-2026--chennai', priority: 0.7 },
-
+    { slug: 'refurbished-vs-used-laptop-whats-the-difference', priority: 0.7 },
   ]
 
   let dynamicBlogPages: MetadataRoute.Sitemap = []
