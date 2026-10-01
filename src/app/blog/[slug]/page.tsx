@@ -29,11 +29,49 @@ interface Props {
 }
 
 const VENDOR_ID = 87;
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.ftds.in").replace(/\/+$/, "");
+
+export const revalidate = 60; // Revalidate blog page every 60 seconds (ISR)
+
+function cleanRobots(robotsTag?: string): string {
+  if (!robotsTag || !robotsTag.trim()) return "index, follow";
+  let cleaned = robotsTag.trim();
+  if (cleaned.includes("<meta")) {
+    const match = cleaned.match(/content=["']([^"']+)["']/i);
+    if (match && match[1]) {
+      cleaned = match[1].trim();
+    } else {
+      cleaned = cleaned.replace(/<[^>]+>/g, "").trim();
+    }
+  }
+  return cleaned || "index, follow";
+}
+
+function getCanonicalUrl(canonicalTag: string | undefined, defaultUrl: string): string {
+  if (!canonicalTag || !canonicalTag.trim()) {
+    return defaultUrl;
+  }
+  let cleaned = canonicalTag.trim();
+  if (cleaned.includes("<link")) {
+    const match = cleaned.match(/href=["']([^"']+)["']/i);
+    if (match && match[1]) {
+      cleaned = match[1].trim();
+    }
+  }
+  if (cleaned.startsWith("/")) {
+    return `${SITE_URL}${cleaned}`;
+  }
+  if (!cleaned.startsWith("http://") && !cleaned.startsWith("https://")) {
+    return defaultUrl;
+  }
+  return cleaned;
+}
 
 async function getBlogData(slug: string): Promise<Blog | undefined> {
   try {
     const res = await fetch(
-      `https://test-ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${VENDOR_ID}`
+      `https://test-ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${VENDOR_ID}`,
+      { next: { revalidate: 60 } }
     );
     if (!res.ok) return undefined;
     const data = await res.json();
@@ -48,7 +86,8 @@ async function getBlogData(slug: string): Promise<Blog | undefined> {
 export async function generateStaticParams() {
   try {
     const res = await fetch(
-      `https://test-ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${VENDOR_ID}`
+      `https://test-ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${VENDOR_ID}`,
+      { next: { revalidate: 60 } }
     );
     if (!res.ok) return [];
     const data = await res.json();
@@ -79,10 +118,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     seo?.metaDescription ||
     blog.content.replace(/<[^>]+>/g, "").substring(0, 160);
   const ogImage = blog.banner_url;
-  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${params.slug}`;
+  const pageUrl = `${SITE_URL}/blog/${params.slug}`;
 
-  const canonical = blog.canonical_tag || pageUrl;
-  const robots = blog.robots_tag || "index, follow";
+  const canonical = getCanonicalUrl(blog.canonical_tag, pageUrl);
+  const robots = cleanRobots(blog.robots_tag);
 
   let openGraph: any = {
     title: metaTitle,
@@ -91,7 +130,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     images: [{ url: ogImage }],
     type: "article",
   };
-  
+
   if (blog.og_tags && Object.keys(blog.og_tags).length > 0) {
     openGraph = { ...openGraph, ...blog.og_tags };
   }
@@ -127,7 +166,7 @@ export default async function BlogDetail({ params }: Props) {
   }
 
   const seo = blogSeoData.find((item) => item.slug === params.slug);
-  
+
   // Use the API schema if it exists and is not empty, otherwise fallback to local JSON
   const hasApiSchema = blog.schema && Object.keys(blog.schema).length > 0;
   const schemaToUse = hasApiSchema ? blog.schema : seo?.schema;
