@@ -513,21 +513,16 @@ export default function Home() {
     headline:
       "Refurbished Laptops & Desktops in Chennai — Certified, Tested & Warranty-Backed",
     description:
-      "Buy certified refurbished laptops and desktops in Chennai from FTDS Hardware. Get tested PCs, trusted brands, clear specs & 12- month warranty support.",
+      "Buy certified refurbished laptops and desktops in Chennai from FTDS Hardware. Get tested PCs, trusted brands, clear specs and 12-month warranty support.",
     isPartOf: {
       "@id": "https://www.ftds.in/#website",
-    },
-    about: {
-      "@type": "Product",
-      name: "Refurbished Laptops and Desktops",
-      description:
-        "Certified and professionally tested refurbished laptops and desktops for students, professionals, businesses and enterprises.",
     },
     publisher: {
       "@id": "https://www.ftds.in/#organization",
     },
     mainEntity: {
       "@type": "ItemList",
+      "@id": "https://www.ftds.in/#product-list",
       name: "Refurbished Laptops and Desktops in Chennai",
       description:
         "Range of professionally tested refurbished laptops and desktops available from FTDS Hardware.",
@@ -536,24 +531,23 @@ export default function Home() {
           "@type": "ListItem",
           position: 1,
           name: "Refurbished Laptops",
+          url: "https://www.ftds.in/categories/refurbished-laptops",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Refurbished Desktops",
+          url: "https://www.ftds.in/categories/refurbished-desktops",
         },
         {
           "@type": "ListItem",
           position: 3,
-          name: "Certified Refurbished Computers",
+          name: "Laptops and Desktops",
+          url: "https://www.ftds.in/categories/laptops-and-desktops",
         },
       ],
     },
-    author: {
-      "@id": "https://www.ftds.in/#organization",
-    },
-    inLanguage: "en - IN",
-    dateModified: "2026-09-03",
+    inLanguage: "en-IN",
   };
 
   // 4. Store & Local Business Schema
