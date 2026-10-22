@@ -6,6 +6,7 @@ import { useVendor } from '@/context/VendorContext';
 import { postCreateUserAPi } from '@/api-endpoints/authendication';
 import { postCartCreateApi } from '@/api-endpoints/CartsApi';
 import { useRouter } from 'next/navigation';
+import { handlePostLoginCartSync } from '@/lib/cartUtils';
 
 const RegisterPage = () => {
   const { vendorId } = useVendor()
@@ -76,17 +77,13 @@ const RegisterPage = () => {
           localStorage.setItem('userName', response?.data?.user?.name);
         }
 
-        const updateApi = await postCartCreateApi('', {
-          user: response?.data?.user?.id,
-          vendor: vendorId,
-          created_by: response?.data?.user?.name,
-        });
+        await handlePostLoginCartSync(response?.data?.user?.id, vendorId, response?.data?.user?.name);
 
-        if (updateApi) {
-          if (typeof window !== 'undefined') {
-            localStorage.setItem('cartId', updateApi?.data?.id);
-            window.location.href = '/';
-          }
+        const pendingCheckout = typeof window !== 'undefined' ? sessionStorage.getItem('pending_checkout') : null;
+        if (pendingCheckout === 'true') {
+          window.location.href = '/cart';
+        } else {
+          window.location.href = '/';
         }
       }
     } catch (err: any) {

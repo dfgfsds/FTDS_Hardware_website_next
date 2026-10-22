@@ -12,6 +12,7 @@ import { getCartApi } from '@/api-endpoints/CartsApi';
 import { useRouter } from 'next/navigation';
 import { postSendSmsOtpUserApi, postVerifySmsOtpApi, getCheckEmailApi, postSendOtpAPi, postSendOtpVerifyAPi, updateUserAPi } from '@/api-endpoints/authendication';
 import toast from 'react-hot-toast';
+import { handlePostLoginCartSync } from '@/lib/cartUtils';
 
 const LoginClient = () => {
     const { vendorId } = useVendor();
@@ -182,9 +183,9 @@ const LoginClient = () => {
                 setConfirmPassword('');
                 setActiveTab('email');
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Password reset failed:', error);
-            toast.error('Failed to reset password');
+            toast.error(error?.response?.data?.message || 'Failed to reset password');
         } finally {
             setPasswordLoader(false);
         }
@@ -224,17 +225,22 @@ const LoginClient = () => {
 
             if (response?.data?.user_id) {
                 localStorage.setItem('userId', response.data.user_id);
-
-                const updateApi = await getCartApi(`user/${response.data.user_id}`);
-                if (updateApi?.data?.length > 0) {
-                    localStorage.setItem('cartId', updateApi.data[0].id);
+                if (response?.data?.name) {
+                    localStorage.setItem('userName', response.data.name);
                 }
 
-                router.push('/');
+                await handlePostLoginCartSync(response.data.user_id, vendorId || 87, response.data.name);
+
+                const pendingCheckout = sessionStorage.getItem('pending_checkout');
+                if (pendingCheckout === 'true') {
+                    router.push('/cart');
+                } else {
+                    router.push('/');
+                }
                 window.location.reload();
             }
         } catch (err: any) {
-            setError(err?.response?.data?.error || 'Something went wrong, please try again later.');
+            setError(err?.response?.data?.error || err?.response?.data?.message || 'Something went wrong, please try again later.');
         } finally {
             setLoading(false);
         }
@@ -282,27 +288,24 @@ const LoginClient = () => {
             const userId = res?.data?.user_id;
             if (userId) {
                 localStorage.setItem('userId', userId);
-                const cartRes = await getCartApi(`user/${userId}`);
-                if (cartRes) {
-                    localStorage.setItem('cartId', cartRes.data[0]?.id);
-                    setLoading(false);
-                    router.push('/');
-                    window.location.reload();
+                if (res?.data?.name) {
+                    localStorage.setItem('userName', res.data.name);
                 }
+
+                await handlePostLoginCartSync(userId, vendorId || 87, res?.data?.name);
+
+                setLoading(false);
+                const pendingCheckout = sessionStorage.getItem('pending_checkout');
+                if (pendingCheckout === 'true') {
+                    router.push('/cart');
+                } else {
+                    router.push('/');
+                }
+                window.location.reload();
             }
-            // if (response?.data?.user_id) {
-            //   toast.success('Login successful!');
-            //   localStorage.setItem('userId', response.data.user_id);
-
-            //   const cartRes = await getCartApi(`user/${response.data.user_id}`);
-            //   localStorage.setItem('cartId', cartRes?.data[0]?.id);
-
-            //   handleClose();
-            //   window.location.reload();
-            // }
         } catch (err: any) {
             setLoading(false);
-            setError(err?.response?.data?.error || 'Invalid OTP');
+            setError(err?.response?.data?.error || err?.response?.data?.message || 'Invalid OTP');
         }
     };
 
@@ -347,17 +350,15 @@ const LoginClient = () => {
                 }
 
                 if (uid) {
-                    try {
-                        const updateApi = await getCartApi(`user/${uid}`);
-                        if (updateApi?.data?.[0]?.id) {
-                            localStorage.setItem('cartId', updateApi.data[0].id);
-                        }
-                    } catch (cartErr) {
-                        console.error("Error syncing cart on google login:", cartErr);
-                    }
+                    await handlePostLoginCartSync(uid, vendorId || 87, response?.data?.name || response?.data?.user?.name);
                 }
-                router.push('/');
-                // window.location.reload();
+                const pendingCheckout = sessionStorage.getItem('pending_checkout');
+                if (pendingCheckout === 'true') {
+                    router.push('/cart');
+                } else {
+                    router.push('/');
+                }
+                window.location.reload();
             }
         } catch (err: any) {
             console.error("Google login error:", err);
