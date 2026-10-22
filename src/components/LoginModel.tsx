@@ -7,14 +7,18 @@ import { getCartApi } from "@/api-endpoints/CartsApi";
 import Link from "next/link";
 import { postSendSmsOtpUserApi, postVerifySmsOtpApi } from "@/api-endpoints/authendication";
 import { baseUrl } from "@/api-endpoints/ApiUrls";
+import url from "@/api-endpoints/ApiUrls";
+import { handlePostLoginCartSync } from "@/lib/cartUtils";
+import { auth, googleProvider } from "../../lib/firebase";
+import { signInWithPopup } from "firebase/auth";
 
-function LoginModal({ open, handleClose, vendorId }: any) {
+function LoginModal({ open, handleClose, vendorId, onSuccess }: any) {
 
   const [activeTab, setActiveTab] = useState<'email' | 'otp'>('email');
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [passwordShow, setPasswordShow] = useState(false);
-   const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [mobile, setMobile] = useState('');
   const [otpSent, setOtpSent] = useState(false);
@@ -34,27 +38,35 @@ function LoginModal({ open, handleClose, vendorId }: any) {
     }
 
     try {
+      setLoading(true);
+      setError('');
       const response: any = await axios.post(
         `${baseUrl}/user_login/`,
-        { ...formData, vendor_id: vendorId }
+        { ...formData, vendor_id: vendorId || 87 }
       );
 
       if (response) {
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('userId', response?.data?.user_id);
+        const uid = response?.data?.user_id;
+        if (typeof window !== 'undefined' && uid) {
+          localStorage.setItem('userId', uid);
+          if (response?.data?.name) {
+            localStorage.setItem('userName', response?.data?.name);
+          }
         }
 
-        const updateApi = await getCartApi(`user/${response?.data?.user_id}`);
-        if (updateApi) {
-          if (typeof window !== 'undefined') {
-            localStorage.setItem('cartId', updateApi?.data[0]?.id);
-          }
-          handleClose();
-          window.location.reload();
+        // Sync local storage guest cart items to backend API and clear local storage
+        await handlePostLoginCartSync(uid, vendorId || 87, response?.data?.name);
+
+        handleClose();
+        if (onSuccess) {
+          onSuccess();
         }
+        window.location.reload();
       }
     } catch (err: any) {
-      setError(err?.response?.data?.error || 'Something went wrong, please try again later');
+      setError(err?.response?.data?.error || err?.response?.data?.message || 'Something went wrong, please try again later');
+    } finally {
+      setLoading(false);
     }
   };
   const handleSendOtp = async () => {
@@ -62,13 +74,13 @@ function LoginModal({ open, handleClose, vendorId }: any) {
     if (!mobile) return setError('Mobile number is required');
     setLoading(true);
     try {
-      const res = await postSendSmsOtpUserApi({ contact_number: mobile, vendor_id: vendorId });
+      const res = await postSendSmsOtpUserApi({ contact_number: mobile, vendor_id: vendorId || 87 });
       if (res?.data?.token) {
         setOtpSent(true);
         setToken(res.data.token);
       }
     } catch (err: any) {
-      setError(err?.response?.data?.error || 'Failed to send OTP');
+      setError(err?.response?.data?.error || err?.response?.data?.message || 'Failed to send OTP');
     } finally {
       setLoading(false);
     }
@@ -82,21 +94,92 @@ function LoginModal({ open, handleClose, vendorId }: any) {
         otp,
         token,
         login_type: "user",
-        vendor_id: vendorId,
+        vendor_id: vendorId || 87,
       });
 
       const userId = res?.data?.user_id;
       if (userId) {
-        localStorage.setItem('userId', userId);
-        const cartRes = await getCartApi(`user/${userId}`);
-        if (cartRes?.data?.length > 0) {
-          localStorage.setItem('cartId', cartRes.data[0].id);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('userId', userId);
+          if (res?.data?.name) {
+            localStorage.setItem('userName', res?.data?.name);
+          }
         }
+
+        // Sync local storage guest cart items to backend API and clear local storage
+        await handlePostLoginCartSync(userId, vendorId || 87, res?.data?.name);
+
         handleClose();
+        if (onSuccess) {
+          onSuccess();
+        }
         window.location.reload();
       }
     } catch (err: any) {
-      setError(err?.response?.data?.error || 'Invalid OTP');
+      setError(err?.response?.data?.error || err?.response?.data?.message || 'Invalid OTP');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    setError('');
+
+    let isPopupResolved = false;
+
+    // Workaround for Firebase delay: reset loading when window regains focus
+    const handleFocus = () => {
+      window.removeEventListener('focus', handleFocus);
+      setTimeout(() => {
+        if (!isPopupResolved) {
+          setLoading(false);
+        }
+      }, 1500);
+    };
+    window.addEventListener('focus', handleFocus);
+
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      isPopupResolved = true;
+      window.removeEventListener('focus', handleFocus);
+      const idToken = await result.user.getIdToken();
+
+      const response: any = await axios.post(url.googleLogin, {
+        id_token: idToken,
+        vendor_id: vendorId || 87,
+      });
+
+      if (response) {
+        const uid = response?.data?.user_id || response?.data?.user?.id || response?.data?.id;
+        if (uid) {
+          localStorage.setItem('userId', String(uid));
+        }
+        if (response?.data?.name || response?.data?.user?.name) {
+          localStorage.setItem('userName', response?.data?.name || response?.data?.user?.name);
+        }
+        if (response?.data?.email || response?.data?.user?.email) {
+          localStorage.setItem('email', response?.data?.email || response?.data?.user?.email);
+        }
+
+        if (uid) {
+          await handlePostLoginCartSync(uid, vendorId || 87, response?.data?.name || response?.data?.user?.name);
+        }
+
+        handleClose();
+        if (onSuccess) {
+          onSuccess();
+        }
+        window.location.reload();
+      }
+    } catch (err: any) {
+      console.error("Google login error:", err);
+      if (err?.code === 'auth/popup-closed-by-user' || err?.code === 'auth/cancelled-popup-request') {
+        // Silently handle popup close without showing error to the user
+        setError('');
+      } else {
+        setError(err?.response?.data?.error || err?.response?.data?.message || err?.message || 'Failed to sign in with Google');
+      }
     } finally {
       setLoading(false);
     }
@@ -244,6 +327,24 @@ function LoginModal({ open, handleClose, vendorId }: any) {
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           </div>
         )}
+
+        {/* Google Login Section */}
+        <div className="mt-6 flex items-center justify-center space-x-2">
+          <div className="h-px bg-gray-300 w-full"></div>
+          <span className="text-gray-400 text-sm">OR</span>
+          <div className="h-px bg-gray-300 w-full"></div>
+        </div>
+        <div className="mt-4 flex justify-center">
+          <button
+            onClick={handleGoogleLogin}
+            disabled={loading}
+            type="button"
+            className="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition font-medium text-sm"
+          >
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-5 h-5" />
+            Sign in with Google
+          </button>
+        </div>
       </div>
     </div>
   );

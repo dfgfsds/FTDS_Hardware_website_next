@@ -3,18 +3,34 @@
 import { deleteCartitemsApi, updateCartitemsApi } from '@/api-endpoints/CartsApi';
 import { useCartItem } from '@/context/CartItemContext';
 import { useProducts } from '@/context/ProductsContext';
+import { useVendor } from '@/context/VendorContext';
 import { InvalidateQueryFilters, useQueryClient } from '@tanstack/react-query';
 import { Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckoutDrawer from './CheckoutDrawer';
+import LoginModal from '@/components/LoginModel';
+import { updateGuestCartQty, removeFromGuestCart } from '@/lib/cartUtils';
 
 export default function CartClient() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
   const queryClient = useQueryClient();
-  const { cartItem }: any = useCartItem();
+  const { cartItem, refetchCart }: any = useCartItem();
   const { products }: any = useProducts();
+  const { vendorId } = useVendor();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isPending = sessionStorage.getItem('pending_checkout');
+      const storedUserId = localStorage.getItem('userId');
+      if (isPending === 'true' && storedUserId) {
+        sessionStorage.removeItem('pending_checkout');
+        setIsOpen(true);
+      }
+    }
+  }, []);
 
   const matchingProductsArray = cartItem?.data
     ?.map((item: any, index: number) => {
@@ -37,6 +53,16 @@ export default function CartClient() {
   }, 0);
 
   const handleUpdateCart = async (id: any, type: any, qty: any) => {
+    const isGuest = String(id).startsWith('guest_') || !localStorage.getItem('cartId');
+    if (isGuest) {
+      if (qty === 1 && type === 'decrease') {
+        removeFromGuestCart(id);
+      } else {
+        updateGuestCartQty(id, type);
+      }
+      return;
+    }
+
     try {
       if (qty === 1 && type === 'decrease') {
         const updateApi = await deleteCartitemsApi(`${id}`);
@@ -52,6 +78,28 @@ export default function CartClient() {
     } catch (error) {
       console.error('Failed to update cart:', error);
     }
+  };
+
+  const handleProceedToCheckout = () => {
+    const storedUserId = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
+    if (storedUserId) {
+      setIsOpen(true);
+    } else {
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('pending_checkout', 'true');
+      }
+      setShowLoginModal(true);
+    }
+  };
+
+  const handleLoginSuccess = () => {
+    setShowLoginModal(false);
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('pending_checkout');
+    }
+    refetchCart();
+    queryClient.invalidateQueries(['getAddressData'] as InvalidateQueryFilters);
+    setIsOpen(true);
   };
 
   function formatPrice(price: number): string {
@@ -150,7 +198,7 @@ export default function CartClient() {
               <div className="flex justify-end">
                 <button
                   className="ml-auto bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg text-base sm:text-lg font-medium transition duration-300 ease-in-out transform"
-                  onClick={() => setIsOpen(true)}
+                  onClick={handleProceedToCheckout}
                 >
                   Proceed to Checkout
                 </button>
@@ -160,6 +208,14 @@ export default function CartClient() {
         )}
       </div>
       <CheckoutDrawer isOpen={isOpen} onClose={() => setIsOpen(false)} subtotal={totalAmount} />
+      {showLoginModal && (
+        <LoginModal
+          open={showLoginModal}
+          handleClose={() => setShowLoginModal(false)}
+          vendorId={vendorId || 87}
+          onSuccess={handleLoginSuccess}
+        />
+      )}
     </div>
   );
 }

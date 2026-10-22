@@ -41,7 +41,7 @@ export default function Navbar() {
     related: [],
   });
 
-
+  console.log(user)
   // const finalProducts = products?.data;
   useEffect(() => {
     // Close dropdown when clicked outside
@@ -243,7 +243,7 @@ export default function Navbar() {
 
           {/* Mobile Login / Logout */}
           <div className="mt-2 pt-4 border-t border-gray-100">
-            {userName ? (
+            {user?.data?.id ? (
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
@@ -308,12 +308,12 @@ export default function Navbar() {
         <div className="w-full md:w-1/4 hidden md:flex justify-end items-center gap-4 relative">
           {/* Profile Dropdown */}
           <div className="relative" ref={dropdownRef}>
-            {userName ? <button
+            {user?.data?.id ? <button
               onClick={handleDropdownClick}
               className="flex items-center px-4 py-2 text-sm border border-orange-400 rounded-md text-orange-500 hover:bg-orange-500 hover:text-white transition"
             >
               <HiOutlineUser className="mr-1" />
-              {userName ? userName.split(" ")[0] : <Link onClick={() => setIsDropdownOpen(false)} href="/login">Login</Link>}
+              {userName ? userName.split(" ")[0] || "user" : <Link onClick={() => setIsDropdownOpen(false)} href="/login">Login</Link>}
               <HiChevronDown className="ml-1" />
             </button>
               :
@@ -328,7 +328,7 @@ export default function Navbar() {
 
             {isDropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow z-20 text-sm">
-                {userName ? (
+                {user?.data?.id ? (
                   <>
                     <Link href="/profile?tab=AccountInfo" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 hover:bg-orange-100 text-gray-700">
                       Profile
