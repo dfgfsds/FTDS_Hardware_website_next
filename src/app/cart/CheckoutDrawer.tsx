@@ -1,10 +1,11 @@
 'use client';
 
-import { getVendorDeliveryDetailsApi, patchUserSelectAddressAPi } from '@/api-endpoints/authendication';
+import { getVendorDeliveryDetailsApi, patchUserSelectAddressAPi, updateUserAPi } from '@/api-endpoints/authendication';
 import { getAddressApi, getAppliedCouponDataApi, postApplyCouponApi } from '@/api-endpoints/CartsApi';
 import { InvalidateQueryFilters, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { Loader2, MapPin, X } from 'lucide-react';
+import { Loader2, MapPin, Phone, X } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 import { useCallback, useEffect, useState } from 'react';
 import { useVendor } from '@/context/VendorContext';
@@ -33,22 +34,27 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
     const queryClient = useQueryClient();
     const router = useRouter();
     const { vendorId } = useVendor()
-    const { user } = useUser();
+    const { user, setUser } = useUser();
     const { refetchCart } = useCartItem();
     const [code, setCode] = useState('');
     const [isChecking, setIsChecking] = useState(false);
     const [error, setError] = useState('');
     const [userId, setUserId] = useState<string | null>(null);
     const [paymentMethod, setPaymentMethod] = useState("");
+    const [showPhoneModal, setShowPhoneModal] = useState(false);
+    const [phoneInput, setPhoneInput] = useState('');
+    const [isUpdatingPhone, setIsUpdatingPhone] = useState(false);
+    const [isPlacingOrder, setIsPlacingOrder] = useState(false);
 
-useEffect(() => {
-    setUserName(user?.data?.name);
-    setUserId(user?.data?.id || localStorage.getItem('userId'));
-}, [user?.data?.id, user?.data?.name]);
+    useEffect(() => {
+        setUserName(user?.data?.name || (typeof window !== 'undefined' ? localStorage.getItem('userName') : null));
+        setUserId(user?.data?.id || (typeof window !== 'undefined' ? localStorage.getItem('userId') : null));
+    }, [user?.data?.id, user?.data?.name, isOpen]);
 
     const { data, isLoading }: any = useQuery({
         queryKey: ['getAddressData', userId],
-        queryFn: () => getAddressApi(`user/${userId}`)
+        queryFn: () => getAddressApi(`user/${userId}`),
+        enabled: !!userId,
     });
 
     useEffect(() => {
@@ -86,27 +92,27 @@ useEffect(() => {
     // }
 
     const getDeliveryCharge = useCallback(async () => {
-    try {
-        const userId = user?.data?.id || localStorage.getItem('userId');
-        if (!userId) throw new Error("User ID not found");
+        try {
+            const userId = user?.data?.id || localStorage.getItem('userId');
+            if (!userId) throw new Error("User ID not found");
 
-        const res = await axios.get(
-            `${baseUrl}/vendor-site-payment-delivery-partner-details/${vendorId}/`
-        );
+            const res = await axios.get(
+                `${baseUrl}/vendor-site-payment-delivery-partner-details/${vendorId}/`
+            );
 
-        setDeliveryInfo(res.data[0]);
-    } catch (error) {
-        console.error("Error fetching delivery charge:", error);
-    }
-}, [vendorId, user?.data?.id]);
+            setDeliveryInfo(res.data[0]);
+        } catch (error) {
+            console.error("Error fetching delivery charge:", error);
+        }
+    }, [vendorId, user?.data?.id]);
 
     // useEffect(() => {
     //     getDeliveryCharge()
     // }, [paymentMethod])
 
     useEffect(() => {
-    getDeliveryCharge();
-}, [paymentMethod, getDeliveryCharge]);
+        getDeliveryCharge();
+    }, [paymentMethod, getDeliveryCharge]);
 
     // getAppliedCouponDataApi
     const getAppliedCouponData: any = useQuery({
@@ -147,16 +153,89 @@ useEffect(() => {
         }
     };
 
-    const placeOrder = async () => {
+    const handleUpdatePhone = async (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
+
+        const cleanedPhone = phoneInput.trim();
+        if (!cleanedPhone) {
+            toast.error("Mobile number is required");
+            return;
+        }
+
+        if (!/^\d{10}$/.test(cleanedPhone)) {
+            toast.error("Mobile number must be exactly 10 digits");
+            return;
+        }
+
         try {
-            const userId = user?.data?.id;
-            if (!userId) throw new Error("User ID not found");
+            setIsUpdatingPhone(true);
+            const uId = user?.data?.id || userId || localStorage.getItem('userId');
+            if (!uId) throw new Error("User ID not found");
+
+            const response = await updateUserAPi(`/${uId}`, {
+                contact_number: cleanedPhone,
+                updated_by: user?.data?.name || getUserName || "user",
+                role: 3,
+                vendor: vendorId || 87,
+            });
+
+            if (response) {
+                queryClient.invalidateQueries(["getUserData"] as InvalidateQueryFilters);
+                if (setUser && user) {
+                    setUser({
+                        ...user,
+                        data: {
+                            ...user.data,
+                            contact_number: cleanedPhone,
+                        },
+                    });
+                }
+                toast.success("Profile updated successfully");
+                setShowPhoneModal(false);
+
+                // Recall placeOrder immediately with the updated phone number!
+                await executePlaceOrder(cleanedPhone);
+            }
+        } catch (error: any) {
+            console.error("Update failed:", error);
+            toast.error(
+                error?.response?.data?.error ||
+                error?.response?.data?.message ||
+                "Failed to update profile, please try again."
+            );
+        } finally {
+            setIsUpdatingPhone(false);
+        }
+    };
+
+    const placeOrder = () => {
+        const phone = user?.data?.contact_number || user?.contact_number;
+        if (!phone || String(phone).trim() === '') {
+            setPhoneInput('');
+            setShowPhoneModal(true);
+            return;
+        }
+        executePlaceOrder(String(phone).trim());
+    };
+
+    const executePlaceOrder = async (phoneOverride?: string) => {
+        try {
+            setIsPlacingOrder(true);
+            const currentUserId = user?.data?.id || userId || localStorage.getItem('userId');
+            if (!currentUserId) throw new Error("User ID not found");
             if (!selectedAddressId) throw new Error("No address selected");
 
+            const phone = phoneOverride || user?.data?.contact_number || user?.contact_number;
+            if (!phone || String(phone).trim() === '') {
+                setPhoneInput('');
+                setShowPhoneModal(true);
+                return;
+            }
+
             const payload = {
-                user_id: parseInt(userId),
-                vendor_id: vendorId,
-                customer_phone: user?.data?.contact_number,
+                user_id: parseInt(currentUserId),
+                vendor_id: vendorId || 87,
+                customer_phone: String(phone).trim(),
             };
 
             if (paymentMethod === "cod") {
@@ -174,7 +253,6 @@ useEffect(() => {
                 const { payment_order_id, final_price } = response.data;
 
                 const options = {
-                    // key: RAZOR_PAY_KEY,
                     key: RazorPayKey,
                     amount: final_price * 100,
                     currency: "INR",
@@ -188,32 +266,44 @@ useEffect(() => {
 
                         setTimeout(() => {
                             setShowSuccessModal(false);
-                            router.push("//profile?tab=Orders");
+                            router.push("/profile?tab=Orders");
                         }, 5000);
                     },
                     prefill: {
-                        name: user?.name,
-                        email: user?.email,
-                        contact: user?.contact_number,
+                        name: user?.data?.name || user?.name || getUserName,
+                        email: user?.data?.email || user?.email,
+                        contact: String(phone).trim(),
                     },
                     notes: {
                         address: "Selected Address",
                     },
                     theme: {
-                        color: "#f97316" // Orange color,
+                        color: "#f97316"
                     },
                 };
 
                 const razor = new (window as any).Razorpay(options);
                 razor.open();
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error placing order:", error);
+            const errMsg = error?.response?.data?.message || error?.response?.data?.error || "";
+            if (
+                typeof errMsg === "string" &&
+                (errMsg.toLowerCase().includes("customer_phone") ||
+                 errMsg.toLowerCase().includes("missing required fields"))
+            ) {
+                setPhoneInput('');
+                setShowPhoneModal(true);
+                return;
+            }
             setShowFailureModal(true);
             setTimeout(() => {
                 setShowFailureModal(false);
                 router.push("/cart");
             }, 5000);
+        } finally {
+            setIsPlacingOrder(false);
         }
     };
 
@@ -372,10 +462,17 @@ useEffect(() => {
                     {/* Place Order Button */}
                     <button
                         onClick={placeOrder}
-                        disabled={!selectedAddressId}
-                        className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md font-medium transition"
+                        disabled={!selectedAddressId || isPlacingOrder}
+                        className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md font-medium transition flex items-center justify-center gap-2 disabled:opacity-50"
                     >
-                        Place Order
+                        {isPlacingOrder ? (
+                            <>
+                                <Loader2 className="h-5 w-5 animate-spin" />
+                                Processing Order...
+                            </>
+                        ) : (
+                            'Place Order'
+                        )}
                     </button>
                 </div>
             </div >
@@ -406,6 +503,82 @@ useEffect(() => {
                     <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
                         <h2 className="text-lg font-bold text-red-600 mb-2">Order Failed</h2>
                         <p className="text-gray-600">You will be redirected back to your cart.</p>
+                    </div>
+                </div>
+            )}
+
+            {/* Phone Number Required Modal */}
+            {showPhoneModal && (
+                <div className="fixed inset-0 z-[10020] flex items-center justify-center bg-black/60 p-4">
+                    <div
+                        className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative animate-in fade-in zoom-in-95"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="flex justify-between items-center mb-4">
+                            <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                                <Phone className="h-5 w-5 text-orange-500" />
+                                Enter Mobile Number
+                            </h3>
+                            <button
+                                onClick={() => setShowPhoneModal(false)}
+                                className="text-gray-400 hover:text-gray-600 cursor-pointer"
+                            >
+                                <X className="h-5 w-5" />
+                            </button>
+                        </div>
+
+                        <p className="text-sm text-gray-600 mb-4">
+                            Please provide your 10-digit mobile number to proceed with order placement.
+                        </p>
+
+                        <form onSubmit={handleUpdatePhone} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Phone Number
+                                </label>
+                                <div className="relative">
+                                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-medium">
+                                        +91
+                                    </span>
+                                    <input
+                                        type="tel"
+                                        maxLength={10}
+                                        value={phoneInput}
+                                        onChange={(e) => setPhoneInput(e.target.value.replace(/\D/g, ''))}
+                                        placeholder="Enter 10-digit mobile number"
+                                        className="pl-12 pr-4 py-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+                                        autoFocus
+                                    />
+                                </div>
+                                {phoneInput && phoneInput.length !== 10 && (
+                                    <p className="text-red-500 text-xs mt-1">Mobile number must be exactly 10 digits</p>
+                                )}
+                            </div>
+
+                            <div className="flex justify-end gap-3 pt-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPhoneModal(false)}
+                                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={isUpdatingPhone || phoneInput.length !== 10}
+                                    className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-sm font-medium transition flex items-center gap-2 disabled:opacity-50"
+                                >
+                                    {isUpdatingPhone ? (
+                                        <>
+                                            <Loader2 className="h-4 w-4 animate-spin" />
+                                            Saving...
+                                        </>
+                                    ) : (
+                                        'Save & Place Order'
+                                    )}
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}

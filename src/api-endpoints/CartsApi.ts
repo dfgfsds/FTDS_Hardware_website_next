@@ -10,8 +10,9 @@ export const postCartCreateApi = async (query: any, payload: any) => {
 
 // GET CART APIS 
 export const getCartApi = async (query: any) => {
+    const formattedQuery = query ? (query.endsWith('/') ? query : `${query}/`) : '';
     return axios.get(
-        `${ApiUrls.cartCreate}${query}`
+        `${ApiUrls.cartCreate}${formattedQuery}`
     );
 };
 

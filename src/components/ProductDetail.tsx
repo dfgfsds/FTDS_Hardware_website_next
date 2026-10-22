@@ -12,6 +12,7 @@ import LoginModal from './LoginModel';
 import { ShoppingCart } from 'lucide-react';
 import { slugConvert } from '../../lib/utils';
 import Image from 'next/image';
+import { addToGuestCart, updateGuestCartQty, removeFromGuestCart } from '@/lib/cartUtils';
 
 interface Product {
   id: number;
@@ -71,6 +72,16 @@ export default function ProductDetail({ productId, productDetails: currentProduc
   }
 
   const handleUpdateCart = async (id: any, type: any, qty: any) => {
+    const isGuest = String(id).startsWith('guest_') || !getUserId || !getCartId;
+    if (isGuest) {
+      if (qty === 1 && type === 'decrease') {
+        removeFromGuestCart(currentProduct.id);
+      } else {
+        updateGuestCartQty(currentProduct.id, type);
+      }
+      return;
+    }
+
     try {
       if (qty === 1) {
         const updateApi = await deleteCartitemsApi(`${id}`)
@@ -120,8 +131,11 @@ export default function ProductDetail({ productId, productDetails: currentProduc
           {/* Product Images */}
           <div className=" h-fit rounded">
             <Image
-              src={currentProduct.image_urls[0]}
-              alt={currentProduct.title}
+              src={currentProduct?.image_urls?.[0]}
+              alt={currentProduct?.title || currentProduct?.name || 'Product Image'}
+              width={600}
+              height={600}
+              priority
               className="w-full h-96 object-contain border p-4"
             />
           </div>
@@ -169,7 +183,11 @@ export default function ProductDetail({ productId, productDetails: currentProduc
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      getUserId ? handleAddCart(currentProduct.id, 1) : setSignInModal(true);
+                      if (getUserId && getCartId) {
+                        handleAddCart(currentProduct.id, 1);
+                      } else {
+                        addToGuestCart(currentProduct.id, 1);
+                      }
                     }}
                     className="w-full bg-orange-500 hover:bg-orange-600 hover:text-white text-white py-2 px-4 rounded-md font-medium shadow-sm transition-all duration-200"
                   >
