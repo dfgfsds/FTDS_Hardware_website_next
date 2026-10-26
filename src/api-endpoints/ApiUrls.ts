@@ -1,6 +1,6 @@
 export const baseUrl = 'https://ecomapi.ftdigitalsolutions.org'; // LIVE API
 // export const baseUrl = 'https://test-ecomapi.ftdigitalsolutions.org'; // Test API
-// export const baseUrl = 'https://api-test.justvy.com'; // new DB
+
 
 const cartCreate = `${baseUrl}/api/carts/`;
 const createUsers = `${baseUrl}/create_users/`;
