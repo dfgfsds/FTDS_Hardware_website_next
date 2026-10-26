@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const res = await fetch(
-    'https://test-ecomapi.justvy.in/api/products/?vendor_id=87'
+    'https://test-ecomapi.ftdigitalsolutions.org/api/products/?vendor_id=87'
   );
 
   const data = await res.json();
@@ -22,8 +22,8 @@ export async function generateMetadata({
   params: { id: string };
 }) {
   const res = await fetch(
-    'https://test-ecomapi.justvy.in/api/products/?vendor_id=87',
-    {  cache: 'no-store', }
+    'https://test-ecomapi.ftdigitalsolutions.org/api/products/?vendor_id=87',
+    { cache: 'no-store', }
   );
 
   const data = await res.json();
@@ -71,7 +71,7 @@ export default async function ProductPage({
   params: { id: string };
 }) {
   const res = await fetch(
-    'https://test-ecomapi.justvy.in/api/products/?vendor_id=87',
+    'https://test-ecomapi.ftdigitalsolutions.org/api/products/?vendor_id=87',
     { cache: 'no-store' }
   );
 
