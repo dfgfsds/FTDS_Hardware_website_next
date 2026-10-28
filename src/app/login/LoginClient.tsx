@@ -18,6 +18,7 @@ const LoginClient = () => {
     const { vendorId } = useVendor();
     const router = useRouter();
 
+    
     const [activeTab, setActiveTab] = useState<'email' | 'otp'>('email');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
