@@ -21,13 +21,11 @@ export default function HomeSeoSection() {
                                 {/* LEFT CONTENT */}
                                 <div>
                                     <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                                        Why Buy from FTDS Hardware
+                                        Why Choose FTDS Hardware for Refurbished Laptops in Chennai
                                     </h4>
 
                                     <p className="mt-4 md:mt-5 text-gray-600 text-base md:text-lg max-w-xl">
-                                        FTDS Hardware has sold 10,000+ refurbished systems over 12+ years in
-                                        business, maintaining a 98% customer satisfaction rate while serving students,
-                                        professionals, and businesses across Chennai.
+                                        FTDS Hardware has supplied 10,000+ refurbished systems over 12+ years, earning a 98% customer satisfaction rate while supporting students, professionals and businesses across Chennai.
                                     </p>
 
                                     <div className="mt-8 md:mt-12 space-y-8 md:space-y-10">
@@ -35,32 +33,32 @@ export default function HomeSeoSection() {
                                             [
                                                 "01",
                                                 "Certified Quality & Warranty",
-                                                "Every refurbished laptop and desktop is professionally tested and certified, with a 12-month service warranty for dependable quality and complete peace of mind.",
+                                                "Each refurbished laptop and desktop undergoes testing and certification before sale, and includes a 12-month service warranty for confidence after purchase.",
                                             ],
                                             [
                                                 "02",
-                                                "Best Value for Money",
-                                                "Get dependable refurbished laptops and desktops at a significantly lower cost than new systems, making quality computing more accessible and affordable.",
+                                                "Value for Your Budget",
+                                                "Choose refurbished laptops and desktops at a lower cost than new systems, making practical computing more accessible without stretching your budget.",
                                             ],
                                             [
                                                 "03",
-                                                "Transparent Specifications",
-                                                "Clear product configurations, specifications, and condition details are provided, so you know exactly what you are purchasing before making your decision.",
+                                                "Clear Product Specifications",
+                                                "Review product configurations, specifications and condition details before buying, so you understand what each system offers and can make an informed choice.",
                                             ],
                                             [
                                                 "04",
-                                                "Trusted Brands & Wide Selection",
-                                                "Choose from a wide range of refurbished systems from trusted brands, with options suitable for students, professionals, businesses, and enterprises.",
+                                                "Trusted Brands & More Choices",
+                                                "Explore refurbished systems from trusted brands, with options for students, professionals, businesses and enterprises with different computing requirements.",
                                             ],
                                             [
                                                 "05",
-                                                "Eco-Friendly Technology",
-                                                "Buying refurbished computers helps reduce electronic waste while supporting a more sustainable technology ecosystem through responsible device reuse.",
+                                                "A More Sustainable Choice",
+                                                "Choosing refurbished computers helps limit electronic waste and extends device life, supporting responsible reuse and a sustainable technology ecosystem overall.",
                                             ],
                                             [
                                                 "06",
-                                                "Reliable After-Sales Support",
-                                                "Our experienced technical team provides prompt support and warranty assistance after your purchase, helping you get continued value from your refurbished system.",
+                                                "Ongoing After-Sales Support",
+                                                "Our technical team provides prompt assistance and warranty support after purchase, helping you resolve concerns and continue using your refurbished system with confidence.",
                                             ],
                                         ].map(([num, title, desc]) => (
                                             <div key={num} className="flex gap-4 md:gap-6 items-start">
@@ -92,12 +90,10 @@ export default function HomeSeoSection() {
 
                                     <div className="relative bg-gray-100 rounded-3xl p-6 md:p-10 text-gray-800 shadow-xl mt-6">
                                         <h5 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
-                                            Trusted by Professionals &amp; Businesses
+                                            Trusted for Refurbished IT Solutions
                                         </h5>
                                         <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">
-                                            From students to enterprises, FTDS Hardware provides
-                                            reliable refurbished IT solutions across Chennai, trusted by
-                                            professionals and businesses for dependable computing needs.
+                                            FTDS Hardware serves students, professionals and enterprises with refurbished IT solutions across Chennai for everyday work, business tasks and varied computing needs.
                                         </p>
 
                                         <div className="grid grid-cols-3 gap-4 md:gap-6 text-center">
