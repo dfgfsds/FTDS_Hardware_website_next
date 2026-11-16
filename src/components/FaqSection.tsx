@@ -6,23 +6,23 @@ import { HiPlusSm, HiMinusSm } from 'react-icons/hi';
 const faqData = [
   {
     question: 'Is it safe to buy a refurbished laptop from FTDS Hardware?',
-    answer: 'Yes. Every system sold by FTDS Hardware is professionally tested, certified, and covered by a 12-month warranty, making it a safe and reliable alternative to buying new.'
+    answer: 'Yes. FTDS Hardware professionally tests and certifies every system before sale, and includes a 12-month warranty for added confidence when choosing a refurbished laptop for everyday use.'
   },
   {
     question: 'What is the difference between a refurbished and a second-hand laptop?',
-    answer: 'A second-hand laptop is usually sold as-is, with no guarantee of its condition. A refurbished laptop from FTDS Hardware is inspected, tested, repaired where needed, and backed by warranty, giving you verified reliability and greater peace of mind.'
+    answer: 'A second-hand laptop is often sold in its existing condition, without checks or warranty. FTDS Hardware inspects and tests each refurbished laptop, completes necessary repairs and provides warranty support, so you can buy with clearer information and confidence.'
   },
   {
     question: 'How long does a refurbished laptop from FTDS Hardware last?',
-    answer: 'With proper use and care, a certified refurbished laptop from FTDS Hardware can typically perform reliably for 3-5 years, offering a lifespan similar to a new system with the same specification.'
+    answer: 'With regular maintenance and careful handling, a certified refurbished laptop from FTDS Hardware may last around 3-5 years, depending on its condition, usage, configuration, daily workload and regular maintenance needs over time.'
   },
   {
     question: 'Does FTDS Hardware deliver outside Chennai?',
-    answer: 'Yes. FTDS Hardware ships refurbished laptops and desktops across South India, making it convenient to access quality refurbished systems beyond Chennai.'
+    answer: 'Yes. FTDS Hardware delivers refurbished laptops and desktops across South India, helping customers outside Chennai arrange delivery when ordering.'
   },
   {
     question: 'Can businesses order refurbished computers in bulk from FTDS Hardware?',
-    answer: 'Yes. FTDS Hardware supplies bulk and corporate orders with consistent configurations, making it a reliable choice for businesses and institutions.'
+    answer: 'Yes. FTDS Hardware handles bulk and corporate orders for businesses and institutions, with configurations planned to suit their computing requirements.'
   }
 ];
 
