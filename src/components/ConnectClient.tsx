@@ -114,16 +114,7 @@ export default function ConnectClient() {
       textColor: 'group-hover:text-slate-900',
       description: 'Join real-time tech discussions & quick updates on social threads.',
     },
-    {
-      name: 'X (Twitter)',
-      handle: '@ftds_hardware',
-      url: 'https://x.com/ftds_hardware',
-      icon: FaXTwitter,
-      color: 'from-slate-900 to-slate-700',
-      iconBg: 'bg-slate-950 text-white',
-      textColor: 'group-hover:text-slate-900',
-      description: 'Stay updated with quick announcements & technology tips.',
-    },
+    
     {
       name: 'Website',
       handle: 'www.ftds.in',
